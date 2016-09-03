@@ -1,0 +1,185 @@
+/* Tablet Landscape */
+
+@media screen and (min-width: 1023px) {
+   .calenderDivres{width: 28% !important;float: right;}
+   .welcomeDiv{width: 68% !important;height:368px;padding: 1% 7% 2% 6%;float: left;}
+   #calTable td{height: 14% !important;}
+   #searchmodfbox_gridedittable{position: absolute !important;width: 25% !important; left: 34% !important;}
+   #editmodgridedittable{position: absolute !important;width: 25% !important; left: 34% !important;}
+   .radio{display: inline !important;}
+   /* .dropdown-menu{height: 490px !important; overflow: scroll;} */
+   select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input{height: 30px !important;}
+   
+   
+}
+
+/* ============================================== */
+/* iPad Landscape & Portrait                      */
+/*                                       1024x768 */
+/* ============================================== */
+@media screen and (min-width: 767px) and (max-width: 1024px) {
+/* ADD YOUR CSS ADJUSTMENTS BELOW HERE */
+    .welcomeDiv{width: 98% !important;}
+    .calenderDivres{width: 49% !important;float: right;}
+    #mailButton{margin-left: 170px !important;}
+	#smsButton{margin-left: 204px !important;}
+	.contentdiv-small{width: 48% !important;}
+	.contentdiv-smallNewDash{width: 92% !important;}
+	.radio{display: inline !important;}
+    select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input{height: 30px !important;}
+ 	body{min-width: 100% !important;}
+ 	#calendar{margin: 0px !important;}
+}
+ 
+/* ============================================== */
+/* iPad Landscape                                 */
+/*                                       1024x768 */
+/* ============================================== */
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation:landscape) {
+/* ADD YOUR CSS ADJUSTMENTS BELOW HERE */
+. . .
+ 
+}
+ 
+/* ============================================== */
+/* iPad Portrait                                  */
+/*                                       768x1024 */
+/* ============================================== */
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation:portrait) {
+/* ADD YOUR CSS ADJUSTMENTS BELOW HERE */
+. . .
+ 
+}
+@media screen and (max-width: 767px) {
+    .logo1 img{width: 44%; height: 48px; position: absolute;top: 55px;z-index: 9999; margin-left: 2px;}
+    .newsAlertres{width: 95% !important;}
+    .deadlineDivres{width: 95% !important;}
+    #editmodgridedittable{position: absolute !important;width: 100% !important; left: 0% !important;}
+    .head{font-size: 100% !important;}
+    .newColumn{width: 98% !important;}
+    .listviewButtonLayer{background: #ccc !important; }
+    .ui-dialog{width: 75% !important; left: 10% !important; margin-top: 20px !important;}
+	.ui-jqdialog{width: 75% !important; left: 10% !important;}
+	.contentdiv-small{width: 98% !important;}
+	.contentdiv-smallNewDash{width: 92% !important;}
+	.radio{display: inline !important;}
+	body{min-width: 100% !important;}
+    .admin{padding:0px 0px 5px 25px !important;}
+	.tracker-container{width: 100% !important;}
+	#afterStart img{margin-left: 0px !important;}
+	#done{margin-left: 32% !important;}#test{margin: 0px !important;}
+}
+
+@media screen and (min-width: 480px) and (max-width: 640px) {
+/* ADD YOUR CSS ADJUSTMENTS BELOW HERE */
+.textField{width: 100% !important;}
+	#editmodgridedittable{position: absolute !important;width: 100% !important; left: 0% !important;}
+	.pL10{padding-left: 0px;}
+	.newColumn{width: 100% !important;}
+	.leftColumn1{width: 100% !important;text-align: left !important;line-height: normal !important;padding: 6px 0px 0px 6px !important;}
+	.rightColumn1{width: 100% !important;}
+	.listviewButtonLayer{background: #ccc !important; }
+	.leftColumn{width: 34% !important;}
+	#mailButton{margin: 0px !important;}
+	#smsButton{margin: 0px !important;}
+	.listviewBorder{margin: 10px 0px 0px 0px !important; width: 99% !important;}
+	.contentdiv-small{width: 98% !important; margin: 0px !important;}
+	.contentdiv-smallNewDash{width: 92% !important;}
+	.radio{display: inline !important;}
+	body{min-width: 100% !important;}
+	.admin{padding:0px 0px 5px 25px !important;}
+	.tracker-container{width: 100% !important;}
+	#afterStart img{margin-left: 0px !important;}
+	#done{margin-left: 32% !important;}
+	.ui-multiselect{width: 100% !important;}
+	#kr_subgroup{width: 100% !important;}#kr_group{width: 100% !important;}
+	#sendButton111{margin-top: 0px !important;}#sendActivity{margin-top: 0px !important;}#audit{margin-top: 0px !important;}
+	#responsiveRes{margin-left: 0px !important;}
+	
+}
+
+/* ============================================== */
+/* Smaller devices                                */
+/* Android Landscape                      320x240 */
+/* ============================================== */
+@media screen and (min-width: 240px) and (max-width: 479px) {
+/* ADD YOUR CSS ADJUSTMENTS BELOW HERE */
+	.logo1 img{top: 75px !important;}
+   .wrap_nav{width: 26%;}
+   input[type=text],input[type=email],input[type=url],input[type=password] {width: 50%;}
+    .border{width: 98% !important;}
+    .textField{width: 100% !important;}
+    #searchmodfbox_gridedittable{width: 100% !important; left: 0% !important;}
+ 	 #editmodgridedittable{width: 100% !important; left: 0% !important;}
+ 	 .newColumn{width: 100% !important; margin-left: 0px !important;}
+	.leftColumn1{width: 100% !important;text-align: left !important;line-height: normal !important;padding: 6px 0px 0px 6px !important;}
+	.rightColumn1{width: 100% !important;}
+	.saveFileButton{margin: 0px !important;}
+	.listviewButtonLayer{background: #ccc !important; }
+	.listviewBorder{margin: 10px 0px 0px 0px !important; width: 99% !important;}
+	.alignright{display: inline !important;}
+	.leftColumn{width: 100% !important;text-align: left !important;line-height: normal !important;padding: 6px 0px 0px 6px !important;}
+	.rightColumn{width: 100% !important;text-align: left !important;line-height: normal !important;padding: 6px 0px 0px 6px !important;}
+	.userRes{margin-left: 1% !important;}
+	.ui-dialog{width: 100% !important; left: 0px !important; margin-top: 129px !important;}
+	.ui-jqdialog{width: 100% !important; left: 0px !important;}
+	.workingHourRes{margin-left: 2% !important;margin-top: 3px !important;}
+	.mainDivRes{width: 100% !important; height: 299px !important;}
+	.exclusionRes{margin-left: 2% !important;}
+	.annuncementRes{margin-left: 2% !important;}
+	.uploadDocRes{margin-left: 2% !important; margin-top: 5px !important;}
+	#plusRes{margin-left: 83% !important;}
+	.plusRes1{margin-left: 69% !important;}
+	.smsDraft{margin-left: 2% !important;}
+	.addemailRes{margin-left: 2% !important;}
+	#mailButton{margin: 0px !important;}
+	#smsButton{margin: 0px !important;}
+	.configureReportRes{margin-left: 2% !important; padding: 5px;margin-bottom:43px;}
+	.createOfferingLeadRes{margin-left: -4% !important;}
+	.menubox{width: 100% !important; margin: 0px !important;}
+	.form_inner{width: 100% !important; margin: 0px !important; padding: 0px !important;}
+	#orglevel3DivId{margin: 0px 0px 26px 0px !important;}
+	#offeringreset1{margin: 0px 0px 26px 0px !important;}
+	#offeringback1{margin: 0px 0px 26px 0px !important;}
+	.contentdiv-small{width: 98% !important;}
+	.contentdiv-smallNewDash{width: 92% !important;}
+	#alphabeticalLinks a{position: absolute !important;}
+	.createRefIndivisualRes{margin-left: 2% !important;}
+	.pL10{padding-left: 0px !important;}
+	.type-button{margin-left: 2% !important;}
+	.buttonStyle{margin-left: 2% !important;}
+	.radio{display: inline !important;}
+	#plusIconRes{margin: 0px !important;}
+	#plusIconRes1{margin: 0px !important;}
+	#plusIconRes2{margin: 0px !important;}
+	.mapBuddyRes{margin-left: 2% !important;}
+	#newDiv{margin-top: 0% !important;}
+	.contentdiv-small{margin: 0px !important;}
+	#container-login{width: 100% !important; left: 0px !important; top: 15% !important; margin: 0px !important;height:auto !important;}
+	.login-form{width: 94% !important;}
+	.header {font-size:22px !important;font-weight:900; padding: 0px !important;}
+	.login-form .content .input{font-size:22px !important; padding: 0px !important;width: 100% !important;}
+	.login-form .footer-2{padding:10px 30px 74px 30px !important;}
+	.booking cboxElement{font-size:30px !important;}
+	.content{padding: 0px !important; width: 100% !important;}
+	.login-form .footer-2 .button{padding: 3px 9px !important;}
+	.list-icon{height: auto !important;}
+	#status{width: 100% !important;}
+	.myDiv{height: auto !important;}
+	#complianceRes{width: 68% !important;}
+	#responsiveRes{margin-left: 0px !important;}
+	body{min-width: 100% !important;}
+	#forRes{margin-left: -60px !important;}
+	.pagearea{padding: 0px !important;}
+	.admin{padding:0px 0px 5px 25px !important;}
+	.tracker-container{width: 100% !important;}
+	#afterStart img{margin-left: 0px !important;}
+	#done{margin-left: 32% !important;}
+	#sendButton111{margin-top: 0px !important;}#sendActivity{margin-top: 0px !important;}#audit{margin-top: 0px !important;}
+	#checkList{margin-left: 0px !important;}
+	.ui-multiselect{width: 100% !important;}
+	#newDiv a{margin: 0px !important;}#newDiv{margin-right: 11px !important;}
+	#createKrRes{margin: 0px !important;}
+	#kr_subgroup{width: 100% !important;}#kr_group{width: 100% !important;}
+}
+

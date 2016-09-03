@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+<package name="order/newdashboard" extends="struts-default,json-default" namespace="/view/Over2Cloud/CorporatePatientServices/Dashboard_Pages">
+     <action name="beforeDashboardView"  class="com.Over2Cloud.ctrl.order.dashboard.MachineOrderDash" method="beforeDashboardAction">
+          <result name="success">/view/Over2Cloud/CorporatePatientServices/Dashboard_Pages/machine_order_dashboard.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="dataCounterStatus"  class="com.Over2Cloud.ctrl.order.dashboard.MachineOrderDash" method="beforeDashboardAction">
+          <result name="success">/view/Over2Cloud/CorporatePatientServices/Dashboard_Pages/ticketStatusCounter.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     
+     <action name="jsonChartData4DeptCounters" class="com.Over2Cloud.ctrl.order.dashboard.MachineOrderDash" method="getBarChart4DeptCounters">
+	        <result name="success" type="json"><param name="root">jsonArray</param></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+       </action>
+       
+        <action name="jsonChartData4NursingStatusCounters" class="com.Over2Cloud.ctrl.order.dashboard.MachineOrderDash" method="getBarChart4NursingStatusCounters">
+	        <result name="success" type="json"><param name="root">jsonArray</param></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+       </action>
+       
+       <action name="getBarChart4DeptCountersTime"  class="com.Over2Cloud.ctrl.order.dashboard.MachineOrderDash" method="getBarChart4DeptCountersTime">
+	        <result name="success" type="json"><param name="root">jsonArray</param></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+       </action>
+       
+       <action name="jsonChartData4NursingOrderTypeCounters" class="com.Over2Cloud.ctrl.order.dashboard.MachineOrderDash" method="getBarChart4NursingOrderTypeCounters">
+	        <result name="success" type="json"><param name="root">jsonArray</param></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+       </action>
+       
+        
+        <action name="jsonChartData4LevelCounters" class="com.Over2Cloud.ctrl.order.dashboard.MachineOrderDash" method="getBarChart4LevelCounters">
+	        <result name="success" type="json"><param name="root">jsonArray</param></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+       </action>
+     
+     
+     
+      <action name="getBarChart4DeptCountersLocationLevel" class="com.Over2Cloud.ctrl.order.dashboard.MachineOrderDash" method="getBarChart4DeptCountersLocationLevel">
+	        <result name="success" type="json"><param name="root">jsonArray</param></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+       </action>
+     
+      <action name="getBarChart4DeptCountersLocationStatus" class="com.Over2Cloud.ctrl.order.dashboard.MachineOrderDash" method="getBarChart4DeptCountersLocationStatus">
+	        <result name="success" type="json"><param name="root">jsonArray</param></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+       </action>
+     
+      <action name="beforeFeedAction"  class="com.Over2Cloud.ctrl.order.feedbackaction.ActionOnMachineOrder" method="beforeActionOnFeedback">
+             <result name="dashsuccess">/view/Over2Cloud/CorporatePatientServices/Dashboard_Pages/dashboardFeedback.jsp</result>
+            <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="dashFeedbackDetail" class="com.Over2Cloud.ctrl.order.feedbackaction.ActionOnMachineOrder" method="viewActivityBoardDataCPS">
+		<result name="success" type="json"></result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+	</action>
+     
+      <action name="feedbackStatusDownloadORD" class="com.Over2Cloud.ctrl.order.feedbackaction.ActionOnMachineOrder" method="getCurrentColumn" >
+           <result name="success">/view/Over2Cloud/CorporatePatientServices/Dashboard_Pages/ConfirmForReportDonwload.jsp</result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+   
+   <action name="feedbackDownloadActionORD" class="com.Over2Cloud.ctrl.order.feedbackaction.ActionOnMachineOrder" method="downloadExcel">
+		<result name="success" type="stream" >
+	             <param name="inputName">excelStream</param>
+	            <param name="contentType">application/octet-stream</param>
+	            <param name="contentDisposition">attachment; filename="${excelFileName}"</param>
+	            <param name="bufferSize">2448</param>
+	            </result>
+	            <result name="error">/view/error.jsp</result>
+	             <result name="input">/view/error.jsp</result>
+	             <result name="login" >/view/invalidSession.jsp</result>
+	</action>
+      
+       <action name="fetchMachineSerial"  class="com.Over2Cloud.ctrl.order.dashboard.MachineOrderDash" method="fetchMachineSerial">
+     		<result name="success" type="json"><param name="root">jsonArr</param></result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+	   </action>
+         
+</package>
+</struts>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+<package name="helpDesk/ActivityBoard" extends="struts-default,json-default" namespace="/view/Over2Cloud/HelpDeskOver2Cloud/Activity_Board">
+
+<action name="getPresentEmployee" class="com.Over2Cloud.ctrl.helpdesk.activityboard.ActivityBoardSecond" method="getPresentEmployee">
+		<result name="success" type="json"><param name="root">jsonArray</param></result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+	</action>
+	<action name="getRoomDetail" class="com.Over2Cloud.ctrl.helpdesk.activityboard.ActivityBoardSecond" method="getRoomDetail">
+		<result name="success" type="json"><param name="root">jsonArray</param></result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+	</action>
+	
+	<action name="getEmployeeInfo" class="com.Over2Cloud.ctrl.helpdesk.activityboard.ActivityBoardSecond" method="getEmployeeInfo">
+		<result name="success" type="json"><param name="root">jsonArray</param></result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+	</action>
+	
+	<action name="getEmployeeLocationInfo" class="com.Over2Cloud.ctrl.helpdesk.activityboard.ActivityBoardSecond" method="getEmployeeLocationInfo">
+		<result name="success" type="json"><param name="root">jsonArray</param></result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+	</action>
+		<action name="fetchLocationInfo" class="com.Over2Cloud.ctrl.helpdesk.activityboard.ActivityBoardSecond" method="fetchLocationInfo">
+		<result name="success" type="json"><param name="root">jsonArray</param></result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+	</action>
+	
+	<action name="getfreeEmployee" class="com.Over2Cloud.ctrl.helpdesk.activityboard.ActivityBoardSecond" method="getfreeEmployee">
+		<result name="success" type="json"><param name="root">jsonArray</param></result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+	</action>
+	
+	<action name="getfreeEmployeeInfo" class="com.Over2Cloud.ctrl.helpdesk.activityboard.ActivityBoardSecond" method="getfreeEmployeeInfo">
+		<result name="success" type="json"><param name="root">jsonArray</param></result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+	</action>
+	<action name="viewActivityBoardHeader" class="com.Over2Cloud.ctrl.helpdesk.activityboard.ActivityBoardAction" method="viewActivityBoardHeader">
+		<result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Acivity_Board/BeforeViewActivityBoard.jsp</result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+	</action>
+	
+	 
+	
+	<action name="feedbackStatusDownload" class="com.Over2Cloud.ctrl.helpdesk.activityboard.ActivityBoardAction" method="getCurrentColumn" >
+           <result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Acivity_Board/ConfirmForReportDownload.jsp</result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+	
+	  <action name="feedbackDownloadAction" class="com.Over2Cloud.ctrl.helpdesk.activityboard.ActivityBoardAction" method="downloadExcel">
+		<result name="success" type="stream" >
+	             <param name="inputName">excelStream</param>
+	            <param name="contentType">application/octet-stream</param>
+	            <param name="contentDisposition">attachment; filename="${excelFileName}"</param>
+	            <param name="bufferSize">2448</param>
+	            </result>
+	            <result name="error">/view/error.jsp</result>
+	             <result name="input">/view/error.jsp</result>
+	             <result name="login" >/view/invalidSession.jsp</result>
+	</action>
+
+	<action name="viewActivityBoardHeader1" class="com.Over2Cloud.ctrl.helpdesk.activityboard.ActivityBoardAction" method="viewActivityBoardHeader">
+		<result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Acivity_Board/BeforeViewActivityBoard1.jsp</result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+	</action>
+	
+	<action name="viewActivityBoardColumn" class="com.Over2Cloud.ctrl.helpdesk.activityboard.ActivityBoardAction" method="viewActivityBoardColumn">
+		<result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Acivity_Board/ViewActivityBoard.jsp</result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+	</action>
+	
+	<action name="viewActivityBoardData" class="com.Over2Cloud.ctrl.helpdesk.activityboard.ActivityBoardGridView" method="viewActivityBoardData">
+		<result name="success" type="json"> </result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+	</action>
+	
+	
+	
+	<action name="activityBoardCount"  class="com.Over2Cloud.ctrl.helpdesk.activityboard.ActivityBoardGridView" method="activityBoardCount">
+            <result name="success" type="json"><param name="root">dataCountMap</param>
+             </result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>  
+	
+	<action name="beforeViewActivityHistoryData" class="com.Over2Cloud.ctrl.helpdesk.activityboard.ActivityBoardAction" method="beforeViewActivityHistoryData">
+		<result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Acivity_Board/ViewActivityHistoryData.jsp</result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+	</action>
+	
+	<action name="viewActivityHistoryData" class="com.Over2Cloud.ctrl.helpdesk.activityboard.ActivityBoardAction" method="viewActivityHistoryData">
+		<result name="success" type="json"></result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+	</action>
+	
+	 <action name="getComplaintActivityDeatil"  class="com.Over2Cloud.ctrl.helpdesk.activityboard.ActivityBoardAction" method="getComplaintActivityDeatil">
+           	<result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Acivity_Board/ViewActivityFormater.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="editSMSModeData"  class="com.Over2Cloud.ctrl.helpdesk.activityboard.ActivityBoardAction" method="editSMSModeData">
+           	<result name="success">/view/success.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+	
+</package>
+
+<package name="cpservies" extends="struts-default,json-default" namespace="/view/Over2Cloud/HelpDeskOver2Cloud/cpservies">
+
+
+<action name="viewActivityBoardColumnCPS" class="com.Over2Cloud.ctrl.helpdesk.activityboard.ActivityBoardAction" method="viewActivityBoardColumnCPS">
+		<result name="success">/view/Over2Cloud/CoprporatePatient/ViewActivityBoard.jsp</result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+	</action>
+
+	<action name="viewActivityBoardDataCPS" class="com.Over2Cloud.ctrl.helpdesk.activityboard.ActivityBoardAction" method="viewActivityBoardDataCPS">
+		<result name="success" type="json"><param name="root">jsonArray</param></result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+	</action>
+
+	
+	
+	
+</package>
+
+ 
+</struts>

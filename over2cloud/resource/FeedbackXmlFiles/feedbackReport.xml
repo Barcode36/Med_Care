@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<package name="feedback_Reports" extends="struts-default,json-default" namespace="/view/Over2Cloud/feedback/report">
+		
+		
+		<action name="beforePatAllTicketDetails" class="com.Over2Cloud.ctrl.feedback.report.PatientFeedbackTotalHistory" method="beforeTicketHistoryView">
+			<result name="success">/view/Over2Cloud/feedback/reports/viewClientFeedbackTicketHistory.jsp</result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+		</action>
+		
+		<action name="viewPatAllTicketDetails" class="com.Over2Cloud.ctrl.feedback.report.PatientFeedbackTotalHistory" method="showTicketHistoryView">
+			<result name="success" type="json"></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+		</action>
+		
+		<action name="beforeFullSearch" class="com.Over2Cloud.ctrl.feedback.report.FeedbackTotalReport">
+			<result name="success">/view/Over2Cloud/feedback/reports/searchReport.jsp</result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+		</action>
+		
+		<action name="beforeSearchedDataView" class="com.Over2Cloud.ctrl.feedback.report.FeedbackTotalReport" method="beforeSearch">
+			<result name="success">/view/Over2Cloud/feedback/reports/searchedDataView.jsp</result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+		</action>
+		
+		<action name="searchedDataGrid" class="com.Over2Cloud.ctrl.feedback.report.FeedbackTotalReport" method="getSearchedDataInGrid">
+			<result name="success" type="json"></result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+		</action>
+		
+		<action name="beforeSearchForGraph" class="com.Over2Cloud.ctrl.feedback.report.FeedbackTotalReport" method="beforeSearch">
+			<result name="success">/view/Over2Cloud/feedback/reports/searchReport.jsp</result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+		</action>
+		
+		<action name="beforePatAck" class="com.Over2Cloud.ctrl.feedback.report.FeedbackAcknowledgement" method="getAckDataView">
+			<result name="success">/view/Over2Cloud/feedback/reports/patAckReport.jsp</result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+		</action>
+		
+		<action name="sendPatAck" class="com.Over2Cloud.ctrl.feedback.report.FeedbackAcknowledgement" method="sendSMSMailToPatient">
+			<result name="success">/view/success.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+		</action>
+		
+		<action name="beforeTotalFeedReport" class="com.Over2Cloud.ctrl.feedback.report.FeedbackTotalReport" method="beforeSearch">
+			<result name="success">/view/Over2Cloud/feedback/reports/feedReportSearch.jsp</result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+		</action>
+		
+		<action name="beforeSearchedDataViewFeedback" class="com.Over2Cloud.ctrl.feedback.report.FeedbackTotalReport" method="beforeSearch">
+			<result name="success">/view/Over2Cloud/feedback/reports/searchedDataOfFeedback.jsp</result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+		</action>
+		
+	<action name="searchedDataGridFeedback" class="com.Over2Cloud.ctrl.feedback.report.FeedbackTotalReport" method="getSearchedDataInGridFeedback">
+			<result name="success" type="json"></result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+		</action>
+		
+	</package>
+	
+	<package name="feedback_Activity" extends="struts-default,json-default" namespace="/view/Over2Cloud/feedback/feedback_Activity">
+		<action name="viewActivityHeader" class="com.Over2Cloud.ctrl.feedback.activity.ActivityBoard" method="getHeaderPage">
+			<result name="success">/view/Over2Cloud/feedback/activity/feedbackActivityBoardHeader.jsp</result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+		</action>
+		
+		<action name="viewActivityPage" class="com.Over2Cloud.ctrl.feedback.activity.ActivityBoard" method="getActivityHeaderPage">
+			<result name="success">/view/Over2Cloud/feedback/activity/feedbackActivityBoard.jsp</result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+		</action>
+		<!-- Count -->
+		 <action name="viewCountOfActivityPage" class="com.Over2Cloud.ctrl.feedback.activity.ActivityBoard" method="getCountActivityPage">
+			<result name="success" type="json"><param name="root">dataCountMap</param></result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+		</action> 
+		
+		<action name="viewActivityData" class="com.Over2Cloud.ctrl.feedback.activity.ActivityBoard" method="getActivityData">
+			<result name="success" type="json"></result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+		</action>
+		
+		<action name="feedbackFromActivitiy" class="com.Over2Cloud.ctrl.feedback.activity.ActivityBoard" method="beforeActivityTakeAction">
+			<result name="success">/view/Over2Cloud/feedback/activity/activityTakeAction.jsp</result>
+			<result name="smssuccess">/view/Over2Cloud/feedback/activity/activityTakeActionSMS.jsp</result>
+			<result name="deptSuccess">/view/Over2Cloud/feedback/activity/activityTakenByDept.jsp</result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+		</action>
+		
+		<action name="beforeFeedViaOnlineTicketActivity" class="com.Over2Cloud.ctrl.feedback.activity.ActivityBoard" method="beforeTicketOpen4Activity">
+			<result name="success">/view/Over2Cloud/feedback/activity/activityOpenTicket4Dept.jsp</result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+		</action>
+		
+		<action name="activityNoAction" class="com.Over2Cloud.ctrl.feedback.report.PatientFeedbackTotalHistory" method="beforeTicketHistoryViewActivity">
+			<result name="success">/view/Over2Cloud/feedback/reports/activityNoAction.jsp</result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+		</action>
+		
+		<action name="viewPatModeHistory" class="com.Over2Cloud.ctrl.feedback.activity.FeedbackHistory" method="getFeedbackHistory">
+			<result name="ipdsuccess">/view/Over2Cloud/feedback/activity/feedbackDetailsIPD.jsp</result>
+			<result name="opdsuccess">/view/Over2Cloud/feedback/activity/feedbackDetailsOPD.jsp</result>
+			<result name="normal" >/view/Over2Cloud/feedback/activity/feedbackDetails.jsp</result>
+			<result name="nofeed" >/view/Over2Cloud/feedback/activity/noFeedbackDetails.jsp</result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+		</action>
+		
+		<action name="beforePatAllTicketDetailsActivity" class="com.Over2Cloud.ctrl.feedback.report.PatientFeedbackTotalHistory" method="beforeTicketHistoryViewActivity">
+			<result name="success">/view/Over2Cloud/feedback/reports/viewClientFeedbackTicketHistory.jsp</result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+		</action>
+		<!--  Ticket Opening / Acton Work for Activity Starts -->
+		<action name="takeActionActivity" class="com.Over2Cloud.ctrl.feedback.activity.ActivityTakeAction" method="takeActionForActivity">
+			<result name="success">/view/Over2Cloud/Feedback_Over2Cloud/Lodge_Feedback/onlineConfirmationActivity.jsp</result>
+            <result name="unsuccess">/view/Over2Cloud/feedback/unseccfullLodgeTicket.jsp</result>
+            <result name="noFurtherAction">/view/Over2Cloud/feedback/noFurtherAction.jsp</result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+		</action>
+		<!-- Allot to emp Detail -->
+		<action name="viewEmpDetail" class="com.Over2Cloud.ctrl.feedback.activity.FeedbackHistory" method="viewEmpDetail">
+			<result name="success" >/view/Over2Cloud/feedback/activity/empDetails.jsp</result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+		</action>
+		
+		<!-- Open By Detail -->
+		
+		<action name="viewOpenByDetail" class="com.Over2Cloud.ctrl.feedback.activity.FeedbackHistory" method="viewOpenByDetail">
+			<result name="success" >/view/Over2Cloud/feedback/activity/empDetails.jsp</result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+		</action>
+		
+		<!-- Reopen TAT Detail -->
+		<action name="viewReopenedTATDetails" class="com.Over2Cloud.ctrl.feedback.activity.FeedbackHistory" method="viewOpenedTATDetails">
+			<result name="success" >/view/Over2Cloud/feedback/activity/reopenTATDetails.jsp</result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+		</action>
+		<!-- TAT Detail -->
+		<action name="viewOpenedTATDetails" class="com.Over2Cloud.ctrl.feedback.activity.FeedbackHistory" method="viewOpenedTATDetails">
+			<result name="success" >/view/Over2Cloud/feedback/activity/reopenTATDetails.jsp</result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+		</action>
+		<!-- Patient full Detail -->
+		<action name="viewPatHistory" class="com.Over2Cloud.ctrl.feedback.activity.FeedbackHistory" method="getPatHistory">
+			<result name="success" >/view/Over2Cloud/feedback/activity/patFullDetails.jsp</result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+		</action>
+		
+		
+		<!-- Status ki history -->
+		<action name="getActivityStatusDetails" class="com.Over2Cloud.ctrl.feedback.activity.FeedbackHistory" method="viewOpenedTATDetails">
+			<result name="success" >/view/Over2Cloud/feedback/activity/viewStatusFullDetails.jsp</result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+		</action>
+		
+		<action name="getReopenActivityStatusDetails" class="com.Over2Cloud.ctrl.feedback.activity.FeedbackHistory" method="viewOpenedTATDetails">
+			<result name="success" >/view/Over2Cloud/feedback/activity/viewStatusFullDetails.jsp</result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+		</action>
+		<!-- Stage Detail -->
+		<action name="getStageDetails" class="com.Over2Cloud.ctrl.feedback.activity.FeedbackHistory" method="viewOpenedTATDetails">
+			<result name="success" >/view/Over2Cloud/feedback/activity/viewStageDetails.jsp</result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+		</action>
+		
+		<action name="beforeQualityDetailsView" class="com.Over2Cloud.ctrl.feedback.dashboard.QualityScoreCtrl" method="beforeQualitryScoreView">
+			<result name="success" >/view/Over2Cloud/feedback/dashboard/qualityScore.jsp</result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+		</action>
+		
+		<action name="viewQualityDetail" class="com.Over2Cloud.ctrl.feedback.dashboard.QualityScoreCtrl" method="beforeQualitryScoreView">
+			<result name="success" type="json"></result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+		</action>
+		
+		<!-- For Excel Download Work Starts -->
+		<action name="activityGetFields4Download" class="com.Over2Cloud.ctrl.feedback.excelDownloads.DownloadFeedbackExcel" method="beforeSelectFieldsToDownload">
+			<result name="success" >/view/Over2Cloud/feedback/excelDownloads/feedbackActivityProgressbar.jsp</result>
+			<result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+		</action>
+		
+		<action name="downloadActivityExcel" class="com.Over2Cloud.ctrl.feedback.excelDownloads.DownloadFeedbackExcel" method="downloadFeedbackExcel">
+			<result name="success" type="stream">
+			<param name="contentType">application/vnd.ms-excel</param>
+			<param name="inputName">excelStream</param>
+			<param name="contentDisposition">attachment; filename="${excelFileName}"</param>
+			<param name="bufferSize">1024</param>
+			</result>
+		 	<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp
+			</result>
+		</action>
+		
+		<!-- For Rating Excel download -->
+		<action name="activityGetRatingFieldsToDownload" class="com.Over2Cloud.ctrl.feedback.excelDownloads.DownloadRatingExcel" method="beforeSelectFieldsToDownload">
+			<result name="success" >/view/Over2Cloud/feedback/excelDownloads/ratingActivitySelector.jsp</result>
+			<result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+		</action>
+		
+		<action name="downloadRatingExcel" class="com.Over2Cloud.ctrl.feedback.excelDownloads.DownloadRatingExcel" method="downloadFeedbackExcel">
+			<result name="success" type="stream">
+			<param name="contentType">application/vnd.ms-excel</param>
+			<param name="inputName">excelStream</param>
+			<param name="contentDisposition">attachment; filename="${excelFileName}"</param>
+			<param name="bufferSize">1024</param>
+			</result>
+		 	<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp
+			</result>
+		</action>
+	</package>
+</struts>

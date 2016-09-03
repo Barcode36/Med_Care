@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+<package name="smsEmaildraft" extends="struts-default,json-default" namespace="/view/Over2Cloud/SMSEmailDraft">
+	    
+	    <action name="viewsmsdraftHeader" class="com.Over2Cloud.ctrl.smsEmailDraft.SmsEmailDraft" method="viewsmsdraftHeader">
+			<result name="success">/view/Over2Cloud/SMSEmailDraft/viewSmsDraftHeader.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+			<result name="error">/view/error.jsp</result>
+		</action>
+	    <action name="viewsmsdraft" class="com.Over2Cloud.ctrl.smsEmailDraft.SmsEmailDraft" method="viewsmsdraft">
+			<result name="success">/view/Over2Cloud/SMSEmailDraft/viewSmsDraft.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+			<result name="error">/view/error.jsp</result>
+		</action>
+		
+		<action name="addsmsdraft" class="com.Over2Cloud.ctrl.smsEmailDraft.SmsEmailDraft" method="addsmsdraft">
+			<result name="success">/view/Over2Cloud/SMSEmailDraft/addSmsDraft.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+			<result name="error">/view/error.jsp</result>
+		</action> 
+		
+		<action name="insertsmsdraft" class="com.Over2Cloud.ctrl.smsEmailDraft.SmsEmailDraft" method="insertsmsdraft">
+			<result name="success">/view/success.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+			<result name="error">/view/error.jsp</result>
+		</action> 
+		
+		<action name="ViewSmsDraftInGrid" class="com.Over2Cloud.ctrl.smsEmailDraft.SmsEmailDraft" method="ViewSmsDraftInGrid">
+			<result name="success" type="json"></result>
+			<result name="login">/view/invalidSession.jsp</result>
+			<result name="error">/view/error.jsp</result>
+		</action>
+		
+		<action name="modifySmsDraftInGrid" class="com.Over2Cloud.ctrl.smsEmailDraft.SmsEmailDraft" method="modifySmsDraftInGrid">
+			<result name="success" type="json"></result>
+			<result name="login">/view/invalidSession.jsp</result>
+			<result name="error">/view/error.jsp</result>
+		</action>
+		
+		<action name="viewEmaildraftsHeader" class="com.Over2Cloud.ctrl.smsEmailDraft.SmsEmailDraft" method="viewEmaildraftsHeader">
+			<result name="success">/view/Over2Cloud/SMSEmailDraft/viewEmailDraftHeader.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+			<result name="error">/view/error.jsp</result>
+		</action>
+		
+		<action name="viewEmaildrafts" class="com.Over2Cloud.ctrl.smsEmailDraft.SmsEmailDraft" method="viewEmaildrafts">
+			<result name="success">/view/Over2Cloud/SMSEmailDraft/viewEmailDraft.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+			<result name="error">/view/error.jsp</result>
+		</action>  
+		   
+		<action name="addEmaildraft" class="com.Over2Cloud.ctrl.smsEmailDraft.SmsEmailDraft" method="addEmaildraft">
+			<result name="success">/view/Over2Cloud/SMSEmailDraft/addEmaildraft.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+			<result name="error">/view/error.jsp</result>
+		</action> 
+		
+		<action name="insertEmaildraft" class="com.Over2Cloud.ctrl.smsEmailDraft.SmsEmailDraft" method="insertEmaildraft">
+			<result name="success">/view/success.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+			<result name="error">/view/error.jsp</result>
+		</action> 
+		<action name="ViewEmailDraftInGrid" class="com.Over2Cloud.ctrl.smsEmailDraft.SmsEmailDraft" method="ViewEmailDraftInGrid">
+			<result name="success" type="json"></result>
+			<result name="login">/view/invalidSession.jsp</result>
+			<result name="error">/view/error.jsp</result>
+		</action>
+	
+	<action name="modifyEmailDraftInGrid" class="com.Over2Cloud.ctrl.smsEmailDraft.SmsEmailDraft" method="modifyEmailDraftInGrid">
+			<result name="success" type="json"></result>
+			<result name="login">/view/invalidSession.jsp</result>
+			<result name="error">/view/error.jsp</result>
+		</action>
+	
+	
+</package>
+
+</struts>

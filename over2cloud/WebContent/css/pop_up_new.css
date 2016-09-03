@@ -1,0 +1,104 @@
+.overlay_shadow {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background:#000;
+	z-index:1000;
+	opacity:0.7;
+	filter:alpha(opacity=50);
+}
+.lightbox {
+	position:absolute;
+	z-index:10002;
+	overflow:hidden;
+	top:20% !important;
+}
+* html .overlay_shadow {
+	position:absolute;
+	top:0%;
+	left:0%;
+height:expression(document.body.clientHeight+'px');
+ width:expression(document.body.clientWidth+'px');
+}
+* html .lightbox {
+	position:absolute;
+}
+.closepopup {
+	/*cursor:pointer;
+	float:right;
+	font-weight:bold;
+	position:absolute;
+	right:0px;
+	bottom:0px;*/
+}
+/*-------------Home Page Popop content---*/
+.popoupdiv {
+	position:relative;
+	width:444px;
+	overflow-x:hidden !important;
+	overflow-y:auto !important;
+	height:358px;
+	float:left;
+}
+.cont_wrap {
+	float:left;
+}
+.pop_content{
+	float:left; width:444px;	
+}
+.pop_content_block{
+	float:left; width:444px;
+}
+.pop_up_content_inner{
+	float:left; background:url(../images/pop_up_content.png) repeat-y; width:440px; padding:0px 2px;
+}
+.pop_up_content_inner_sub{
+	float:left; background:url(../images/pop_up_content_sub.png) repeat-x top #ffffff; padding:10px 10px 0px 10px; width:420px;
+}
+.pop_text{
+	float:left; width:420px; text-align:center; padding:0px 0px 20px 0px; font-size:12px; color:#000000;
+}
+.pop_up_form{
+	float:left; width:420px; padding:0px 0px 10px 0px;
+}
+.pop_up_forgot{
+	float:left; width:420px; font-size:11px; text-indent:10px; padding:0px 0px 5px 0px;
+}
+.pop_up_forgot a{
+	color:#222222; text-decoration:none;
+}
+.pop_up_forgot a span{
+	color:#E37704;
+}
+.pop_up_forgot a:hover{
+	color:#E37704; text-decoration:none;
+}
+.pop_up_submit{
+	float:left; width:420px; padding:10px 0px 0px 0px;
+}
+.pop_up_cancel{
+	float:left; width:auto; background:url(../images/cancel.png) no-repeat; width:106px; height:38px; 
+	transition: background .15s ease-in-out;
+	   -moz-transition: background .15s ease-in-out;
+	   -webkit-transition: background .15s ease-in-out;
+}
+.pop_up_cancel:hover{
+	background:url(../images/cancel.png) no-repeat 0 -38px; width:106px; height:38px;
+}
+.pop_up_reg{
+	float:right; width:auto; background:url(../images/registration.png) no-repeat; width:201px; height:38px; 
+	transition: background .15s ease-in-out;
+	   -moz-transition: background .15s ease-in-out;
+	   -webkit-transition: background .15s ease-in-out;
+}
+.pop_up_reg:hover{
+	background:url(../images/registration.png) no-repeat 0 -38px; width:201px; height:38px;
+}
+.pop_up_cancel input{
+	background:none; border:none;width:106px; height:38px; cursor:pointer;
+}
+.pop_up_reg input{
+	background:none; border:none; width:201px; height:38px; cursor:pointer;
+}

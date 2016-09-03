@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<package name="feedback_dashData" extends="struts-default,json-default" namespace="/view/Over2Cloud/feedback/dashboard_Data"> 
+	
+	</package>
+	
+	
+	<package name="feedback_dashGraph" extends="struts-default,json-default" namespace="/view/Over2Cloud/feedback/dashboard_Graph">
+	<action name="maximizeDivplr">
+	<result>/view/Over2Cloud/Feedback_Over2Cloud/dashboard/maxViewPolar.jsp</result>
+	</action>
+	
+	<action name="FeedbackModeMoreChart">
+	<result>/view/Over2Cloud/Feedback_Over2Cloud/dashboard/feedbackStatusMoreChart.jsp</result>
+	</action>
+	
+	<action name="FeedbackCharts" >
+	<result >/view/Over2Cloud/Feedback_Over2Cloud/dashboard/feedbackNameChart.jsp</result>
+	</action>
+	
+	<action name="FeedbackChartsJson" class="com.Over2Cloud.ctrl.feedback.FeedbackDashboard" method="getJsonData">
+	<result name="success" type="json"><param name="root">jsonArray</param></result>
+	<result name="error">/view/error.jsp</result>
+	<result name="login">/view/invalidSession.jsp
+			</result>
+	
+	</action>
+	
+	<action name="FeedbackChartType" >
+	<result >/view/Over2Cloud/Feedback_Over2Cloud/dashboard/feedbackTypeChart.jsp</result>
+	</action>
+	<action name="FeedbackActionPie2ndblock" >
+	<result >/view/Over2Cloud/Feedback_Over2Cloud/dashboard/2ndBloackPie.jsp</result>
+	</action>
+	
+	<action name="2ndPieJsonData" class="com.Over2Cloud.ctrl.feedback.FeedbackDashboard" method="getJsonDataPieBlock2">
+	<result name="success" type="json"><param name="root">jsonArray</param></result>
+	<result name="error">/view/error.jsp</result>
+	<result name="login">/view/invalidSession.jsp
+			</result>
+	
+	</action>
+	<action name="FeedbackNegativeBar" >
+	<result >/view/Over2Cloud/Feedback_Over2Cloud/dashboard/FeedbackNegativeBar.jsp</result>
+	</action>
+	</package>
+</struts>

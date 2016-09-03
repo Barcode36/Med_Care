@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+<package name="helpDesk/roaster" extends="struts-default,json-default" namespace="/view/Over2Cloud/HelpDeskOver2Cloud/Roaster_Conf">
+     
+     <action name="beforeRoaster"  class="com.Over2Cloud.ctrl.helpdesk.roasterconf.EditRoasterConf" method="beforeRoaster">
+            	<result name="addRoaster">/view/Over2Cloud/HelpDeskOver2Cloud/Roaster_Conf/createRoaster.jsp</result>
+            	<result name="applyRoaster">/view/Over2Cloud/HelpDeskOver2Cloud/Roaster_Conf/applyRoaster.jsp</result>
+            	<result name="uploadRoaster">/view/Over2Cloud/HelpDeskOver2Cloud/Roaster_Conf/uploadRoaster.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="addRoaster"  class="com.Over2Cloud.ctrl.helpdesk.roasterconf.EditRoasterConf" method="addEmpInRoaster">
+            	<result name="success" type="json"></result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="saveEscalateEmp"  class="com.Over2Cloud.ctrl.helpdesk.roasterconf.RoasterConfAction" method="addEmpInRoaster">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="applyRoaster"  class="com.Over2Cloud.ctrl.helpdesk.roasterconf.EditRoasterConf" method="applyRoaster">
+            	<result name="success" type="json"></result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="beforeRoasterDownload"  class="com.Over2Cloud.ctrl.helpdesk.common.HelpdeskUniversalAction" method="firstActionMethod">
+            	<result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Roaster_Conf/downloadRoaster.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+    
+     <action name="modifyRoaster"  class="com.Over2Cloud.ctrl.helpdesk.roasterconf.EditRoasterConf" method="modifyRoaster">
+            	<result name="success" type="json"></result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+
+     <action name="selectShift"  class="com.Over2Cloud.ctrl.helpdesk.common.HelpdeskUniversalAction" method="getShiftName">
+            	<result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Roaster_Conf/shiftList.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+    
+    
+     <action name="editApplyRoaster"  class="com.Over2Cloud.ctrl.helpdesk.roasterconf.RoasterConfAction" method="editRoaster">
+            	<result name="success" type="json"></result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     
+       <action name="uploadRoasterExcel" class="com.Over2Cloud.ctrl.helpdesk.roasterconf.RoasterexcelUpload" method="uploadExcel">
+            <result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Roaster_Conf/confirmRoasterExcel.jsp</result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+         </action>
+         
+         <action name="downloadRoasterExcel" class="com.Over2Cloud.ctrl.helpdesk.roasterconf.RoasterexcelUpload" method="downloadExcelPage">
+            <result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Roaster_Conf/confirmDownloadRoasterExcel.jsp</result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+         </action>
+         
+         
+         <action name="downloadExcel" class="com.Over2Cloud.ctrl.helpdesk.roasterconf.RoasterexcelUpload" method="getData4Download">
+            <result name="success" type="json"></result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+         </action>
+         
+          <action name="downloadRoaster"  class="com.Over2Cloud.ctrl.helpdesk.roasterconf.RoasterexcelUpload" method="downloadRoaster">
+            <result name="success" type="stream">
+			<param name="contentType">application/vnd.ms-excel</param>
+			<param name="inputName">excelStream</param>
+			<param name="contentDisposition">attachment; filename="${excelFileName}"</param>
+			<param name="bufferSize">1024</param>
+			</result>
+            <result name="error" >/view/error.jsp</result>
+            <result name="login" >/view/invalidSession.jsp</result>
+        </action>
+         
+         <action name="showRoaster"  class="com.Over2Cloud.ctrl.helpdesk.roasterconf.RoasterexcelUpload" method="showUploadRoaster">
+            <result name="success" type="json"></result>
+            <result name="error" >/view/error.jsp</result>
+            <result name="login" >/view/invalidSession.jsp</result>
+         </action>
+         
+         <action name="saveRoaster"  class="com.Over2Cloud.ctrl.helpdesk.roasterconf.RoasterexcelUpload" method="saveExcelData">
+            <result name="success">/view/success.jsp</result>
+            <result name="error" >/view/error.jsp</result>
+            <result name="login" >/view/invalidSession.jsp</result>
+        </action>
+</package>
+</struts>

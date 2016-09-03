@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+<package name="helpDesk/configuration" extends="struts-default,json-default" namespace="/view/Over2Cloud/HelpDeskOver2Cloud/Daily_Report">
+     
+     <action name="beforeDailyReportConfigViewHeader"  class="com.Over2Cloud.ctrl.helpdesk.reportconfiguration.ReportConfiguration" method="beforeDailyReportConfigViewHeader">
+            	<result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Daily_Report/reportConfigViewHeader.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="loginViewHeader"  class="com.Over2Cloud.ctrl.helpdesk.reportconfiguration.ReportConfiguration" method="loginViewHeader">
+            	<result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Daily_Report/LoginViewHeader.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+	 </action>
+     
+      <action name="loginUserView"  class="com.Over2Cloud.ctrl.helpdesk.reportconfiguration.ReportConfiguration">
+            	<result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Daily_Report/loginView.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="loginReport"  class="com.Over2Cloud.ctrl.helpdesk.reportconfiguration.ReportConfiguration" method="loginReport">
+            	<result name="success" type='json'></result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     
+      <action name="beforeLogoutUser"  class="com.Over2Cloud.ctrl.helpdesk.reportconfiguration.ReportConfiguration" method="logoutUser">
+            	<result name="success" type='json'></result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="reportEmailData"  class="com.Over2Cloud.ctrl.helpdesk.reportconfiguration.ReportConfiguration" method="beforeReportEmailData">
+             <result name="success">/view/Over2Cloud/CommonOver2Cloud/Communication_Setting/emailPrint.jsp</result>
+            <result name="error" >/view/error.jsp</result>
+            <result name="login" >/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="reportSMSData"  class="com.Over2Cloud.ctrl.helpdesk.reportconfiguration.ReportConfiguration" method="beforeReportSMSData">
+             <result name="success">/view/Over2Cloud/CommonOver2Cloud/Communication_Setting/emailPrint.jsp</result>
+            <result name="error" >/view/error.jsp</result>
+            <result name="login" >/view/invalidSession.jsp</result>
+     </action>
+    
+     <action name="beforeDailyReportConfigView"  class="com.Over2Cloud.ctrl.helpdesk.reportconfiguration.ReportConfiguration">
+            	<result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Daily_Report/reportConfigView.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     
+     
+     <action name="beforeDailyReportConfig"  class="com.Over2Cloud.ctrl.helpdesk.reportconfiguration.ReportConfiguration" method="firstAction4ReportConfig">
+            	<result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Daily_Report/dailyReportConfiguration.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="beforeReportConfigView"  class="com.Over2Cloud.ctrl.helpdesk.reportconfiguration.ReportConfiguration" method="firstAction4ReportConfig">
+            	<result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Daily_Report/normalReportConfig.jsp</result>
+            	<result name="History_SUCCESS">/view/Over2Cloud/HelpDeskOver2Cloud/Daily_Report/historyReport.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+      
+      <action name="getEmployeeList"  class="com.Over2Cloud.ctrl.helpdesk.reportconfiguration.ReportConfiguration" method="getEmployeeList">
+            	<result name="allot_to">/view/Over2Cloud/HelpDeskOver2Cloud/Daily_Report/viewMultiSelectList.jsp</result>
+            	<result name="register_by">/view/Over2Cloud/HelpDeskOver2Cloud/Daily_Report/viewMultiSelectList1.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+       <action name="addReportConfiguration"  class="com.Over2Cloud.ctrl.helpdesk.reportconfiguration.ReportConfiguration" method="addReportConfiguration">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+      </action>
+     
+     <action name="viewReportSubDept"  class="com.Over2Cloud.ctrl.helpdesk.reportconfiguration.ReportConfiguration" method="viewReportConfigLevel2">
+            	<result name="success" type='json'></result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     
+      <action name="viewReportData"  class="com.Over2Cloud.ctrl.helpdesk.reportconfiguration.ReportConfiguration" method="viewReportConfigData">
+            	<result name="success" type='json'></result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="modifyReport"  class="com.Over2Cloud.ctrl.helpdesk.reportconfiguration.ReportConfiguration" method="modifyReportConfigData">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="viewDownloadReport"  class="com.Over2Cloud.ctrl.helpdesk.reportconfiguration.ReportConfiguration" method="beforeDownloadReportView">
+            	<result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Daily_Report/downloadReportView.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+         <action name="viewDownloadReportData"  class="com.Over2Cloud.ctrl.helpdesk.reportconfiguration.ReportConfiguration" method="viewDownloadReportData">
+            	<result name="success" type='json'></result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+         </action>
+     
+         <action name="downloadReportExcel" class="com.Over2Cloud.ctrl.helpdesk.reportconfiguration.ReportConfiguration" method="downloadReportExcel">
+            <result name="success" type="stream">
+			<param name="contentType">application/vnd.ms-excel</param>
+			<param name="inputName">excelStream</param>
+			<param name="contentDisposition">attachment; filename="${excelFileName}"</param>
+			<param name="bufferSize">1024</param>
+			</result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+         </action>
+         
+         <action name="getGraph"  class="com.Over2Cloud.ctrl.helpdesk.reportconfiguration.ReportConfiguration" method="getGraphData">
+            	<result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Daily_Report/viewGraphData.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+         </action>
+          <action name="beforeSMSMailConf"  >
+            	<result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/SMSMail/smsMailConf.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+         </action>
+         
+          <action name="mapNotification"  class="com.Over2Cloud.ctrl.helpdesk.reportconfiguration.ReportConfiguration" method="mapNotification">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="beforeSMSMailConfView" >
+            	<result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/SMSMail/smsMailConfView.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+         </action>
+         
+           <action name="sMSMailConfView"  class="com.Over2Cloud.ctrl.helpdesk.reportconfiguration.ReportConfiguration" method="sMSMailConfView">
+            	<result name="success" type='json'></result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+         </action>
+     
+</package>
+<!--
+Package Start for Ticket Series
+-->
+<package name="helpDesk/ticketconfiguration" extends="struts-default,json-default" namespace="/view/Over2Cloud/HelpDeskOver2Cloud/Ticket_Config">
+     
+     <action name="beforeTicketConfigView"  class="com.Over2Cloud.ctrl.helpdesk.ticketconfiguration.TicketConfiguration" method="beforeTicketSeriesView">
+            	<result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Ticket_Config/normalTicketView.jsp</result>
+            	<result name="deptSUCCESS">/view/Over2Cloud/HelpDeskOver2Cloud/Ticket_Config/deptTicketView.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="beforeTicketConfigAdd"  class="com.Over2Cloud.ctrl.helpdesk.ticketconfiguration.TicketConfiguration" method="beforeTicketSeriesAdd">
+            	<result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Ticket_Config/ticketSeries.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     
+     <action name="getPrefixViaAjax"  class="com.Over2Cloud.ctrl.helpdesk.ticketconfiguration.TicketConfiguration" method="getPrefixViaAjax">
+            	<result name="success" type="json"><param name="root">prefix</param></result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     
+      <action name="addTicketSeries"  class="com.Over2Cloud.ctrl.helpdesk.ticketconfiguration.TicketConfiguration" method="addTicketSeries">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="viewNormalTicketConf"  class="com.Over2Cloud.ctrl.helpdesk.ticketconfiguration.TicketConfiguration" method="ticketSeriesView">
+            	<result name="success" type="json"></result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="editTicketSeries"  class="com.Over2Cloud.ctrl.helpdesk.ticketconfiguration.TicketConfiguration" method="editTicketSeries">
+            	<result name="success" type="json"></result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+</package>
+<!--
+Package Start for Dashboard
+-->
+<package name="helpDesk/dashboard" extends="struts-default,json-default" namespace="/view/Over2Cloud/HelpDeskOver2Cloud/Dashboard_Config">
+     <action name="beforeDashboardConfigView"  class="com.Over2Cloud.ctrl.helpdesk.dashboard.DashboardAction" method="getDashboardData">
+            	<result name="n_success">/view/Over2Cloud/HelpDeskOver2Cloud/Dashboard_Config/normal_dash.jsp</result>
+            	<result name="d_success">/view/Over2Cloud/HelpDeskOver2Cloud/Dashboard_Config/dept_dash.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+</package>
+
+
+<package name="helpDesk/analyticalreport" extends="struts-default,json-default" namespace="/view/Over2Cloud/HelpDeskOver2Cloud/Analytical_Report">
+     <action name="beforeAnalyticalReport"  class="com.Over2Cloud.ctrl.helpdesk.common.HelpdeskUniversalAction" method="firstActionMethod" >
+            	<result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Analytical_Report/analytical_report.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="getAnalytics"  class="com.Over2Cloud.ctrl.helpdesk.reportconfiguration.AnalyticalReport" method="getAnalytics" >
+            	<result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Analytical_Report/analytical_report.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="getAnalyticsGraph"  class="com.Over2Cloud.ctrl.helpdesk.reportconfiguration.AnalyticalReport" method="getAnalyticsGraphData" >
+            	<result name="graph_emp_success">/view/Over2Cloud/HelpDeskOver2Cloud/Analytical_Report/graph_emp_analytics.jsp</result>
+            	<result name="graph_catg_success">/view/Over2Cloud/HelpDeskOver2Cloud/Analytical_Report/graph_catg_analytics.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="getAnalyticsGrid"  class="com.Over2Cloud.ctrl.helpdesk.reportconfiguration.AnalyticalReport" method="getAnalyticsForGrid" >
+            	<result name="employeeSucess">/view/Over2Cloud/HelpDeskOver2Cloud/Analytical_Report/grid_emp_analytics.jsp</result>
+            	<result name="categorySucess">/view/Over2Cloud/HelpDeskOver2Cloud/Analytical_Report/grid_catg_analytics.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="viewAnalysisDeatil"  class="com.Over2Cloud.ctrl.helpdesk.reportconfiguration.AnalyticalReport" method="viewAnalysisDeatil" >
+            	<result name="success" type="json"></result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="getProductivityData"  class="com.Over2Cloud.ctrl.helpdesk.reportconfiguration.AnalyticalReport" method="getProductivityDataForGrid" >
+            	<result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Analytical_Report/productivityGridData.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="viewProductivitydata"  class="com.Over2Cloud.ctrl.helpdesk.reportconfiguration.AnalyticalReport" method="viewProductivityGridData" >
+            	<result name="success" type="json"></result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="getProductivityGraphData"  class="com.Over2Cloud.ctrl.helpdesk.reportconfiguration.AnalyticalReport" method="getProductivityGraphDataValue" >
+            	<result name="graph_emp_success">/view/Over2Cloud/HelpDeskOver2Cloud/Analytical_Report/graph_emp_analytics.jsp</result>
+            	<result name="graph_catg_success">/view/Over2Cloud/HelpDeskOver2Cloud/Analytical_Report/graph_catg_analytics.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="sendMailConfirmAction" class="com.Over2Cloud.ctrl.helpdesk.reportconfiguration.AnalyticalDownloadAction" method="getCurrentColumn" >
+           <result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Analytical_Report/ConfirmForDownload.jsp</result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+     </action>
+   
+     <action name="downloadAction" class="com.Over2Cloud.ctrl.helpdesk.reportconfiguration.AnalyticalDownloadAction" method="downloadExcel">
+			<result name="success" type="stream">
+			<param name="contentType">application/vnd.ms-excel</param>
+			<param name="inputName">excelStream</param>
+			<param name="contentDisposition">attachment; filename="${excelFileName}"</param>
+			<param name="bufferSize">1024</param>
+			</result>
+			<result name="SENDMAILSUCCESS">/view/success.jsp</result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp
+			</result>
+	 </action>
+     
+     <action name="beforeSendMail" class="com.Over2Cloud.ctrl.helpdesk.reportconfiguration.AnalyticalDownloadAction" method="beforeSendMailPage" >
+           <result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Analytical_Report/beforeSendMail.jsp</result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+     </action>
+     
+     <action name="getEmployeeData"  class="com.Over2Cloud.ctrl.helpdesk.reportconfiguration.AnalyticalDownloadAction" method="getEmployeeDataList" >
+            	<result name="success" type="json"><param name="root">jsonArr</param> </result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+       
+</package>
+</struts>

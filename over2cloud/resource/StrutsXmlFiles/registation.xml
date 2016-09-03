@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+<package name="registation" extends="struts-default,json-default" namespace="/view/Over2Cloud/Registation">
+     
+     <action name="registationPatner"  class="com.Over2Cloud.ctrl.Registation.PartnerRegistation">
+             <result name="success">/view/Over2Cloud/Registation/PartnerRegistation.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="addRegistationAssociate"  class="com.Over2Cloud.ctrl.Registation.PartnerRegistation" method="addRegistationAssociate">
+             <result name="success">view/Signup/success.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="productConfirmation"  class="com.Over2Cloud.ctrl.Registation.PartnerRegistation" method="viewProductInfomation">
+             <result name="success">/view/Over2Cloud/Registation/ProductConfirmation.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="ourClientAction"  class="com.Over2Cloud.ctrl.Registation.PartnerRegistation" method="ViewOurClient">
+             <result name="success">/view/Over2Cloud/Registation/OurClient.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="OurClienturlGrid"  class="com.Over2Cloud.ctrl.Registation.PartnerRegistationView" method="ViewOurClienturlGrid">
+                <result name="success" type="json"></result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="SubOurClienturlGrid"  class="com.Over2Cloud.ctrl.Registation.Reportregistation" method="ViewOurClienturlGrid1">
+                <result name="success" type="json"></result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+      </action>
+     
+      <action name="blockClientasso"  class="com.Over2Cloud.ctrl.Registation.Reportregistation" >
+                <result name="success" >/view/Over2Cloud/Registation/blockOurClient.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+      </action>
+     
+      <action name="BlockallourClient"  class="com.Over2Cloud.ctrl.Registation.Reportregistation" method="blockClientAll" >
+                <result name="live" >/view/Over2Cloud/Registation/Sucessfullylive.jsp</result>
+                <result name="block" >/view/Over2Cloud/Registation/SucessfullyBlock.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+      </action>
+     
+      <action name="allProductaction"  class="com.Over2Cloud.ctrl.Registation.PartnerRegistation" method="FindProductlist">
+             <result name="success">/view/Over2Cloud/Registation/FindProductlist.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     
+     
+     
+     
+</package>
+</struts>

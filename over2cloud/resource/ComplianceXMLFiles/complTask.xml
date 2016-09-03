@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+
+  <package name="helpDesk/compliance_task" extends="struts-default,json-default" namespace="/view/Over2Cloud/Compliance/compl_task_page">
+
+     <action name="beforeComplTask" class="com.Over2Cloud.ctrl.compliance.complTaskMaster.ComplianceTaskAction" method="beforeTaskAdd" >
+           <result name="success">/view/Over2Cloud/Compliance/compl_task_page/complTask.jsp</result>
+           <result name="error" >/view/message_draft/createError.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+     <action name="complTaskAction" class="com.Over2Cloud.ctrl.compliance.complTaskMaster.ComplianceTaskAction" method="complianceTaskAdd" >
+           <result name="success">/view/success.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+
+	<action name="beforeViewComplTaskAction" class="com.Over2Cloud.ctrl.compliance.complTaskMaster.ComplianceTaskAction" method="beforeViewComplTask" >
+ 			<result name="success">/view/Over2Cloud/Compliance/compl_task_page/viewComplTask.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+
+	<action name="viewComplTask" class="com.Over2Cloud.ctrl.compliance.complTaskMaster.ComplianceTaskAction" method="viewComplTask" >
+ 		<result name="success" type="json"></result>
+        <result name="error">/view/error.jsp</result>
+	    <result name="login">/view/invalidSession.jsp</result>
+    </action>
+
+	<action name="beforeComplTaskModify" class="com.Over2Cloud.ctrl.compliance.complTaskMaster.ComplianceTaskAction" method="beforeViewComplTask" >
+ 			<result name="success">/view/Over2Cloud/Compliance/compl_task_page/viewComplTask.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+
+ 	<action name="viewModifyAction"  class="com.Over2Cloud.ctrl.compliance.complTaskMaster.ComplianceTaskAction" method="viewModifyTask">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+    </action>
+
+	<action name="getTaskDetails" class="com.Over2Cloud.ctrl.compliance.complTaskMaster.ComplianceTaskAction" method="getTaskTypeDetails" >
+            <result name="success" type="json"><param name="root">taskObject</param></result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+     </action>
+     
+     <action name="getKRNameAction" class="com.Over2Cloud.ctrl.compliance.complTaskMaster.ComplianceTaskAction" method="getKRName" >
+ 		   <result name="success">/view/Over2Cloud/Compliance/compl_task_page/KRName.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+    <action name="ViewCompletionTipKRAction" class="com.Over2Cloud.ctrl.compliance.complTaskMaster.ComplianceTaskAction" method="getCompletionTipKR" >
+ 		   <result name="success">/view/Over2Cloud/Compliance/compl_task_page/ViewCompletionTipKR.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+    <action name="ViewTaskName4AddKR" class="com.Over2Cloud.ctrl.compliance.complTaskMaster.ComplianceTaskAction" method="beforeViewComplTask4KR" >
+ 		   <result name="success">/view/Over2Cloud/Compliance/compl_task_page/viewComplTaskWithOutKR.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+    <action name="viewTaskWithoutKR" class="com.Over2Cloud.ctrl.compliance.complTaskMaster.ComplianceTaskAction" method="viewTaskWithoutKR" >
+ 		<result name="success" type="json"></result>
+        <result name="error">/view/error.jsp</result>
+	    <result name="login">/view/invalidSession.jsp</result>
+    </action>
+
+	<action name="beforeAddKRCompTipInTask" class="com.Over2Cloud.ctrl.compliance.complTaskMaster.ComplianceTaskAction" method="beforeAddKRCompTipInTask" >
+ 		   <result name="success">/view/Over2Cloud/Compliance/compl_task_page/CreateKRCompTip.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+
+	<action name="addKRComplTipAction" class="com.Over2Cloud.ctrl.compliance.complTaskMaster.ComplianceTaskAction" method="addKRComplTipActionAdd" >
+           <result name="success">/view/success.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+
+  </package>
+ 
+</struts>
+
+

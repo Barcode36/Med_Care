@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+<package name="helpDesk/shiftconf" extends="struts-default,json-default" namespace="/view/Over2Cloud/HelpDeskOver2Cloud/Shift_Conf">
+     
+     <action name="beforeShiftView"  class="com.Over2Cloud.ctrl.helpdesk.shiftconf.EditShiftConf" method="beforeShiftView">
+          <result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Shift_Conf/viewShiftConf.jsp</result>
+           <result name="shiftSuccess">/view/Over2Cloud/HelpDeskOver2Cloud/Shift_Conf/viewShift.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="beforeShift"  class="com.Over2Cloud.ctrl.helpdesk.shiftconf.ShiftConfAction" method="firstAction4AddShift">
+          <result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Shift_Conf/createShiftConf.jsp</result>
+          <result name="deptSuccess">/view/Over2Cloud/HelpDeskOver2Cloud/Shift_Conf/createShiftDeptwise.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="addShiftConf" class="com.Over2Cloud.ctrl.helpdesk.shiftconf.ShiftConfAction" method="addShiftConf">
+         <result name="success">/view/success.jsp</result>
+		 <result name="error">/view/error.jsp</result>
+		 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="viewShiftSubDept"  class="com.Over2Cloud.ctrl.helpdesk.shiftconf.EditShiftConf" method="viewShiftSubDept">
+          <result name="success" type="json"></result>
+          <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="viewShiftConf"  class="com.Over2Cloud.ctrl.helpdesk.shiftconf.EditShiftConf" method="viewShiftDetail">
+          <result name="success" type="json"></result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     
+     <action name="viewShift4HDM"  class="com.Over2Cloud.ctrl.helpdesk.shiftconf.EditShiftConf" method="viewShiftDetail4HDM">
+          <result name="success" type="json"></result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="viewShift4HDMLocation"  class="com.Over2Cloud.ctrl.helpdesk.shiftconf.EditShiftConf" method="viewShift4HDMLocation">
+          <result name="success" type="json"></result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="editShiftConf"  class="com.Over2Cloud.ctrl.helpdesk.shiftconf.EditShiftConf" method="modifyShiftConf">
+          <result name="success" type="json"></result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     
+       <action name="beforeShiftMap"  class="com.Over2Cloud.ctrl.helpdesk.shiftconf.ShiftMapAction" method="beforeShiftMap">
+          <result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Shift_Conf/mapShiftwithLocation.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="fetchMultiselectdata"  class="com.Over2Cloud.ctrl.helpdesk.shiftconf.ShiftMapAction" method="fetchMultiselectdata">
+           <result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Shift_Conf/onChangeJsps.jsp</result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="mapShiftWithLocation" class="com.Over2Cloud.ctrl.helpdesk.shiftconf.ShiftMapAction" method="mapShiftWithLocation">
+         <result name="success">/view/success.jsp</result>
+		 <result name="error">/view/error.jsp</result>
+		 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+</package>
+</struts>

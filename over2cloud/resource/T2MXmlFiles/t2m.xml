@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+<package name="text2Mail" extends="struts-default,json-default" namespace="/view/Over2Cloud/Text2Mail">
+
+		<!-- for  machine order date 12-06-2015  -->
+     
+     
+     <action name="machineMasterHeader"  class="com.Over2Cloud.ctrl.MachineOrder.MachineMaster" method="machineMasterHeader" >
+            	<result name="success">/view/Over2Cloud/MachineOrderMaster/machineHeaderView.jsp</result>
+            	<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     
+     
+     <!-- machine order end   -->
+
+
+
+
+    <action name="beforeConfigKeyword"  class="com.Over2Cloud.ctrl.text2mail.ConfigKeyword" method="beforeConfigKeyword">
+         <result name="success">/view/Over2Cloud/Text2Mail/configKeyword.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="subKeywordDataDD" class="com.Over2Cloud.ctrl.text2mail.ConfigKeyword" method="subKeywordDataDD" >
+ 			<result name="success" type="json"><param name="root">commonJSONArray</param></result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+     
+        <action name="multi"  class="com.Over2Cloud.ctrl.text2mail.ConfigKeyword" method="multi">
+         <result name="success">/view/Over2Cloud/Text2Mail/multiDept.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="multiEmp"  class="com.Over2Cloud.ctrl.text2mail.ConfigKeyword" method="multiEmp">
+         <result name="success">/view/Over2Cloud/Text2Mail/multiEmp.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+     </action>
+
+<action name="afterConfigKeyword"  class="com.Over2Cloud.ctrl.text2mail.ConfigKeyword" method="afterConfigKeyword">
+         <result name="success">/view/success.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+         <action name="beforeViewConfigKeyword"  class="com.Over2Cloud.ctrl.text2mail.ConfigKeyword" method="beforeViewConfigKeyword">
+          <result name="success">/view/Over2Cloud/Text2Mail/viewConfigKeyword.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+       <action name="beforeViewConfigKeywordHeader"  class="com.Over2Cloud.ctrl.text2mail.ConfigKeyword" method="beforeViewConfigKeywordHeader">
+          <result name="success">/view/Over2Cloud/Text2Mail/viewConfigKeywordHeader.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+    <action name="viewKeywordInGrid"  class="com.Over2Cloud.ctrl.text2mail.ConfigKeyword" method="viewKeywordInGrid">
+             <result name="success" type="json"></result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+       <action name="modifyKeyword"  class="com.Over2Cloud.ctrl.text2mail.ConfigKeyword" method="modifyKeyword">
+             <result name="success" type="json"></result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="currentColumn" class="com.Over2Cloud.ctrl.text2mail.PullReport" method="getColumn4Download">
+			<result name="success">/view/Over2Cloud/Text2Mail/confirm4Download.jsp</result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp</result>
+		</action>
+		<action name="forPullColumn" class="com.Over2Cloud.ctrl.text2mail.PullReport" method="currentColumnForPull">
+			<result name="success">/view/Over2Cloud/Text2Mail/confirm4Pull.jsp</result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp</result>
+		</action>
+		
+		
+		
+		<action name="downloadAction" class="com.Over2Cloud.ctrl.text2mail.PullReport" method="downloadExcel">
+			<result name="success" type="stream"></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+		
+		<action name="downloadAction2" class="com.Over2Cloud.ctrl.text2mail.PullReport" method="downloadPullReport">
+			<result name="success" type="stream">
+				
+			</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+		
+		<!-- Excel download -->
+		
+		
+	<action name="exclelColumn" class="com.Over2Cloud.ctrl.text2mail.PullReport" method="exclelColumnNameGet" >
+           <result name="success">/view/Over2Cloud/Text2Mail/ConfirmForDownload.jsp</result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+   
+   <action name="downloadAction" class="com.Over2Cloud.ctrl.text2mail.PullReport" method="downloadExcel">
+			<result name="success" type="stream">
+			<param name="contentType">application/vnd.ms-excel</param>
+			<param name="inputName">excelStream</param>
+			<param name="contentDisposition">attachment; filename="${excelFileName}"</param>
+			<param name="bufferSize">1024</param>
+			</result>
+			<result name="SENDMAILSUCCESS">/view/success.jsp</result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp
+			</result>
+	</action>
+		<!-- send mail --> 
+		
+		<action name="beforeSendMail" class="com.Over2Cloud.ctrl.text2mail.PullReport" method="beforeSendMail">
+         <result name="success">/view/Over2Cloud/Text2Mail/beforeSendMail2Emp.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     
+     
+       <action name="empGetbyDept4Mail" class="com.Over2Cloud.ctrl.text2mail.PullReport" method="empGetbyDept4Mail">
+           
+           <result name="success" type="json"><param name="root">commonJSONArray</param></result>
+		<result name="error">/view/common_pages/error.jsp</result>
+		<result name="login">/view/common_pages/invalidSession.jsp</result>       
+     </action>
+     
+     
+     
+         <action name="sendMailToEmpT2M"  class="com.Over2Cloud.ctrl.text2mail.PullReport" method="sendMailT2M">
+         <result name="success">/view/success.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+	      </action>
+     
+     
+		<!--  for history -->
+		<action name="beforeHistoryView" class="com.Over2Cloud.ctrl.text2mail.PullReport" method="beforeHistoryView">
+         <result name="success">/view/Over2Cloud/Text2Mail/historyView.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     
+     
+     <action name="consDetails" class="com.Over2Cloud.ctrl.text2mail.Consultants" method="consDetails">
+         <result name="success">/view/Over2Cloud/Text2Mail/ConsDetailsView.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="historyGrid" class="com.Over2Cloud.ctrl.text2mail.PullReport" method="histiryGrid">
+         <result name="success">/view/Over2Cloud/Text2Mail/historyGridView.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+     </action>
+		<action name="viewhisData" class="com.Over2Cloud.ctrl.text2mail.PullReport" method="viewhisData">
+         <result name="success" type="json"></result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+      
+     <action name="AutoAckClickView" class="com.Over2Cloud.ctrl.text2mail.PullReport" method="AutoAckClickView">
+         <result name="success" >/view/Over2Cloud/Text2Mail/AutoAckClickView.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <!--  for Pull Report  -->
+      <action name="beforePullReport"  class="com.Over2Cloud.ctrl.text2mail.PullReport" method="beforePullReport">
+         <result name="success">/view/Over2Cloud/Text2Mail/pullReport.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+     </action>
+       <action name="viewPullReoprt"  class="com.Over2Cloud.ctrl.text2mail.PullReport" method="beforeViewPullReoprt">
+         <result name="success">/view/Over2Cloud/Text2Mail/viewPullReport.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     
+     <action name="beforePullReportView" class="com.Over2Cloud.ctrl.text2mail.PullReport" method="beforePullReportView">
+            <result name="success">/view/Over2Cloud/Text2Mail/pullReportViewGrid1.jsp</result>
+            <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+    </action>
+     
+          <action name="beforePullReportViewHeader" class="com.Over2Cloud.ctrl.text2mail.PullReport" method="beforePullReportViewHeader">
+            <result name="success">/view/Over2Cloud/Text2Mail/pullReportViewGridHeader.jsp</result>
+            <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+    </action>
+    <!-- for manual pull report entry -->
+    
+    
+    <action name="beforePullReportViewHeaderManual" class="com.Over2Cloud.ctrl.text2mail.PullReport" method="beforePullReportViewHeaderManual">
+            <result name="success">/view/Over2Cloud/Text2Mail/pullReportViewGridHeaderManual.jsp</result>
+            <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+    <action name="beforePullReportLodge" class="com.Over2Cloud.ctrl.text2mail.PullReport" method="beforePullReportLodge">
+            <result name="success">/view/Over2Cloud/Text2Mail/pullReporManualLodge.jsp</result>
+            <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+    
+    <action name="consData" class="com.Over2Cloud.ctrl.text2mail.PullReport" method="consDataGet">
+            <result name="success" type="json"><param name="root">commonJSONArray</param></result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+    
+    <action name="pullReportMaualAdd"  class="com.Over2Cloud.ctrl.text2mail.PullReport" method="pullReportMaualAdd">
+         <result name="success">/view/success.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+	      </action>
+	      
+	      
+	      
+	      <action name="takeActionPull"  class="com.Over2Cloud.ctrl.text2mail.PullReport" method="takeActionPull">
+         <result name="success">/view/Over2Cloud/Text2Mail/TakeActionPullPage.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+	      </action>
+	      
+	      
+	      <action name="TakeActionPullFinal"  class="com.Over2Cloud.ctrl.text2mail.PullReport" method="TakeActionPullFinal">
+         <result name="success">/view/success.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+	      </action>
+    
+    <!-- manual entry pull report end  -->
+
+              <action name="counter" class="com.Over2Cloud.ctrl.text2mail.PullReport" method="abc">
+            <result name="success">/view/Over2Cloud/Text2Mail/counterAfterSelect.jsp</result>
+            <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+     <action name="viewPullReportss" class="com.Over2Cloud.ctrl.text2mail.PullReport" method="viewPullReportss">
+                <result name="success" type="json"></result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+  </action>
+    
+   <action name="beforeSendMailPullReportView" class="com.Over2Cloud.ctrl.text2mail.PullReport" method="beforeSendMailPullReportView">
+            <result name="success">/view/Over2Cloud/Text2Mail/sendPullReportViewGrid.jsp</result>
+            <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+  </action>
+  
+  
+  <action name="viewSendMailPullReports" class="com.Over2Cloud.ctrl.text2mail.PullReport" method="viewSendMailPullReport">
+                <result name="success" type="json"></result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+  </action>
+
+ <action name="beforePullSendEmailReport"  class="com.Over2Cloud.ctrl.text2mail.PullReport" method="beforePullSendEmailReport">
+         <result name="success">/view/Over2Cloud/Text2Mail/viewPullSendEmailReport.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+     </action>
+          <action name="viewPullEndEmailReoprt"  class="com.Over2Cloud.ctrl.text2mail.PullReport" method="viewPullEndEmailReoprt">
+         <result name="success">/view/Over2Cloud/Text2Mail/pullSendEmailReport.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result></action>
+	     
+	      <action name="emailResend"  class="com.Over2Cloud.ctrl.text2mail.PullReport" method="emailResend">
+         <result name="success">/view/success.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+	      </action>
+	      
+	        
+           <action name="beforemainKeywords"  class="com.Over2Cloud.ctrl.text2mail.MasterT2M" method="beforemainKeywords">
+         <result name="success">/view/Over2Cloud/Text2Mail/t2mMainkeywordAdd.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+        </action>
+	      
+	        <action name="addMainKeyword"  class="com.Over2Cloud.ctrl.text2mail.MasterT2M" method="addMainKeyword">
+         <result name="success">/view/success.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+     </action>
+	      
+	      <action name="beforemainKeywordsView"  class="com.Over2Cloud.ctrl.text2mail.MasterT2M" method="beforemainKeywordsView">
+          <result name="success">/view/Over2Cloud/Text2Mail/T2MMainKeywordMasterHeader.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+          </action>
+          
+          
+          <action name="beforemainKeyView"  class="com.Over2Cloud.ctrl.text2mail.MasterT2M" method="beforemainKeyView">
+          <result name="success">/view/Over2Cloud/Text2Mail/t2mMainkeywordView.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+          </action>
+          
+         
+          
+           <action name="viewMainKeyword"  class="com.Over2Cloud.ctrl.text2mail.MasterT2M" method="viewMainKeyword">
+             <result name="success" type="json"></result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+			
+         </action>
+         
+         <action name="modifyMainKeyword"  class="com.Over2Cloud.ctrl.text2mail.MasterT2M" method="modifyMainKeyword">
+             <result name="success" type="json"></result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="checkmainKeyword" class="com.Over2Cloud.ctrl.text2mail.MasterT2M" method="checkmainKeyword">
+           <result name="success" type="json">
+                <param name="root">checkMainKey</param>
+           </result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>          
+     </action>
+         <!-- for secondary keyword -->  
+         
+          <action name="checksecKeyword" class="com.Over2Cloud.ctrl.text2mail.MasterT2M" method="checksecKeyword">
+           <result name="success" type="json">
+                <param name="root">checkSecKey</param>
+           </result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>          
+     </action>
+         
+         <action name="modifySecKeyword"  class="com.Over2Cloud.ctrl.text2mail.MasterT2M" method="modifySecondaryKeyword">
+             <result name="success" type="json"></result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+         
+           <action name="viewSubKeyword"  class="com.Over2Cloud.ctrl.text2mail.MasterT2M" method="viewSubKeyword">
+             <result name="success" type="json"></result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+         </action>
+         
+          <action name="addsecKeyword"  class="com.Over2Cloud.ctrl.text2mail.MasterT2M" method="addsecKeyword">
+         <result name="success">/view/success.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+     </action>
+          <action name="beforeSecondaryKeywordsT2MView"  class="com.Over2Cloud.ctrl.text2mail.MasterT2M" method="beforeSecondaryKeywordsT2MView">
+          <result name="success">/view/Over2Cloud/Text2Mail/T2MSecKeywordViewHeader.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+          </action>
+          
+          
+            <action name="beforesecKeyView"  class="com.Over2Cloud.ctrl.text2mail.MasterT2M" method="beforesecKeyView">
+          <result name="success">/view/Over2Cloud/Text2Mail/t2mSecondarykeywordView.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+          </action>
+          
+           <action name="beforeSecKeywordsAdd"  class="com.Over2Cloud.ctrl.text2mail.MasterT2M" method="beforeSecKeywords">
+         <result name="success">/view/Over2Cloud/Text2Mail/t2mSeckeywordAdd.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+        </action>
+        
+              <action name="beforeSpecialityView"  class="com.Over2Cloud.ctrl.text2mail.MasterT2M" method="beforeSpecialityView">
+          <result name="success">/view/Over2Cloud/Text2Mail/specialtyView.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+          </action>
+    
+    <action name="beforeSpeciality"  class="com.Over2Cloud.ctrl.text2mail.MasterT2M" method="beforeSpeciality">
+         <result name="success">/view/Over2Cloud/Text2Mail/specialityMaster.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="addSpeciality"  class="com.Over2Cloud.ctrl.text2mail.MasterT2M" method="addSpeciality">
+         <result name="success">/view/success.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="viewSpeciality"  class="com.Over2Cloud.ctrl.text2mail.MasterT2M" method="viewSpeciality">
+             <result name="success" type="json"></result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="addLocation"  class="com.Over2Cloud.ctrl.text2mail.MasterT2M" method="addLocation">
+         <result name="success">/view/success.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="beforeLocationView"  class="com.Over2Cloud.ctrl.text2mail.MasterT2M" method="beforeLocationView">
+          <result name="success">/view/Over2Cloud/Text2Mail/locationView.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+          </action>
+    
+    <action name="viewLocation"  class="com.Over2Cloud.ctrl.text2mail.MasterT2M" method="viewLocation">
+             <result name="success" type="json"></result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="modifyLocation"  class="com.Over2Cloud.ctrl.text2mail.MasterT2M" method="modifyLocation">
+             <result name="success" type="json"></result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="modifySpeciality"  class="com.Over2Cloud.ctrl.text2mail.MasterT2M" method="modifySpeciality">
+             <result name="success" type="json"></result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+    
+    
+     <action name="beforeLocation"  class="com.Over2Cloud.ctrl.text2mail.MasterT2M" method="beforeLocation">
+         <result name="success">/view/Over2Cloud/Text2Mail/locationMaster.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+     </action> 
+    <action name="beforeConsultantsView"  class="com.Over2Cloud.ctrl.text2mail.Consultants" method="beforeConsultantsView">
+          <result name="success">/view/Over2Cloud/Text2Mail/consultantsHeader.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+          </action>
+           <action name="ConsultantView"  class="com.Over2Cloud.ctrl.text2mail.Consultants" method="consultantsView">
+          <result name="success">/view/Over2Cloud/Text2Mail/consultantsView.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+          </action>
+          
+          
+          <action name="ConsultantCount"  class="com.Over2Cloud.ctrl.text2mail.Consultants" method="consultantCount">
+          <result name="success">/view/Over2Cloud/Text2Mail/ConsultantCount.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+          </action>
+          
+          
+          <action name="beforeConsultantsView2"  class="com.Over2Cloud.ctrl.text2mail.Consultants" method="beforeConsultantsView">
+          <result name="success">/view/Over2Cloud/Text2Mail/consultantsView2.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+          </action>
+          
+           <action name="viewConsInGrid"  class="com.Over2Cloud.ctrl.text2mail.Consultants" method="viewConsInGrid">
+             <result name="success" type="json"></result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+       <action name="modifyCons"  class="com.Over2Cloud.ctrl.text2mail.Consultants" method="modifyCons">
+             <result name="success" type="json"></result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+          
+        <action name="beforeConsultants"  class="com.Over2Cloud.ctrl.text2mail.Consultants" method="beforeConsultants">
+         <result name="success">/view/Over2Cloud/Text2Mail/createConsultants.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="addConsultants"  class="com.Over2Cloud.ctrl.text2mail.Consultants" method="addConsultants">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <!--             For Mapping Excutive with consultants     -->
+     
+     <action name="beforeMappingView"  class="com.Over2Cloud.ctrl.text2mail.Mapping" method="beforeMappingView">
+         <result name="success">/view/Over2Cloud/Text2Mail/mapConsultants.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="beforeMappingView2"  class="com.Over2Cloud.ctrl.text2mail.Mapping" method="beforeMappingView2">
+         <result name="success">/view/Over2Cloud/Text2Mail/mappingView.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="viewConsInGrid2"  class="com.Over2Cloud.ctrl.text2mail.Mapping" method="viewConsInGrid2">
+             <result name="success" type="json"></result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="mapWithExecutive"  class="com.Over2Cloud.ctrl.text2mail.Mapping" method="mapWithExecutive">
+         <result name="success">/view/success.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="mapContacts" class="com.Over2Cloud.ctrl.text2mail.Mapping" method="mapContacts">
+         <result name="success">/view/Over2Cloud/Text2Mail/mapContacts.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     
+     <!--  for desk board -->
+      <action name="jsonChartData4Excecutivekeyword"   class="com.Over2Cloud.ctrl.text2mail.PullReport" method="getPieChart4Executivekeyword">
+           <result name="success" type="json"><param name="root">jsonArray</param></result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="getExcecutiveKeyword"   class="com.Over2Cloud.ctrl.text2mail.PullReport" method="getPieChart4Executivekeyword">
+          <result name="success">/view/Over2Cloud/Text2Mail/excecutivekeywordCounter.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+    
+     
+      <action name="getExcecutiveKeywordTable"  class="com.Over2Cloud.ctrl.text2mail.PullReport" method="getTable4Executivekeyword">
+          <result name="success">/view/Over2Cloud/Text2Mail/excecutivekeywordCounterTable.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="getAnalyticsGraph"  class="com.Over2Cloud.ctrl.text2mail.PullReport" method="getAllTypeGraph" >
+            	<result name="success">/view/Over2Cloud/Text2Mail/redirect.jsp</result>
+            	 	<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="refMapDataget"  class="com.Over2Cloud.ctrl.text2mail.PullReport" method="refMapDataget" >
+			<result name="success" type="json"><param name="root">RefMapSource</param></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+     
+     
+     
+      <action name="referal_dashboard_view"  class="com.Over2Cloud.ctrl.text2mail.PullReport" method="referal_dashboard_view" >
+            	<result name="success">/view/Over2Cloud/Text2Mail/referalDashboard.jsp</result>
+            	 	<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     
+	     
+</package>
+</struts>

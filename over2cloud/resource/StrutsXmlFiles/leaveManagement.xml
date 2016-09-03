@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+<constant name="struts.devMode" value="true"/>
+<package name="leaveManagement" extends="struts-default,json-default" namespace="/view/Over2Cloud/leaveManagement">
+     
+                      <!--                         LEAVE REQUEST PART START HERE                         -->
+     <action name="beforeLeaveRequestCreate"  class="com.Over2Cloud.ctrl.leaveManagement.LeaveRequest" method="beforeLeaveAdd">
+                <result name="success">/view/Over2Cloud/leaveManagement/createLeaveRequest.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="requestAddAction"  class="com.Over2Cloud.ctrl.leaveManagement.LeaveRequest" method="createLeaveRequest">
+                <result name="success">/view/success.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="beforeleaveRequestView"  class="com.Over2Cloud.ctrl.leaveManagement.LeaveRequest" method="beforeRequestView">
+                <result name="success">/view/Over2Cloud/leaveManagement/requestView.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+       <action name="requestGridData" method="getViewInGridRequest" class="com.Over2Cloud.ctrl.leaveManagement.LeaveRequest">
+           <result name="success" type="json">  </result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>          
+     </action>
+     
+     <action name="requestGridDataViewLeave" method="viewInGridResponse" class="com.Over2Cloud.ctrl.leaveManagement.LeaveRequest">
+           <result name="success" type="json">  </result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>          
+     </action>
+     
+     <!--                    LEAVE RESPONSE PART START HERE                              -->
+     <action name="beforeRequestInResponseView"  class="com.Over2Cloud.ctrl.leaveManagement.LeaveRequest" method="beforeRequestResponseView">
+                <result name="success">/view/Over2Cloud/leaveManagement/responseView.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="responseGridDataView" method="getResponseView" class="com.Over2Cloud.ctrl.leaveManagement.LeaveRequest">
+           <result name="success" type="json">  </result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>          
+     </action>
+     <action name="beforeleaveResponseView"  class="com.Over2Cloud.ctrl.leaveManagement.LeaveRequest" method="beforeResponseView">
+                <result name="success">/view/Over2Cloud/leaveManagement/viewResponse.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     
+     
+     <action name="addResponse"  class="com.Over2Cloud.ctrl.leaveManagement.LeaveRequest" method="addResponse4Employee">
+                <result name="success">/view/Over2Cloud/leaveManagement/responseAdd.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="addResponse4Request"  class="com.Over2Cloud.ctrl.leaveManagement.LeaveRequest" method="addResponse4request">
+                <result name="success">/view/Over2Cloud/leaveManagement/responseMail.jsp</result>
+                <result name="ActionStatussuccess">/view/Over2Cloud/leaveManagement/ActionStatusMail.jsp</result>
+                 <result name="ActionStatusHoursuccess">/view/Over2Cloud/leaveManagement/ActionStatusMaildays.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <!--                HOLIDAY PART START HERE              -->
+     <action name="beforeHolidayList"  class="com.Over2Cloud.ctrl.leaveManagement.HolidayList" method="beforeHoliday">
+                <result name="success">/view/Over2Cloud/leaveManagement/createHolidayList.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+    </action>
+    <action name="holidayAddAction"  class="com.Over2Cloud.ctrl.leaveManagement.HolidayList" method="addHolidayList">
+                <result name="success">/view/success.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+    </action>
+    <action name="beforeHolidayListView1"  class="com.Over2Cloud.ctrl.leaveManagement.HolidayList" method="viewHolidayList">
+                <result name="success">/view/Over2Cloud/leaveManagement/viewHoliday.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+ 
+    <action name="holidayGridDataView" method="getHolidayView" class="com.Over2Cloud.ctrl.leaveManagement.HolidayList">
+           <result name="success" type="json"></result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>          
+   </action>
+   
+   <action name="google" class="com.Over2Cloud.ctrl.leaveManagement.HolidayList" method="navigateToPage">
+ 		<result name="success">/view/Over2Cloud/leaveManagement/google.jsp</result>
+ 		 <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>   
+   </action>
+
+   <action name="holidayGridDataModify" method="modifyHoliday" class="com.Over2Cloud.ctrl.leaveManagement.HolidayList">
+           <result name="success" type="json"></result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>          
+   </action>
+   
+    <!-- Updated by Tareshwar-->
+    
+      <action name="headercounter"  class="com.Over2Cloud.ctrl.leaveManagement.AttendenceManagement" method="headercounter">
+                <result name="success">/view/Over2Cloud/leaveManagement/counter1.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+    
+   
+   <!-- EXCELL PART -->
+   
+		<action name="currentColumn" class="com.Over2Cloud.ctrl.leaveManagement.HolidayList" method="getColumn4Download">
+			<result name="success">/view/Over2Cloud/leaveManagement/confirm4Download.jsp</result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp</result>
+		</action>
+		
+        <action name="downloadAction" class="com.Over2Cloud.ctrl.leaveManagement.HolidayList" method="downloadExcel">
+			<result name="success" type="stream">
+			<param name="contentType">application/vnd.ms-excel</param>
+			<param name="inputName">excelStream</param>
+			<param name="contentDisposition">attachment; filename="${excelFileName}"</param>
+			<param name="bufferSize">1024</param>
+			</result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp</result>
+		</action>
+   
+		<action name="uploadExcel" class="com.Over2Cloud.ctrl.leaveManagement.ExcelUpload" method="readExcelData">
+			<result name="success">/view/Over2Cloud/leaveManagement/confirm4Upload.jsp</result> 
+			<result name="attendanceMark">/view/Over2Cloud/leaveManagement/confirmAttendanceExcel.jsp</result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp</result>
+		</action>
+		
+		<action name="viewUploadExcelGridData" class="com.Over2Cloud.ctrl.leaveManagement.ExcelUpload" method="viewConfirmationData">
+			<result name="success" type="json"></result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp</result>
+		</action>
+		
+			<action name="saveExcelData" class="com.Over2Cloud.ctrl.leaveManagement.ExcelUpload" method="saveSelectData">
+			<result name="success">/view/success.jsp</result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp</result>
+		</action>
+		
+		 <action name="showExcel"  class="com.Over2Cloud.ctrl.leaveManagement.ExcelUpload" method="showUpload">
+            <result name="success" type="json"></result>
+            <result name="error" >/view/error.jsp</result>
+            <result name="login" >/view/invalidSession.jsp</result>
+     </action>
+     <action name="saveAttendanceExcel" class="com.Over2Cloud.ctrl.leaveManagement.ExcelUpload" method="saveAttendanceData">
+			<result name="success">/view/success.jsp</result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp</result>
+		</action>
+     
+   
+   <!--                   LEAVE POLICY PART START HERE         -->
+   <action name="beforeLeavePolicy"  class="com.Over2Cloud.ctrl.leaveManagement.HolidayList" method="beforeLeavePoli">
+                <result name="success">/view/Over2Cloud/leaveManagement/createLeavePolicy.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+				
+   </action>
+    <action name="beforeLeavePolicyView"  class="com.Over2Cloud.ctrl.leaveManagement.HolidayList" method="beforeLeavePoli">
+                <result name="success">/view/Over2Cloud/leaveManagement/downloadLeavePolicy.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+				
+   </action>
+   
+   <action name="beforeLeavePolicyForMyself"  class="com.Over2Cloud.ctrl.leaveManagement.HolidayList" method="beforeLeavePoli">
+                <result name="success">/view/Over2Cloud/leaveManagement/downloadLeavePolicyForMyself.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+				
+   </action>
+   <action name="documentPolicy" class="com.Over2Cloud.ctrl.leaveManagement.HolidayList" method="getAttachmentdownload">
+            <result name="success">/view/Over2Cloud/leaveManagement/downloadFile.jsp</result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+   
+   
+   <action name="responseAddAction"  class="com.Over2Cloud.ctrl.leaveManagement.LeaveRequest" method="updateRequest">
+                <result name="success">/view/success.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+    </action>
+     <action name="policyAddAction"  class="com.Over2Cloud.ctrl.leaveManagement.HolidayList" method="addLeavePolicy">
+                <result name="success">/view/success.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+    </action>
+    <action name="download"  class="com.Over2Cloud.ctrl.leaveManagement.HolidayList" method="download" >
+            <result name="download" type="stream">
+             <param name="contentType">application/octet-stream</param>
+             <param name="inputName">fileInputStream</param>
+             <param name="contentDisposition">attachment;filename=%{fileName}</param>
+             <param name="bufferSize">4096</param>  </result>
+       <result name="login">/view/invalidSession.jsp</result>
+       <result name="error">/view/error.jsp</result>
+       <result name="success">/view/success.jsp</result>
+  </action>
+	
+    
+    <!--                 GET SUB DEPARTMENT EMPLOYEE PART       -->
+      <action name="subDeptViaAjax"  class="com.Over2Cloud.ctrl.leaveManagement.AttendenceManagement" method="getSubDepartment">
+                <result name="success">/view/Over2Cloud/leaveManagement/ajaxResSubDept.jsp</result>
+                <result name="error">/view/common_pages/error.jsp</result>
+                <result name="login">/view/common_pages/invalidSession.jsp</result>
+      </action>
+       <action name="empTypeAjax"  class="com.Over2Cloud.ctrl.leaveManagement.AttendenceManagement" method="getEmployee">
+                <result name="success">/view/Over2Cloud/leaveManagement/ajaxEmployeeType.jsp</result>
+                <result name="error">/view/common_pages/error.jsp</result>
+                <result name="login">/view/common_pages/invalidSession.jsp</result>
+      </action>
+      
+      <!--                  TIME SLOT WORK START HERE -->
+         <action name="beforeTimeSlot"  class="com.Over2Cloud.ctrl.leaveManagement.AttendenceManagement" method="beforeTimeSlot">
+                <result name="success">/view/Over2Cloud/leaveManagement/createTimeSlot.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="timeSlotAddActions"  class="com.Over2Cloud.ctrl.leaveManagement.LeaveConfiguration" method="addTimeSlotsss">
+                <result name="success">/view/success.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="beforeTimeSlotView"  class="com.Over2Cloud.ctrl.leaveManagement.AttendenceManagement" method="viewTimeSLot">
+                <result name="success">/view/Over2Cloud/leaveManagement/viewTimeSlot.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="timeslotGridDataView" method="getTimeSlotView" class="com.Over2Cloud.ctrl.leaveManagement.AttendenceManagement">
+           <result name="success" type="json">  </result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>          
+     </action>
+     
+     <action name="timeslotGridDataModify" method="modifyTimeSlot" class="com.Over2Cloud.ctrl.leaveManagement.AttendenceManagement">
+           <result name="success" type="json">  </result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>          
+     </action>
+     
+     <!--                    ATTENDANCE MARK WORK START HERE                 -->
+     <action name="beforeAttendanceMark"  class="com.Over2Cloud.ctrl.leaveManagement.AttendenceManagement" method="beforAttendanceAdd">
+                <result name="success">/view/Over2Cloud/leaveManagement/createAttendance.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+        <action name="AttendanceAddAction"  class="com.Over2Cloud.ctrl.leaveManagement.LeaveConfiguration" method="addAttendanceMark">
+                <result name="success">/view/success.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="viewreportAddAction"  class="com.Over2Cloud.ctrl.leaveManagement.AttendenceManagement" method="beforeReportGridAction">
+                <result name="success">/view/Over2Cloud/leaveManagement/attendanceReportGridview.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="viewreportAddForMyself"  class="com.Over2Cloud.ctrl.leaveManagement.AttendenceManagement" method="beforeReportGridAction">
+                <result name="success">/view/Over2Cloud/leaveManagement/attendanceReportGridForMyself.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+      <action name="FetchviewAttendancetHeader"  class="com.Over2Cloud.ctrl.leaveManagement.AttendenceManagement" method="FetchviewAttendancetHeader">
+                <result name="success">/view/Over2Cloud/leaveManagement/FetchviewAttendancetHeader.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="attendanceGridDataView1111" method="attendanceReportView" class="com.Over2Cloud.ctrl.leaveManagement.AttendenceManagement">
+           <result name="success" type="json">  </result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>          
+      </action> 
+      
+       <action name="attendanceGridDataViewMyself" method="attendanceReportView" class="com.Over2Cloud.ctrl.leaveManagement.AttendenceManagement">
+           <result name="success" type="json">  </result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>          
+      </action>  
+     
+     <action name="modifyattendanceGridData" method="modifyattendanceGridData" class="com.Over2Cloud.ctrl.leaveManagement.AttendenceManagement">
+           <result name="success" type="json">  </result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>          
+      </action>
+      
+      
+      <action name="currentColumnss" class="com.Over2Cloud.ctrl.leaveManagement.AttendenceManagement" method="getColumn4Download">
+			<result name="success">/view/Over2Cloud/leaveManagement/confirmforDownload.jsp</result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp</result>
+		</action>
+		
+        <action name="downloadActionforAttendanceview" class="com.Over2Cloud.ctrl.leaveManagement.AttendenceManagement" method="downloadExcel">
+			<result name="success" type="stream">
+			<param name="contentType">application/vnd.ms-excel</param>
+			<param name="inputName">excelStream</param>
+			<param name="contentDisposition">attachment; filename="${excelFileName}"</param>
+			<param name="bufferSize">1024</param>
+			</result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp</result>
+		</action>
+      
+      <action name="subDeptData" class="com.Over2Cloud.ctrl.leaveManagement.AttendenceManagement" method="getSubDept">
+             <result name="success" type="json"><param name="root">jsonArray</param> </result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="contactData" class="com.Over2Cloud.ctrl.leaveManagement.AttendenceManagement" method="getEmployyeeReport">
+             <result name="success" type="json"><param name="root">jsonArray</param> </result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+      
+     
+     <!--                     ATTENDANCE REPORT WORK START HERE              -->
+     <action name="beforeReportData"  class="com.Over2Cloud.ctrl.leaveManagement.AttendenceManagement" method="beforeReportAdd">
+                <result name="success">/view/Over2Cloud/leaveManagement/createAttendanceReport.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="reportAddAction"  class="com.Over2Cloud.ctrl.leaveManagement.AttendenceManagement" method="beforeReportGridAction">
+                <result name="success">/view/Over2Cloud/leaveManagement/attendanceReportGrid.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="attendanceGridDataView" method="attendanceReportView" class="com.Over2Cloud.ctrl.leaveManagement.AttendenceManagement">
+           <result name="success" type="json">  </result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>          
+      </action>   
+       <action name="reportDetailAction"  class="com.Over2Cloud.ctrl.leaveManagement.AttendenceManagement" method="beforeReportDetailAction">
+                <result name="success">/view/Over2Cloud/leaveManagement/viewAttendanceReport.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="reportDataSaveAction"  class="com.Over2Cloud.ctrl.leaveManagement.AttendenceManagement" method="addReportData">
+                <result name="success">/view/success.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>  
+       <action name="beforeAnalyticalAdd"  class="com.Over2Cloud.ctrl.leaveManagement.AttendenceManagement" method="beforeReportAdd">
+                <result name="success">/view/Over2Cloud/leaveManagement/createAttendanceAnalytical.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+      <action name="beforeSummary_Add"  class="com.Over2Cloud.ctrl.leaveManagement.AttendenceManagement" method="beforeReportAdd">
+                <result name="success">/view/Over2Cloud/leaveManagement/createAttendanceSummary.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="summaryDetailAction" class="com.Over2Cloud.ctrl.leaveManagement.AttendenceManagement" method="beforeSummaryGrid">
+                <result name="success">/view/Over2Cloud/leaveManagement/summaryView.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+      <action name="summaryViewGrid" method="summaryViewData" class="com.Over2Cloud.ctrl.leaveManagement.AttendenceManagement">
+           <result name="success" type="json"></result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>          
+     </action> 
+     
+     
+     <!--                LEAVE TYPE WORK START HERE                -->
+     <action name="beforeleaveTypeAdd"  class="com.Over2Cloud.ctrl.leaveManagement.HolidayList" method="beforeLeaveTypeMaster">
+                <result name="success">/view/Over2Cloud/leaveManagement/createLeaveType.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action> 
+     
+      <action name="leaveTypeAddAction"  class="com.Over2Cloud.ctrl.leaveManagement.HolidayList" method="addLeaveTypeMaster">
+                <result name="success">/view/success.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>   
+      <action name="beforeleaveTypeView"  class="com.Over2Cloud.ctrl.leaveManagement.HolidayList" method="beforeLeaveTypeView">
+                <result name="success">/view/Over2Cloud/leaveManagement/viewLeaveType.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action> 
+     
+      <action name="leaveTypeview" method="leaveTypeViewData" class="com.Over2Cloud.ctrl.leaveManagement.HolidayList">
+           <result name="success" type="json">  </result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>          
+     </action> 
+      
+      <action name="leaveTypeGridDataModify" method="modifyLeaveType" class="com.Over2Cloud.ctrl.leaveManagement.HolidayList">
+           <result name="success" type="json">  </result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>          
+     </action>
+      
+     
+     <!--                              Leave Configuration Part                          --> 
+       <action name="beforeConfiAdd"  class="com.Over2Cloud.ctrl.leaveManagement.LeaveConfiguration" method="beforeLeaveConfiAdd">
+                <result name="success">/view/Over2Cloud/leaveManagement/createLeaveConfiguration.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action> 
+       <action name="leaveConfiAdd"  class="com.Over2Cloud.ctrl.leaveManagement.LeaveConfiguration" method="addleaveConf">
+                <result name="success">/view/success.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>  
+     <action name="beforeConfiView"  class="com.Over2Cloud.ctrl.leaveManagement.LeaveConfiguration" method="beforeLeaveConfiView">
+                <result name="success">/view/Over2Cloud/leaveManagement/viewLeaveConfi.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action> 
+     <action name="leaveConfiGridDataView" method="viewLeaveConfi" class="com.Over2Cloud.ctrl.leaveManagement.LeaveConfiguration">
+           <result name="success" type="json">  </result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>          
+     </action>
+      <action name="leaveConfiGridDataModify" method="modifyLeaveConfi" class="com.Over2Cloud.ctrl.leaveManagement.LeaveConfiguration">
+           <result name="success" type="json">  </result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>          
+     </action>
+     
+     <!-- Attendance Configuration part **************** -->
+     
+     <action name="beforeReportConfig"  class="com.Over2Cloud.ctrl.leaveManagement.AttendenceManagement" method="beforeAttendanceConfig">
+            <result name="success">/view/Over2Cloud/leaveManagement/createAttendanceConfig.jsp</result>
+            <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="attendanceConfiguration" class="com.Over2Cloud.ctrl.leaveManagement.LeaveConfiguration" method="addAttendanceConfig">
+             <result name="success">/view/success.jsp</result>
+             <result name="error">/view/error.jsp</result>
+             <result name="login">/view/invalidSession.jsp</result>
+     </action>
+      
+      <!--  Dashboard part ************* -->
+      
+      <action name="beforeDashboard"  class="com.Over2Cloud.ctrl.leaveManagement.LeaveDashboardAction" method="getData4LeaveDashboard">
+            <result name="success">/view/leaveDashboard.jsp</result>
+            <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="showAllDetails"  class="com.Over2Cloud.ctrl.leaveManagement.LeaveDashboardAction" method="getAllDataAbsent">
+            <result name="success">/view/Over2Cloud/leaveManagement/absentDetails.jsp</result>
+            <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="viewAbsent" method="absentData" class="com.Over2Cloud.ctrl.leaveManagement.LeaveDashboardAction">
+           <result name="success" type="json">  </result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>          
+     </action>
+      <action name="beforeTotalReport"  class="com.Over2Cloud.ctrl.leaveManagement.ReportAction" method="totalReport">
+            <result name="success">/view/Over2Cloud/leaveManagement/beforeTotalReport.jsp</result>
+            <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+       <action name="subDeptReport" class="com.Over2Cloud.ctrl.leaveManagement.ReportAction" method="getSubDept">
+             <result name="success" type="json"><param name="root">jsonArray</param> </result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="employyeeReport" class="com.Over2Cloud.ctrl.leaveManagement.ReportAction" method="getEmployyeeReport">
+             <result name="success" type="json"><param name="root">jsonArray</param> </result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+       <action name="totalReportAction"  class="com.Over2Cloud.ctrl.leaveManagement.ReportAction" method="gridTotalReport">
+            <result name="success">/view/Over2Cloud/leaveManagement/viewTotalReport.jsp</result>
+            <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="reportTotalGridDataView" method="reportDataAll" class="com.Over2Cloud.ctrl.leaveManagement.ReportAction">
+           <result name="success" type="json">  </result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>          
+     </action>
+     
+      <action name="sendMailReport"  class="com.Over2Cloud.ctrl.leaveManagement.ReportAction" method="sendMailReportAction">
+            <result name="success">/view/Over2Cloud/leaveManagement/confirmationReport.jsp</result>
+            <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <!-- Automatic Report ********************** -->
+     
+    <action name="beforeAutomaticReport"  class="com.Over2Cloud.ctrl.leaveManagement.ReportAction" method="sendAutomaticReport">
+            <result name="success">/view/Over2Cloud/leaveManagement/createAttendanceConfig.jsp</result>
+            <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+    <!-- EMPLOYYEEE TYPEE !!!!!!!!!!!!!!!!!   -->
+    
+    <action name="beforeEmployeeType"  class="com.Over2Cloud.ctrl.leaveManagement.LeaveConfiguration" method="beforeEmployeeType">
+            <result name="success">/view/Over2Cloud/leaveManagement/createEmployeeType.jsp</result>
+            <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="employeeTypeAdd" class="com.Over2Cloud.ctrl.leaveManagement.LeaveConfiguration" method="addEmployeeType">
+             <result name="success">/view/success.jsp</result>
+             <result name="error">/view/error.jsp</result>
+             <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="beforeEmployeeTypeView"  class="com.Over2Cloud.ctrl.leaveManagement.LeaveConfiguration" method="viewEmployeeType">
+            <result name="success">/view/Over2Cloud/leaveManagement/viewEmpType.jsp</result>
+            <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="employeeGridDataView" method="employeeTypeView" class="com.Over2Cloud.ctrl.leaveManagement.LeaveConfiguration">
+           <result name="success" type="json">  </result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>          
+     </action>
+     
+      <action name="employeeTypeGridDataModify" method="modifyEmployeeType" class="com.Over2Cloud.ctrl.leaveManagement.LeaveConfiguration">
+           <result name="success" type="json">  </result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>          
+     </action>
+     <action name="beforedownload"  class="com.Over2Cloud.ctrl.leaveManagement.LeaveConfiguration" method="beforedownload">
+            <result name="success">/view/Over2Cloud/leaveManagement/hello.jsp</result>
+            <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="holidayFullView"  class="com.Over2Cloud.ctrl.hr.EmployeeViewActionCtrl" method="empFullView">
+        	<result name="success">/view/Over2Cloud/HROver2Cloud/EmpFullView.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+        </action>
+        
+        
+          <action name="holidayFullView"  class="com.Over2Cloud.ctrl.leaveManagement.HolidayList" method="holidayFullView">
+                <result name="success">/view/Over2Cloud/leaveManagement/viewHolidayforMyself.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+    </action>
+     <!--                              Leave Pull Report Part                          --> 
+    
+     <action name="beforeLeavePullReport"  class="com.Over2Cloud.ctrl.leaveManagement.ReportAction" method="beforeLeavePullReport">
+            <result name="success">/view/Over2Cloud/leaveManagement/viewLeavePullReport.jsp</result>
+            <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+    
+      <action name="beforeLeavePullReportHeader"  class="com.Over2Cloud.ctrl.leaveManagement.ReportAction" method="beforeLeavePullReportHeader">
+            <result name="success">/view/Over2Cloud/leaveManagement/viewLeavePullReportHeader.jsp</result>
+            <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+           <action name="viewLeavePullReport" method="viewLeavePullReport" class="com.Over2Cloud.ctrl.leaveManagement.ReportAction">
+           <result name="success" type="json">  </result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>          
+     </action>
+     
+</package>
+
+</struts>

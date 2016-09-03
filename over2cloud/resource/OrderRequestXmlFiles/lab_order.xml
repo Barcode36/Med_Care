@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+
+
+	<package name="labOrder" extends="struts-default,json-default" namespace="/view/Over2Cloud/labOrder">
+	     
+	    <!-- Lab Order work ankit 2016 -->
+    
+			<action name="viewLabOrderHeader" class="com.Over2Cloud.ctrl.lab.order.LabOrder" method="viewLabOrderHeader">
+            <result name="success" >/view/Over2Cloud/LabOrder/beforeHeadLabOrder.jsp</result>
+            <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+       		 </action>
+       		
+       	 
+ 
+       
+		<action name="viewLabOrderDetails" class="com.Over2Cloud.ctrl.lab.order.LabOrder" method="viewLabOrderDetails">
+            <result name="success" >/view/Over2Cloud/LabOrder/viewLabOrderDetails.jsp</result>
+            <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+       		 </action>	
+
+		<action name="viewLabOrderData" class="com.Over2Cloud.ctrl.lab.order.LabOrder" method="viewLabOrderData">
+            <result name="success" type="json" ></result>
+            <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+       		 </action>
+       		 
+       		 <action name="fetchCounterStatus"  class="com.Over2Cloud.ctrl.lab.order.LabOrder"  method="fetchCounterStatus">
+     		<result name="success" type="json"><param name="root">jsonArr</param></result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+	   </action>
+       		 
+       <action name="viewHistoryDetails" class="com.Over2Cloud.ctrl.lab.order.LabOrder" method="viewHistoryDetails">
+            <result name="success" >/view/Over2Cloud/LabOrder/viewLabOrderHistoryDetails.jsp</result>
+            <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+       		 </action>		 
+       	
+       	<action name="fetchFilterSpeciality"  class="com.Over2Cloud.ctrl.lab.order.LabOrder"  method="fetchFilterspeciality">
+     		<result name="success">/view/Over2Cloud/LabOrder/multiSelectSpeciality.jsp</result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+	   </action>
+   		<action name="fetchFilterDoctor"  class="com.Over2Cloud.ctrl.lab.order.LabOrder" method="fetchFilterAdmitting">
+     		<result name="success">/view/Over2Cloud/LabOrder/multiSelectDoctor.jsp</result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+	   </action>
+	    <action name="fetchFilterNurshingUnit"  class="com.Over2Cloud.ctrl.lab.order.LabOrder"  method="fetchFilterNurshingUnit">
+     		<result name="success">/view/Over2Cloud/LabOrder/multiSelectNursing.jsp</result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+	   </action>
+	    <action name="fetchFilterLocation"  class="com.Over2Cloud.ctrl.lab.order.LabOrder"  method="fetchFilterLocation">
+     		<result name="success">/view/Over2Cloud/LabOrder/multiSelectLocation.jsp</result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+	   </action> 
+	   
+	   
+	   <action name="fetchFilterLab"  class="com.Over2Cloud.ctrl.lab.order.LabOrder"  method="fetchLabName">
+     		<result name="success">/view/Over2Cloud/LabOrder/multiSelectLabName.jsp</result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+	   </action>
+	   
+	    <action name="viewHistoryEscalationDetails" class="com.Over2Cloud.ctrl.lab.order.LabOrder" method="viewHistoryEscalationDetails">
+            <result name="success" >/view/Over2Cloud/LabOrder/historyEscalation.jsp</result>
+            <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+       </action>
+	    <!-- Escalation Master Work Start Here -->
+			   <action name="getEscalationDataOnGrid"  class="com.Over2Cloud.ctrl.lab.order.ExcaltionOnLabTransfer" method="getGridData">
+		          <result name="success" type="json"></result>
+				  <result name="error">/view/error.jsp</result>
+				  <result name="login">/view/invalidSession.jsp</result>
+		     </action>
+		     
+		         <action name="beforeConfigEscalation"  class="com.Over2Cloud.ctrl.lab.order.ExcaltionOnLabTransfer" method="beforeConfigEscalation">
+          <result name="success">/view/Over2Cloud/LabOrder/labEscalationView/addLabTransferEscalation.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="addEscalation"  class="com.Over2Cloud.ctrl.lab.order.ExcaltionOnLabTransfer" method="addEscalation">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="nextEscMap4EmpL2"  class="com.Over2Cloud.ctrl.lab.order.ExcaltionOnLabTransfer" method="nextEscMap4Emp">
+          <result name="success">/view/Over2Cloud/LabOrder/labEscalationView/onChangeEscL2.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="nextEscMap4Emp"  class="com.Over2Cloud.ctrl.lab.order.ExcaltionOnLabTransfer" method="nextEscMap4Emp">
+          <result name="success">/view/Over2Cloud/LabOrder/labEscalationView/onChangeEscalation.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="getEscalation4Edit" class="com.Over2Cloud.ctrl.lab.order.ExcaltionOnLabTransfer" method="getEscalation4Edit" >
+           <result name="success">/view/Over2Cloud/LabOrder/labEscalationView/editEscalation.jsp</result>
+           <result name="error" >/view/message_draft/createError.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action> 
+   
+   <action name="getNextEscMap4Edit" class="com.Over2Cloud.ctrl.lab.order.ExcaltionOnLabTransfer" method="getNextEscMap">
+          <result name="success" type="json"><param name="root">jsonArr</param> </result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/invalidSession.jsp</result>
+   </action>
+   
+    <action name="EditEscalationAction" class="com.Over2Cloud.ctrl.lab.order.ExcaltionOnLabTransfer" method="EditEscalationAction" >
+           <result name="success">/view/success.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/invalidSession.jsp</result>
+    </action>
+     
+    <!--   <action name="nxxtLevelEscLst"  class="com.Over2Cloud.ctrl.referral.escalation.EscalationAction" method="nextEscMap4Emp">
+          <result name="success">/view/Over2Cloud/Referral/escalation/onChangeEscalation.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action> -->
+     
+     <action name="nxxtLevelEscLst"  class="com.Over2Cloud.ctrl.lab.order.ExcaltionOnLabTransfer" method="nextEscMap4Emp">
+          <result name="success">/view/Over2Cloud/LabOrder/labEscalationView/onChangeEsclationLast.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="nxxtLevelEscLst2"  class="com.Over2Cloud.ctrl.lab.order.ExcaltionOnLabTransfer" method="nextEscMap4Emp">
+          <result name="success">/view/Over2Cloud/LabOrder/labEscalationView/onChangeEsclationLastLevel.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     
+	   <!-- End of escalation Work -->
+	   
+	         
+	 </package>
+	 
+	 
+</struts>

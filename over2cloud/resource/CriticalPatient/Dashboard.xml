@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+<package name="Critical/newdashboard" extends="struts-default,json-default" namespace="/view/Over2Cloud/CriticalPatient/Dashboard_Pages">
+     <action name="beforeDashboardView"  class="com.Over2Cloud.ctrl.criticalPatient.CriticalDashboard" method="beforeDashboardAction">
+          <result name="success">/view/Over2Cloud/CriticalPatient/Dashboard_Pages/critical_dashboard.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="getCounters" class="com.Over2Cloud.ctrl.criticalPatient.CriticalDashboard" method="getCounters">
+	        <result name="success" type="json"><param name="root">jsonArray</param></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+       </action>
+         
+       <action name="dataCounterStatus"  class="com.Over2Cloud.ctrl.criticalPatient.CriticalDashboard" method="beforeDashboardAction">
+          <result name="success">/view/Over2Cloud/CriticalPatient/Dashboard_Pages/ticketStatusCounter.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="beforeFeedAction"  class="com.Over2Cloud.ctrl.criticalPatient.CriticalDashboard"   method="beforeActionOnFeedback">
+             <result name="dashsuccess">/view/Over2Cloud/CriticalPatient/Dashboard_Pages/dashboardFeedback.jsp</result>
+            <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="dashFeedbackDetail" class="com.Over2Cloud.ctrl.criticalPatient.CriticalDashboard" method="viewCriticalData">
+		<result name="success" type="json"></result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+	</action>
+	
+	
+        </package>
+</struts>

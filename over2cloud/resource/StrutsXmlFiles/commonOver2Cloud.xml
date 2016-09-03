@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+<package name="common" extends="struts-default,json-default" namespace="/view/Over2Cloud/commonModules">
+     
+     <!-- Organization work starts from here -->
+     <action name="beforeOrganization"  class="com.Over2Cloud.ctrl.organization.OrganizationAction" method="validateLevelOfOrganization">
+             <result name="success">/view/Over2Cloud/OrgnizationOver2Cloud/createOrganizationWithLevel5.jsp</result>
+             <!-- <result name="success">/testDiv.jsp</result> -->
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+      
+     
+     <action name="createOrganization"  class="com.Over2Cloud.ctrl.organization.OrganizationAction" method="createOrganizationLevel1">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     
+     <action name="organizationDetails"  class="com.Over2Cloud.ctrl.organization.OrganizationAction" method="organizationDetails">
+               <result name="success">/view/Over2Cloud/OrgnizationOver2Cloud/ajaxMainOrgDetail.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="createOrganizationLevel2"  class="com.Over2Cloud.ctrl.organization.OrganizationAction" method="createOrganizationLevel2">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="registredLevel2InDropDowns"  class="com.Over2Cloud.ctrl.organization.OrganizationAction" method="registredLevel2InDropDowns">
+               <result name="success">/view/Over2Cloud/OrgnizationOver2Cloud/registredLevel2InDropDowns.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="createOrganizationLevel3"  class="com.Over2Cloud.ctrl.organization.OrganizationAction" method="createOrganizationLevel3">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="getallLevel3Regsitration"  class="com.Over2Cloud.ctrl.organization.OrganizationAction" method="getallLevel3Regsitration">
+               <result name="success">/view/Over2Cloud/OrgnizationOver2Cloud/registredLevel3InDropDowns.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="createOrganizationLevel4"  class="com.Over2Cloud.ctrl.organization.OrganizationAction" method="createOrganizationLevel4">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="getallLevel4Regsitration"  class="com.Over2Cloud.ctrl.organization.OrganizationAction" method="getallLevel4Regsitration">
+               <result name="success">/view/Over2Cloud/OrgnizationOver2Cloud/registredLevel4InDropDowns.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="createOrganizationLevel5"  class="com.Over2Cloud.ctrl.organization.OrganizationAction" method="createOrganizationLevel5">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="getallLevel4Regsitration"  class="com.Over2Cloud.ctrl.organization.OrganizationAction" method="getallLevel4Regsitration">
+               <result name="success">/view/Over2Cloud/OrgnizationOver2Cloud/registredLevel4InDropDowns.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="beforeOrganizationView"  class="com.Over2Cloud.ctrl.organization.OrganizationAction" method="beforeOrganizationView">
+               <result name="success">/view/Over2Cloud/OrgnizationOver2Cloud/viewOrganizationLevel1.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="beforeOrganizationViewTable"  class="com.Over2Cloud.ctrl.organization.OrganizationAction" method="getOrganizationViewInTabularForm">
+               <result name="success">/view/Over2Cloud/OrgnizationOver2Cloud/viewOrganizationData.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="beforeOrganizationModifyTable"  class="com.Over2Cloud.ctrl.organization.OrganizationAction" method="getOrganizationViewInTabularForm">
+               <result name="success">/view/Over2Cloud/OrgnizationOver2Cloud/modifyOrganizationData.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="organizationModifyTable"  class="com.Over2Cloud.ctrl.organization.OrganizationAction" method="updateOrgInfoByTable">
+               <result name="success">/view/success.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="beforeOrganizationModify"  class="com.Over2Cloud.ctrl.organization.OrganizationAction" method="beforeOrganizationModify">
+               <result name="success">/view/Over2Cloud/OrgnizationOver2Cloud/viewOrganizationLevel1.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="viewLevel1Org"  class="com.Over2Cloud.ctrl.organization.OrganizationAction" method="vieworganizationOfLevel1">
+               <result name="success" type="json"></result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="showUpload" method="getUploads" class="com.Over2Cloud.ctrl.organization.OrganizationAction">
+		          <result name="success"	type="stream">
+	                 <param name="contentType">contentType</param>
+	                 <param name="inputName">inputStream</param>
+	                 <param name="bufferSize">1024</param>
+	              </result>
+			      <result name="error">/view/error.jsp</result>
+			      <result name="login">/view/invalidSession.jsp</result>
+ 	</action>
+		  
+	<action name="viewLevel2Org"  class="com.Over2Cloud.ctrl.organization.OrganizationAction" method="viewLevel2Org">
+               <result name="success" type="json"></result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="viewLevel3Org"  class="com.Over2Cloud.ctrl.organization.OrganizationAction" method="viewLevel3Org">
+               <result name="success" type="json"></result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="viewLevel4Org"  class="com.Over2Cloud.ctrl.organization.OrganizationAction" method="viewLevel4Org">
+               <result name="success" type="json"></result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="viewLevel5Org"  class="com.Over2Cloud.ctrl.organization.OrganizationAction" method="viewLevel5Org">
+               <result name="success" type="json"></result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="viewModifyLevel1Org"  class="com.Over2Cloud.ctrl.organization.OrganizationAction" method="viewModifyLevel1Org">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="viewModifyLevel2Org"  class="com.Over2Cloud.ctrl.organization.OrganizationAction" method="viewModifyLevel2Org">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="viewModifyLevel3Org"  class="com.Over2Cloud.ctrl.organization.OrganizationAction" method="viewModifyLevel3Org">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="viewModifyLevel4Org"  class="com.Over2Cloud.ctrl.organization.OrganizationAction" method="viewModifyLevel4Org">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="viewModifyLevel5Org"  class="com.Over2Cloud.ctrl.organization.OrganizationAction" method="viewModifyLevel5Org">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <!-- Organization work ENDS from here -->
+      
+      
+     <!-- Department works starts from here -->
+     <action name="beforeDepartment"  class="com.Over2Cloud.ctrl.departmen.DepartmentAction" method="beforeDeptAdd">
+             <result name="success">/view/Over2Cloud/DepartmentOver2Cloud/CreateDepartment.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="beforeDepartmentExistsSearch"  class="com.Over2Cloud.ctrl.departmen.DepartmentAction" method="checkDeptAvailability">
+             <result name="success">/view/success.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="getNextLowerLevel3ForDept"  class="com.Over2Cloud.ctrl.universal.UniversalAction" method="getNextLowerLevel3ForDept">
+             <result name="success">/view/Over2Cloud/DepartmentOver2Cloud/getNextLowerLevel3ForDept.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="getNextLowerLevel4ForDept"  class="com.Over2Cloud.ctrl.universal.UniversalAction" method="getNextLowerLevel4ForDept">
+             <result name="success">/view/Over2Cloud/DepartmentOver2Cloud/getNextLowerLevel4ForDept.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="getNextLowerLevel5ForDept"  class="com.Over2Cloud.ctrl.universal.UniversalAction" method="getNextLowerLevel5ForDept">
+             <result name="success">/view/Over2Cloud/DepartmentOver2Cloud/getNextLowerLevel5ForDept.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="createDepartment"  class="com.Over2Cloud.ctrl.departmen.DepartmentAction" method="createDepartment">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="beforeDepartmentView"  class="com.Over2Cloud.ctrl.departmen.DepartmentAction" method="beforeDepartmentView">
+             <result name="success">/view/Over2Cloud/DepartmentOver2Cloud/viewDepartment.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+      <action name="beforeDepartmentViewHeader"  class="com.Over2Cloud.ctrl.departmen.DepartmentAction" method="beforeDepartmentViewHeader">
+             <result name="success">/view/Over2Cloud/DepartmentOver2Cloud/viewDepartmentHeader.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     
+      <action name="beforeDepartmentModify"  class="com.Over2Cloud.ctrl.departmen.DepartmentAction" method="beforeDepartmentModify">
+             <result name="success">/view/Over2Cloud/DepartmentOver2Cloud/viewDepartment.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="viewDeptData"  class="com.Over2Cloud.ctrl.departmen.DeptViewAction" method="viewDeptData">
+               <result name="success" type="json"></result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="editDeptDataGrid"  class="com.Over2Cloud.ctrl.departmen.DeptViewAction" method="editDeptDataGrid">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <!-- Department works ends here -->
+     
+     <!-- Sub-depratment works starts here -->
+    <action name="beforeSubDepartment"  class="com.Over2Cloud.ctrl.universal.UniversalAction" method="beforeEmployee111">
+             <result name="success">/view/Over2Cloud/SubDepartmentOver2Cloud/CreateSubDepartment.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="beforesubdeptAdd"  class="com.Over2Cloud.ctrl.universal.UniversalAction" method="beforesubdeptAdd">
+             <result name="success">/view/Over2Cloud/SubDepartmentOver2Cloud/createSupdept.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="insertSubDeptData"  class="com.Over2Cloud.ctrl.universal.UniversalAction" method="insertSubDeptData">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     
+     <action name="getDeptData"  class="com.Over2Cloud.ctrl.departmen.DepartmentAction" method="getDeptData">
+             <result name="success">/view/Over2Cloud/SubDepartmentOver2Cloud/getDeptDataNames.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="getDeptData22"  class="com.Over2Cloud.ctrl.departmen.DepartmentAction" method="getDeptData">
+             <result name="success">/view/Over2Cloud/SubDepartmentOver2Cloud/getDeptDataNames2.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     
+     <action name="createSubDepartment"  class="com.Over2Cloud.ctrl.subdepartmen.SubDepartmentAction" method="createSubDepartment">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+       <action name="beforeSubDepartmentExistsSearch"  class="com.Over2Cloud.ctrl.subdepartmen.SubDepartmentAction" method="checkSubDeptAvailability">
+             <result name="success">/view/success.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     									<!-- GRID ACTION VIEW STARTS FOR SUB-DEPT -->
+     <action name="beforeSubDepartmentView"  class="com.Over2Cloud.ctrl.subdepartmen.SubDepartmentAction" method="beforeSubDepartmentView">
+             <result name="success">/view/Over2Cloud/SubDepartmentOver2Cloud/viewSubDept.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="beforeSubDepartmentModify"  class="com.Over2Cloud.ctrl.subdepartmen.SubDepartmentAction" method="beforeSubDepartmentModify">
+             <result name="success">/view/Over2Cloud/SubDepartmentOver2Cloud/viewSubDept.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="viewSubDeptData"  class="com.Over2Cloud.ctrl.subdepartmen.SubDepartmentAction" method="viewSubDeptData">
+               <result name="success" type="json"></result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     
+     <action name="editSubDeptDataGrid"  class="com.Over2Cloud.ctrl.subdepartmen.SubDepartmentAction" method="editSubDeptDataGrid">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     							<!-- GRID ACTION VIEW ENDS FOR SUB-DEPT -->
+     							
+     							
+     <!-- Sub Dept Works Ends Here -->
+     <!-- Designation Works Starts Here -->
+     <action name="beforeDesignation"  class="com.Over2Cloud.ctrl.designation.DesignationAction" method="beforeDesgAdd">
+             <result name="success">/view/Over2Cloud/DesigntionOver2Cloud/CreateDesignation.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="getdeptForMappedOrg"  class="com.Over2Cloud.ctrl.designation.DesignationAction" method="getMappedOfcDept">
+         <result name="success" type="json"><param name="root">commonJSONArray</param></result>
+		<result name="error">/view/common_pages/error.jsp</result>
+		<result name="login">/view/common_pages/invalidSession.jsp</result>
+     </action>
+     
+     
+     <action name="getdesgForMappedOrg"  class="com.Over2Cloud.ctrl.designation.DesignationAction" method="getMappedDesignation">
+         <result name="success" type="json"><param name="root">commonJSONArray</param></result>
+		<result name="error">/view/common_pages/error.jsp</result>
+		<result name="login">/view/common_pages/invalidSession.jsp</result>
+     </action>
+     
+     
+      <action name="createDesignation"  class="com.Over2Cloud.ctrl.designation.DesignationAction" method="createDesignation">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <!-- GRID ACTION VIEW STARTS FOR SUB-DEPT -->
+     <action name="beforeDesignationView"  class="com.Over2Cloud.ctrl.designation.DesignationAction" method="beforeDesignationView">
+             <result name="success">/view/Over2Cloud/DesigntionOver2Cloud/viewDesignation.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="beforeDesignationModify"  class="com.Over2Cloud.ctrl.designation.DesignationAction" method="beforeDesignationModify">
+             <result name="success">/view/Over2Cloud/DesigntionOver2Cloud/viewDesignation.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="viewDesignationData"  class="com.Over2Cloud.ctrl.designation.DesignationAction" method="viewDesignationData">
+               <result name="success" type="json"></result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="editDesignationDataGrid"  class="com.Over2Cloud.ctrl.designation.DesignationAction" method="editDesignationDataGrid">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     							<!-- GRID ACTION VIEW ENDS FOR SUB-DEPT -->
+     
+     <!-- Designation works ends here -->
+     
+     <!-- Employee Designation, Subdept works here for ajax starts here -->
+     <action name="getDesignation"  class="com.Over2Cloud.ctrl.hr.EmployeeActionCtrl" method="getDesignationData">
+             <result name="success">/view/Over2Cloud/HROver2Cloud/getDesignation.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="getSubDept2"  class="com.Over2Cloud.ctrl.hr.EmployeeActionCtrl" method="getSubDept2">
+             <result name="success" type="json"><param name="root">jsonArray</param> </result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+       <action name="getSubDept"  class="com.Over2Cloud.ctrl.hr.EmployeeActionCtrl" method="getSubDept">
+             <result name="success">/view/Over2Cloud/HROver2Cloud/getSubDept.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+  
+     
+     
+     <!-- Employee Designation, Subdept works here for ajax Ends here -->
+     
+     
+     <!-- Notification Works starts from here -->
+     
+     <action name="beforeViewNotification"  class="com.Over2Cloud.CommonClasses.NotificationActionCtrl" method="beforeViewNotification">
+             <result name="success">/view/Over2Cloud/CommonOver2Cloud/viewTakeActionOnNotification.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="viewPurchasedApps"  class="com.Over2Cloud.CommonClasses.NotificationActionCtrl">
+             <result name="success">/view/Over2Cloud/CommonOver2Cloud/viewPurchaseApps.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="viewGridNotification"  class="com.Over2Cloud.CommonClasses.NotificationActionCtrl" method="viewGridNotification">
+             <result name="success" type="json"></result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="beforeTakeActionOnReuqest"  class="com.Over2Cloud.CommonClasses.NotificationActionCtrl" method="beforeTakeActionOnReuqest">
+             <result name="success">/view/Over2Cloud/CommonOver2Cloud/takeActionOnNotification.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="takeActionOnReuqest"  class="com.Over2Cloud.CommonClasses.NotificationActionCtrl" method="takeActionOnReuqest">
+             <result name="success">/view/success.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="commonSelectMethod" class="com.Over2Cloud.ctrl.helpdesk.common.HelpdeskUniversalAction" method="commonSelectMethod">
+			<result name="success" type="json"><param name="root">commonJSONArray</param></result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp</result>
+     </action>
+     
+      <action name="getServiceDept" class="com.Over2Cloud.ctrl.helpdesk.common.HelpdeskUniversalAction" method="getServiceDepartment">
+			<result name="success" type="json"><param name="root">commonJSONArray</param></result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp</result>
+     </action>
+     
+     <!-- Rahul's work start here -->
+     
+      <action name="makeHistory" class="com.Over2Cloud.ctrl.hr.EmployeeActionCtrl" method="makeHistory">
+            <result name="success">/view/Over2Cloud/CommonOver2Cloud/makeHistory.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     	<action name="getEmpName"  class="com.Over2Cloud.ctrl.hr.EmployeeActionCtrl" method="getEmployeeName">
+         <result name="success" type="json"><param name="root">jsonArray</param> </result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+    </action>
+     
+     <action name="makeHistoryEmp"  class="com.Over2Cloud.ctrl.hr.EmployeeActionCtrl" method="getDeactiveEmp">
+             <result name="success">/view/success.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="beforeChangePwd" class="com.Over2Cloud.ctrl.hr.EmployeeActionCtrl" method="makeHistory">
+             <result name="success">/view/Over2Cloud/CommonOver2Cloud/changePassword.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+       <action name="beforeChangePwdFromAccount" class="com.Over2Cloud.ctrl.hr.EmployeeActionCtrl" method="beforeChangePwdFromAccount">
+             <result name="success">/view/Over2Cloud/CommonOver2Cloud/changePassword.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="changePwd" class="com.Over2Cloud.ctrl.login.LoginCtrl" method="changePwd">
+             <result name="success">/view/success.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="forgetPassword">
+             <result name="success">/view/Over2Cloud/CommonOver2Cloud/forgetPassword.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+</package>
+
+
+<package name="Over2Cloud/communication" extends="struts-default,json-default" namespace="/view/Over2Cloud/CommonOver2Cloud/Communication_Setting">
+     <action name="getCommunicationData"  class="com.Over2Cloud.ctrl.common.communication.CommunicationAction">
+            	<result name="success">/view/Over2Cloud/CommonOver2Cloud/Communication_Setting/communicationSmsMail.jsp</result>
+            	<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+       <action name="getCommunicationDataForMail"  class="com.Over2Cloud.ctrl.common.communication.CommunicationAction">
+            	<result name="success">/view/Over2Cloud/CommonOver2Cloud/Communication_Setting/communicationMail.jsp</result>
+            	<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="getCommunicationDataHeader"  class="com.Over2Cloud.ctrl.common.communication.CommunicationAction" method="beforeMailSms" >
+            	<result name="success">/view/Over2Cloud/CommonOver2Cloud/Communication_Setting/communicationSmsMailHeader.jsp</result>
+            	<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="getCommunicationDataHeaderEmail"  class="com.Over2Cloud.ctrl.common.communication.CommunicationAction" method="beforeMail" >
+            	<result name="success">/view/Over2Cloud/CommonOver2Cloud/Communication_Setting/communicationMailHeader.jsp</result>
+            	<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="viewSMSData"  class="com.Over2Cloud.ctrl.common.communication.CommunicationAction" method="viewSMSData">
+            	<result name="success" type="json"></result>
+            	<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="viewEmailData"  class="com.Over2Cloud.ctrl.common.communication.CommunicationAction" method="viewEmailData">
+            	<result name="success" type="json"></result>
+            	<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="printEmail" class="com.Over2Cloud.ctrl.common.communication.CommunicationAction" method="geEmailDetails">
+            <result name="success">/view/Over2Cloud/CommonOver2Cloud/Communication_Setting/emailPrint.jsp</result>
+            <result name="error" >/view/error.jsp</result>
+            <result name="login" >/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="updateCommunication"  class="com.Over2Cloud.ctrl.common.communication.CommunicationAction" method="updateCommunication">
+            <result name="success">/view/success.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+</package>
+
+</struts>

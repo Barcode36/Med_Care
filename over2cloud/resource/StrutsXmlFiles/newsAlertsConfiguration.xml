@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+<package name="newsConfig" extends="struts-default,json-default" namespace="/view/Over2Cloud/newsAlertsConfig">
+
+    <action name="beforeNewsAdd" class="com.Over2Cloud.ctrl.newsEvents.NewsEventsAddCtrl" method="beforeNewsEventsAdd">
+        <result name="success">/view/Over2Cloud/newsAndEvents/createNewsAndEvents.jsp</result>
+        <result name="error">/view/error.jsp</result>
+        <result name="login">/view/invalidSession.jsp</result>
+    </action>
+     <action name="addNewsAlerts" class="com.Over2Cloud.ctrl.newsEvents.NewsEventsAddCtrl" method="addAlertsAndNews">
+        <result name="success">/view/success.jsp</result>
+        <result name="error">/view/error.jsp</result>
+        <result name="login">/view/invalidSession.jsp</result>
+    </action>
+    <action name="beforeNewsAlertsView" class="com.Over2Cloud.ctrl.newsEvents.NewsAlertsViewCtrl" method="beforeNewsEventsAdd">
+        <result name="success">/view/Over2Cloud/newsAndEvents/viewNewsAlerts.jsp</result>
+        <result name="error">/view/error.jsp</result>
+        <result name="login">/view/invalidSession.jsp</result>
+    </action>
+     <action name="showAllNewsAlerts" class="com.Over2Cloud.ctrl.newsEvents.NewsAlertsViewCtrl" method="getAllNewsAlerts">
+        <result name="success" type="json"></result>
+        <result name="error">/view/error.jsp</result>
+        <result name="login">/view/invalidSession.jsp</result>
+    </action>
+    <action name="showNewsHomePage" class="com.Over2Cloud.ctrl.newsEvents.NewsAndEventsViewCtrl" method="viewAlertsHomePage">
+        <result name="success">/view/Over2Cloud/newsAndEvents/viewNewsAlertsHomePage.jsp</result>
+        <result name="error">/view/error.jsp</result>
+        <result name="login">/view/invalidSession.jsp</result>
+    </action>
+    <action name="editNewsndevents" class="com.Over2Cloud.ctrl.newsEvents.NewsAlertsViewCtrl" method="editNewsndevents">
+        <result name="success" type="json"></result>
+        <result name="error">/view/error.jsp</result>
+        <result name="login">/view/invalidSession.jsp</result>
+    </action>
+</package>
+</struts>

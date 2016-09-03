@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+
+
+<package name="longPat" extends="struts-default,json-default" namespace="/view/Over2Cloud/LongPatientStay">
+	     
+	    <!-- Long Patient Stay :Sanjay 2016 -->
+    
+			<action name="viewLongPatientStayHeader" class="com.Over2Cloud.ctrl.LongPatientStay.viewLongPatientStayActivityBoard" method="beforeViewActivityBoard">
+	            <result name="success" >/view/Over2Cloud/LongPatientStay/longPatientStayViewHeader.jsp</result>
+	            <result name="error">/view/error.jsp</result>
+	            <result name="login">/view/invalidSession.jsp</result>
+       		</action>
+       		
+			<action name="viewActivityBoardDetail" class="com.Over2Cloud.ctrl.LongPatientStay.viewLongPatientStayActivityBoard" method="viewActivityBoardDetail">
+	            <result name="success" >/view/Over2Cloud/LongPatientStay/viewlongPatientStayDetails.jsp</result>
+	            <result name="error">/view/error.jsp</result>
+	            <result name="login">/view/invalidSession.jsp</result>
+       		</action>	
+       		 
+
+		<action name="viewActivityBoardData" class="com.Over2Cloud.ctrl.LongPatientStay.viewLongPatientStayActivityBoard" method="viewActivityBoardData">
+            <result name="success" type="json" ></result>
+            <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+       		 </action>
+       		 
+       
+
+		<action name="fetchCounterStatus"  class="com.Over2Cloud.ctrl.LongPatientStay.viewLongPatientStayActivityBoard"  method="fetchCounterStatus">
+     		<result name="success" type="json"><param name="root">jsonArr</param></result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+	   </action>
+	   <action name="downloadExcelActivity" class="com.Over2Cloud.ctrl.LongPatientStay.ExcelDownload" method="longDataDownload">
+			<result name="success">/view/Over2Cloud/LongPatientStay/excelDownloadGridData.jsp</result>
+            <result name="error" >/view/error.jsp</result>
+            <result name="login" >/view/invalidSession.jsp</result>
+		</action>
+	   <action name="downloadActivity" class="com.Over2Cloud.ctrl.LongPatientStay.ExcelDownload" method="downloadlongPatentExcel">
+			<result name="success" type="stream">
+			<param name="contentType">application/vnd.ms-excel</param>
+			<param name="inputName">excelStream</param>
+			<param name="contentDisposition">attachment; filename="${excelFileName}"</param>
+			<param name="bufferSize">1024</param>
+			</result>
+		 	<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+	</action>
+	
+ 		<action name="fetchFilterSpeciality"  class="com.Over2Cloud.ctrl.LongPatientStay.viewLongPatientStayActivityBoard"  method="fetchFilterspeciality">
+     		<result name="success">/view/Over2Cloud/LongPatientStay/multiSelectSpeciality.jsp</result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+	   </action>
+   		<action name="fetchFilterDoctor"  class="com.Over2Cloud.ctrl.LongPatientStay.viewLongPatientStayActivityBoard"  method="fetchFilterAdmitting">
+     		<result name="success">/view/Over2Cloud/LongPatientStay/multiSelectDoctor.jsp</result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+	   </action>
+	    <action name="fetchFilterNurshingUnit"  class="com.Over2Cloud.ctrl.LongPatientStay.viewLongPatientStayActivityBoard"  method="fetchFilterNurshingUnit">
+     		<result name="success">/view/Over2Cloud/LongPatientStay/multiSelectNursing.jsp</result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+	   </action>
+	    <action name="fetchFilterLocation"  class="com.Over2Cloud.ctrl.LongPatientStay.viewLongPatientStayActivityBoard"  method="fetchFilterLocation">
+     		<result name="success">/view/Over2Cloud/LongPatientStay/multiSelectLocation.jsp</result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+	   </action>
+	   
+	   
+	   
+	   
+	   
+	   <action name="viewActivityBoardDetailForTicket" class="com.Over2Cloud.ctrl.LongPatientStay.longPatientStayActivityBoardForTicket" method="viewActivityBoardDetailForTicket">
+	            <result name="success" >/view/Over2Cloud/LongPatientStay/viewlongPatientStayDetailsForTicket.jsp</result>
+	            <result name="error">/view/error.jsp</result>
+	            <result name="login">/view/invalidSession.jsp</result>
+       		</action>	
+	   <action name="viewActivityBoardDataForTicket" class="com.Over2Cloud.ctrl.LongPatientStay.longPatientStayActivityBoardForTicket" method="viewActivityBoardDataForTicket">
+            <result name="success" type="json" ></result>
+            <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+       	</action>
+	   <action name="actionOnTicket" class="com.Over2Cloud.ctrl.LongPatientStay.longPatientStayActivityBoardForTicket" method="actionOnTicket">
+    	    <result name="success">/view/success.jsp</result>
+            <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+    	</action>
+	   <action name="beforeViewTicketHistory" class="com.Over2Cloud.ctrl.LongPatientStay.longPatientStayActivityBoardForTicket" method="beforeViewTicketHistory">
+            <result name="success" >/view/Over2Cloud/LongPatientStay/viewTicketHistoryDetails.jsp</result>
+            <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+       		 </action>	
+       			
+       	<action name="fetchCounterStatusForTicket"  class="com.Over2Cloud.ctrl.LongPatientStay.longPatientStayActivityBoardForTicket"  method="fetchCounterStatusForTicket">
+     		<result name="success" type="json"><param name="root">jsonArr</param></result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+	   </action>
+	    <action name="fetchFilterSpecialityTicket"  class="com.Over2Cloud.ctrl.LongPatientStay.longPatientStayActivityBoardForTicket"  method="fetchFilterspecialityTicket">
+     		<result name="success">/view/Over2Cloud/LongPatientStay/multiSelectSpecialityTicket.jsp</result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+	   </action>
+   		<action name="fetchFilterDoctorTicket"  class="com.Over2Cloud.ctrl.LongPatientStay.longPatientStayActivityBoardForTicket"  method="fetchFilterAdmittingTicket">
+     		<result name="success">/view/Over2Cloud/LongPatientStay/multiSelectDoctorTicket.jsp</result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+	   </action>
+	    <action name="fetchFilterNurshingUnitTicket"  class="com.Over2Cloud.ctrl.LongPatientStay.longPatientStayActivityBoardForTicket"  method="fetchFilterNurshingUnitTicket">
+     		<result name="success">/view/Over2Cloud/LongPatientStay/multiSelectNursingTicket.jsp</result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+	   </action>
+	   <action name="beforeTakeActionLongPatient" class="com.Over2Cloud.ctrl.LongPatientStay.longPatientStayActivityBoardForTicket" method="beforeTakeActionLongPatient">
+	            <result name="success" >/view/Over2Cloud/LongPatientStay/feedAction.jsp</result>
+	            <result name="error">/view/error.jsp</result>
+	            <result name="login">/view/invalidSession.jsp</result>
+       		</action>	
+	    <action name="fetchFilterLocationTicket"  class="com.Over2Cloud.ctrl.LongPatientStay.longPatientStayActivityBoardForTicket"  method="fetchFilterLocationTicket">
+     		<result name="success">/view/Over2Cloud/LongPatientStay/multiSelectLocationTicket.jsp</result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+	   </action>
+	   
+	   <action name="fetchEmpNameById" class="com.Over2Cloud.ctrl.LongPatientStay.longPatientStayActivityBoardForTicket"  method="fetchEmpNameById">
+    		<result name="success" type="json"><param name="root">jsonArr</param></result>
+    		<result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+    
+    </action>
+	   
+	   
+	   
+	   
+	   
+	   
+	   <!-- for ticket -->
+	   
+	   <action name="depatmentsforlist"  class="com.Over2Cloud.ctrl.LongPatientStay.FloorMapping" method="getAlldept">
+          <result name="success" type="json"><param name="root">jsonList</param></result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="BeforeConfigEscContact1"  class="com.Over2Cloud.ctrl.LongPatientStay.FloorMapping" method="fetchEmployeebydept">
+          <result name="success" type="json"><param name="root">jsonList</param></result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="getfloorwingsdetail"  class="com.Over2Cloud.ctrl.LongPatientStay.FloorMapping" method="fetchFloorWingsDetail">
+          <result name="success" type="json"><param name="root">jsonList</param></result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="getmappedemployee"  class="com.Over2Cloud.ctrl.LongPatientStay.FloorMapping" method="fetchMappedEmployee">
+          <result name="success" type="json"><param name="root">jsonList</param></result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="addShiftWithWingMapSave"  class="com.Over2Cloud.ctrl.LongPatientStay.FloorMapping" method="addShiftWithWingMapSave">
+          <result name="success">/view/success.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="deleteEmpByTrash"  class="com.Over2Cloud.ctrl.LongPatientStay.FloorMapping" method="deleteEmpByTrashMethod">
+          <result name="success">/view/success.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="deleteShift"  class="com.Over2Cloud.ctrl.LongPatientStay.FloorMapping" method="deleteShift">
+          <result name="success">/view/success.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="saveEmpWing"  class="com.Over2Cloud.ctrl.LongPatientStay.FloorMapping" method="saveEmpWing">
+          <result name="success">/view/Over2Cloud/LongPatientStay/saveEmpWingLong.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="addShiftWithWingMap"  class="com.Over2Cloud.ctrl.LongPatientStay.FloorMapping" method="addShiftWithWingMap">
+          <result name="success">/view/success.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <!-- Download Excel in Ticketing by Aarif 02-08-2016-->
+	   
+	      <action name="downloadExcelActivityTicket" class="com.Over2Cloud.ctrl.LongPatientStay.ExcelDownload" method="longDataDownloadTicket">
+			<result name="success">/view/Over2Cloud/LongPatientStay/excelDownloadConfirmForAdmissioTicket.jsp</result>
+            <result name="error" >/view/error.jsp</result>
+            <result name="login" >/view/invalidSession.jsp</result>
+		</action>
+	   <action name="downloadExcelTicket" class="com.Over2Cloud.ctrl.LongPatientStay.ExcelDownload" method="excelDownload">
+			<result name="success" type="stream">
+			<param name="contentType">application/vnd.ms-excel</param>
+			<param name="inputName">excelStream</param>
+			<param name="contentDisposition">attachment; filename="${excelFileName}"</param>
+			<param name="bufferSize">1024</param>
+			</result>
+		 	<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+	</action>
+	   
+	     <!--End Download Excel in Ticketing by Aarif 02-08-2016-->
+     
+	   
+</package>
+	 
+	 
+</struts>

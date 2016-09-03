@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+<package name="MachineOrder" extends="struts-default,json-default" namespace="/view/Over2Cloud/MachineOrder">
+
+		
+		
+		<action name="machineChartTime"  class="com.Over2Cloud.ctrl.MachineRequest.MachineRequest" method="machineChartTime" >
+     <result name="success">/view/success.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+     </action>
+	 
+	  <action name="machineCartTimeView"  class="com.Over2Cloud.ctrl.MachineRequest.MachineRequest" method="machineCartTimeView" >
+     <result name="success" type="json"><param name="root">jsonArr</param></result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+     </action>
+		
+		<!-- Create Machine Reason Master by Faisal 03-09-2015 -->
+     <action name="requestHeader"  class="com.Over2Cloud.ctrl.MachineRequest.MachineRequest" method="requestHeader" >
+            	<result name="success">/view/Over2Cloud/MachineOrderMaster/MachineRequestMaster/machineRequestHeader.jsp</result>
+            	<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="beforeMaterReasonGrid"  class="com.Over2Cloud.ctrl.MachineRequest.MachineRequest" method="beforeMaterReasonGrid">
+          <result name="success">/view/Over2Cloud/MachineOrderMaster/MachineRequestMaster/machineRequestGridView.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+      </action>
+      
+      <!-- Chandan -->
+      <action name="requestDropDown"  class="com.Over2Cloud.ctrl.MachineRequest.MachineRequest" method="requestDropDown" >
+            		<result name="success" type="json"><param name="root">jsonArr</param></result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="requestAnotherDropDown"  class="com.Over2Cloud.ctrl.MachineRequest.MachineRequest" method="requestAnotherDropDown" >
+            		<result name="success" type="json"><param name="root">jsonArr</param></result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/invalidSession.jsp</result>
+     </action>
+	 
+     <!-- Chandan -->
+      <action name="viewMachineReasonMaster"  class="com.Over2Cloud.ctrl.MachineRequest.MachineRequest" method="viewMachineReasonMaster">
+           	<result name="success" type="json"></result>
+            <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+			
+     </action>
+     
+      <action name="modifyMachineResponse"  class="com.Over2Cloud.ctrl.MachineRequest.MachineRequest" method="modifyMachineResponse">
+             <result name="success" type="json"></result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+      
+     <action name="beforecreateAdd"  class="com.Over2Cloud.ctrl.MachineRequest.MachineRequest" method="beforecreateAdd" >
+            	<result name="success">/view/Over2Cloud/MachineOrderMaster/MachineRequestMaster/machineMasterReasonAdd.jsp</result>
+            	<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      
+     <action name="addMachineMasterResponse"  class="com.Over2Cloud.ctrl.MachineRequest.MachineRequest" method="addMachineMasterResponse">
+         <result name="success">/view/success.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <!-- End -->
+		<!-- for  machine order date 12-06-2015  -->
+     
+     
+     <action name="machineMasterHeader"  class="com.Over2Cloud.ctrl.MachineOrder.MachineMaster" method="machineMasterHeader" >
+            	<result name="success">/view/Over2Cloud/MachineOrderMaster/machineHeaderView.jsp</result>
+            	<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     
+     
+     
+     <action name="beforemachineAdd"  class="com.Over2Cloud.ctrl.MachineOrder.MachineMaster" method="beforeMachineAdd" >
+            	<result name="success">/view/Over2Cloud/MachineOrderMaster/machineMasterAdd.jsp</result>
+            	<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     
+     <action name="addMachineMaster"  class="com.Over2Cloud.ctrl.MachineOrder.MachineMaster" method="addMachineMaster">
+         <result name="success">/view/success.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     
+     
+     <action name="viewMachineDataMaster"  class="com.Over2Cloud.ctrl.MachineOrder.MachineMaster" method="viewMachinedata">
+           	<result name="success" type="json"></result>
+            <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+			
+     </action>
+     
+     <action name="modifyMachine"  class="com.Over2Cloud.ctrl.MachineOrder.MachineMaster" method="modifyMachineData">
+             <result name="success" type="json"></result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+         
+     <action name="beforeMachineDataView"  class="com.Over2Cloud.ctrl.MachineOrder.MachineMaster" method="beforeMasterDataGridView">
+          <result name="success">/view/Over2Cloud/MachineOrderMaster/MachineMasterGridView.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+      </action>
+      
+     
+     
+     <!-- machine order end   -->
+<!-- for machine map with employee -->
+	<action name="depatmentsforlist"  class="com.Over2Cloud.ctrl.MachineOrder.MachineMaster" method="getAlldept">
+          <result name="success" type="json"><param name="root">jsonList</param></result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="BeforeConfigEscContact1"  class="com.Over2Cloud.ctrl.MachineOrder.MachineMaster" method="getEmployeebydept">
+          <result name="success" type="json"><param name="root">jsonList</param></result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="getMachineDetail"  class="com.Over2Cloud.ctrl.MachineOrder.MachineMaster" method="getMachineDetail">
+          <result name="success" type="json"><param name="root">jsonList</param></result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+
+<action name="getAllMachineNames"  class="com.Over2Cloud.ctrl.MachineOrder.MachineMaster" method="getAllMachineNames">
+          <result name="success" type="json"><param name="root">jsonList</param></result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+
+
+<!-- machine map with Employee end  -->
+
+<!--  machine name add -->
+
+
+	<action name="addMachineName"  class="com.Over2Cloud.ctrl.MachineOrder.MachineMaster" method="addMachineName">
+         <result name="success">/view/success.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+     </action>
+
+<!-- machine name add end  -->
+
+<!-- for manual machine order add -->
+
+		<action name="fetchPatientDetails"  class="com.Over2Cloud.ctrl.MachineOrder.DataFatchFromHIS" method="fetchAllotTo">
+        	<result name="success" type="json"><param name="root">commonJSONArray</param></result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+
+<!-- manual machine order add end  -->
+
+
+<!-- Machine order Type Work-->
+     <action name="machineOrderTypeHeader"  class="com.Over2Cloud.ctrl.MachineOrder.MachineOrderType" method="machineOrderTypeHeader" >
+            	<result name="success">/view/Over2Cloud/MachineOrderMaster/MachineOrderTypeHeader.jsp</result>
+            	<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+
+     <action name="viewDataOrderType"  class="com.Over2Cloud.ctrl.MachineOrder.MachineOrderType" method="viewDataOrderType" >
+            	<result name="success">/view/Over2Cloud/MachineOrderMaster/viewMachineOrderType.jsp</result>
+            	<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+
+
+
+<action name="fetchGridData"  class="com.Over2Cloud.ctrl.MachineOrder.MachineOrderType" method="fetchGridData" >
+            	<result name="success" type="json"></result>
+            	<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+
+
+
+
+
+ 	<action name="beforeMachineOrderTypeAdd"  class="com.Over2Cloud.ctrl.MachineOrder.MachineOrderType" method="beforeMachineOrderTypeAdd" >
+            	<result name="success">/view/Over2Cloud/MachineOrderMaster/addBeforeMachineOrderType.jsp</result>
+            	<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+    <action name="addMachineOrder"  class="com.Over2Cloud.ctrl.MachineOrder.MachineOrderType" method="addMachineOrder">
+         <result name="success">/view/success.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     
+     <action name="addMachineOrderType"  class="com.Over2Cloud.ctrl.MachineOrder.MachineOrderType" method="addMachineOrderType">
+         <result name="success">/view/success.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+<action name="getAllOrderNames"  class="com.Over2Cloud.ctrl.MachineOrder.MachineOrderType" method="getAllOrderNames">
+          <result name="success" type="json"><param name="root">jsonList</param></result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+
+	<action name="modifyMachine"  class="com.Over2Cloud.ctrl.MachineOrder.MachineOrderType" method="modifyMachineOrderData">
+             <result name="success" type="json"></result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+
+<!-- Machine order Type Work END-->
+
+<!-- get technician according machine  -->
+
+
+<action name="fetchMachingMapping"  class="com.Over2Cloud.ctrl.MachineOrder.MachineMaster" method="fetchMachingMapping">
+        	<result name="success" type="json"><param name="root">commonJSONArray</param></result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+    
+ <!-- Escalation on Product work --><!--
+  
+  	<action name="getGriddata"  class="com.Over2Cloud.ctrl.MachineOrder.EscalationOnProductOrderAction" method="viewEscDeptNew">
+          <result name="success" type="json"></result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+    
+     <action name="BeforeConfigEsc"  class="com.Over2Cloud.ctrl.MachineOrder.EscalationOnProductOrderAction" method="beforeConfigEsc">
+          <result name="success">/view/Over2Cloud/MachineOrderMaster/createEscalationOnProduct.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+    
+     <action name="addEscConfig"  class="com.Over2Cloud.ctrl.MachineOrder.EscalationOnProductOrderAction" method="addEscConfig">
+          <result name="success">/view/success.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="editEscalationDept"  class="com.Over2Cloud.ctrl.MachineOrder.EscalationOnProductOrderAction" method="editEscalationDept">
+          <result name="success" type="json"></result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+  --><!-- end Escalation on Product work -->
+  <!--resorce mapping start-->
+     <action name="addEscConfig"  class="com.Over2Cloud.ctrl.MachineOrder.EscalationConfigAction" method="addEscConfig">
+          <result name="success">/view/success.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="BeforeConfigEsc"  class="com.Over2Cloud.ctrl.MachineOrder.EscalationConfigAction" method="beforeConfigEsc">
+          <result name="success">/view/Over2Cloud/MachineOrderMaster/createEscalationOnProduct.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+      <action name="addEscContactConfig1"  class="com.Over2Cloud.ctrl.MachineOrder.EscalationConfigAction" method="addEscContactConfig">
+          <result name="success" type="json"><param name="root">jsonList</param></result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+      
+     
+     <action name="getfloorwingsdetail"  class="com.Over2Cloud.ctrl.MachineOrder.EscalationConfigAction" method="getFloorWingsDetail">
+          <result name="success" type="json"><param name="root">jsonList</param></result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="getEmployee"  class="com.Over2Cloud.ctrl.MachineOrder.EscalationConfigAction" method="getEmployee">
+          <result name="success" type="json"><param name="root">jsonList</param></result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="getmappedemployee"  class="com.Over2Cloud.ctrl.MachineOrder.EscalationConfigAction" method="getMappedEmployee">
+          <result name="success" type="json"><param name="root">jsonList</param></result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     
+      <action name="deleteEmpByTrash"  class="com.Over2Cloud.ctrl.MachineOrder.EscalationConfigAction" method="deleteEmpByTrashMethod">
+          <result name="success">/view/success.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="getDeptfloorWingDetail"  class="com.Over2Cloud.ctrl.MachineOrder.EscalationConfigAction" method="getDeptRoomFloorDetail">
+          <result name="success" type="json"><param name="root">jsonList</param></result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <!-- end -->
+     
+     <action name="getEmployee"  class="com.Over2Cloud.ctrl.MachineOrder.EscalationConfigAction" method="getEmployee">
+          <result name="success" type="json"><param name="root">jsonList</param></result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="checkEscLevel"  class="com.Over2Cloud.ctrl.MachineOrder.EscalationConfigAction" method="checkEscLevel">
+          <result name="success" type="json"><param name="root">floorMap</param></result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="addEscContactConfig"  class="com.Over2Cloud.ctrl.MachineOrder.EscalationConfigAction" method="addEscContactConfig">
+          <result name="success">/view/success.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="viewEscContct"  class="com.Over2Cloud.ctrl.MachineOrder.EscalationConfigAction" method="viewEscContct">
+          <result name="success" type="json"></result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="getGriddata"  class="com.Over2Cloud.ctrl.MachineOrder.EscalationConfigAction" method="viewEscDeptNew">
+          <result name="success" type="json"></result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+   
+     <action name="editEscContct"  class="com.Over2Cloud.ctrl.MachineOrder.EscalationConfigAction" method="editEscContct">
+          <result name="success" type="json"></result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="saveEmpWing"  class="com.Over2Cloud.ctrl.MachineOrder.EscalationConfigAction" method="saveEmpWing">
+          <result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Escalation_Conf/saveEmpWing.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="addShiftWithWingMap"  class="com.Over2Cloud.ctrl.MachineOrder.MapShiftWIthWings" method="addShiftWithWingMap">
+          <result name="success">/view/success.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+        <action name="addShiftWithWingMapSave"  class="com.Over2Cloud.ctrl.MachineOrder.MapShiftWIthWings" method="addShiftWithWingMapSave">
+          <result name="success">/view/success.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+       <action name="viewShift"  class="com.Over2Cloud.ctrl.MachineOrder.EscalationConfigAction" method="viewShift">
+          <result name="success" type="json"><param name="root">jsonList</param></result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="editEscalationDept"  class="com.Over2Cloud.ctrl.MachineOrder.EscalationConfigAction" method="editEscalationDept">
+          <result name="success" type="json"></result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+      <action name="deleteShift"  class="com.Over2Cloud.ctrl.MachineOrder.EscalationConfigAction" method="deleteShift">
+          <result name="success">/view/success.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+      <action name="editShiftTime"  class="com.Over2Cloud.ctrl.MachineOrder.EscalationConfigAction" method="editShiftTime">
+          <result name="success">/view/success.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+      <action name="getSkillDetails"  class="com.Over2Cloud.ctrl.MachineOrder.EscalationConfigAction" method="getSkillDetails">
+          <result name="success" type="json"><param name="root">jsonList</param></result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <!--
+     
+     resource mapping end
+ -->
+ 
+ <!-- auto cart allot settings -->
+ 
+   <action name="autoCartHeader"  class="com.Over2Cloud.ctrl.MachineOrder.MachineOrderType" method="autoCartHeader" >
+            	<result name="success">/view/Over2Cloud/MachineOrderMaster/autoCartAlotSettHeader.jsp</result>
+            	<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="autoCartSet"  class="com.Over2Cloud.ctrl.MachineOrder.MachineOrderType" method="autoCartSet" >
+            	<result name="success">/view/Over2Cloud/MachineOrderMaster/autoCartSet.jsp</result>
+            	<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     
+     
+     
+     <action name="addAutoCartSet"  class="com.Over2Cloud.ctrl.MachineOrder.MachineOrderType" method="addAutoCartSet">
+          <result name="success">/view/success.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+ 
+ 
+ 
+ <action name="viewDataForCartset"  class="com.Over2Cloud.ctrl.MachineOrder.MachineOrderType" method="viewCartSetData" >
+            	<result name="success">/view/Over2Cloud/MachineOrderMaster/viewMachineCartSettings.jsp</result>
+            	<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+
+
+
+		<action name="fetchGridDataforCartSet"  class="com.Over2Cloud.ctrl.MachineOrder.MachineOrderType" method="fetchGridDataforCartSet" >
+            	<result name="success" type="json"></result>
+            	<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="modifyMachineCartSet"  class="com.Over2Cloud.ctrl.MachineOrder.MachineMaster" method="modifyMachineCartSet">
+             <result name="success" type="json"></result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+ <!-- end auto cart setting -->
+ 
+
+ 
+
+     
+      <action name="beforecreateAdd"  class="com.Over2Cloud.ctrl.MachineRequest.MachineRequest" method="beforecreateAdd" >
+            	<result name="success">/view/Over2Cloud/MachineOrderMaster/MachineRequestMaster/machineMasterReasonAdd.jsp</result>
+            	<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+ <!-- end high Cost med -->
+ 
+ 
+ </package>
+</struts>

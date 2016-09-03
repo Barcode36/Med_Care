@@ -1,0 +1,713 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+
+  <package name="helpDesk/compliance" extends="struts-default,json-default" namespace="/view/Over2Cloud/Compliance/compliance_pages">
+
+     <action name="createConfigurationComplView" class="com.Over2Cloud.common.compliance.ComplianceUniversalAction" method="firstActionMethod" >
+           <result name="success">/view/Over2Cloud/Compliance/compliance_pages/configureCompliance.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+    <action name="configureCompl" class="com.Over2Cloud.ctrl.compliance.ConfigureComplianceAction" method="configureCompliance" >
+           <result name="success">/view/success.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+<!-- monthly upcomming dues -->
+	<action name="currentDayDues" class="com.Over2Cloud.ctrl.compliance.UpCommingComplianceAction" method="beforeUpCommingDues">
+           <result name="success">/view/Over2Cloud/Compliance/compliance_pages/upCommingDues.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+    <action name="getUpCommingCompliances" class="com.Over2Cloud.ctrl.compliance.UpCommingComplianceAction" method="getUpCommingDues">
+        <result name="success" type="json"></result>
+        <result name="error">/view/error.jsp</result>
+	    <result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+<!-- before take action on current day's compliance -->
+    <action name="beforeTakeAction" class="com.Over2Cloud.ctrl.compliance.UpCommingComplianceAction" method="beforeTakeActionOnCompliance">
+           <result name="success">/view/Over2Cloud/Compliance/compliance_pages/beforeTakeActionOnCompliance.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+    <action name="takeActionOnCompl" class="com.Over2Cloud.ctrl.compliance.UpCommingComplianceAction" method="takeActionOnCompliance">
+           <result name="success">/view/success.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/invalidSession.jsp</result>
+    </action>
+<!-- monthly upcomming dues -->
+<!--currentWeekDues-->
+	<action name="currentWeekDues" class="com.Over2Cloud.ctrl.compliance.UpCommingComplianceAction" method="beforeUpCommingDues">
+           <result name="success">/view/Over2Cloud/Compliance/compliance_pages/upCommingDues.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/invalidSession.jsp</result>
+    </action>
+<!--currentWeekDues-->
+
+<!--currentMonthDues-->
+<action name="currentMonthDues" class="com.Over2Cloud.ctrl.compliance.UpCommingComplianceAction" method="beforeUpCommingDues">
+           <result name="success">/view/Over2Cloud/Compliance/compliance_pages/upCommingDues.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/invalidSession.jsp</result>
+    </action>
+<!--currentMonthDues-->
+
+<!-- Helper actions for department subdepartment and employees -->
+	  <action name="subDeptViaAjax"  class="com.Over2Cloud.ctrl.compliance.ComplianceUniversalAction" method="getSubDepartment">
+                <result name="success">/view/Over2Cloud/SubDepartmentOver2Cloud/ajaxResSubDept.jsp</result>
+                <result name="error">/view/common_pages/error.jsp</result>
+                <result name="login">/view/common_pages/invalidSession.jsp</result>
+      </action>
+
+ 	  <action name="EmpData"  class="com.Over2Cloud.ctrl.compliance.ComplianceUniversalAction" method="getEmpDetail">
+               <result name="success">/view/Over2Cloud/Compliance/compliance_helper_pages/ajaxResEmpData.jsp</result>
+               <result name="error">/view/common_pages/error.jsp</result>
+               <result name="login">/view/common_pages/invalidSession.jsp</result>
+     </action>
+<!--Action closed for department hierarchy  -->
+
+	<action name="findComplType"  class="com.Over2Cloud.ctrl.compliance.ComplianceUniversalAction" method="getComplTypeViaRemote">
+        <result name="success" type="json"></result>
+        <result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+    
+     <action name="complDeptView" class="com.Over2Cloud.ctrl.compliance.UpCommingComplianceAction" method="beforeDeptWiseView">
+           <result name="success">/view/Over2Cloud/Compliance/compliance_pages/complDeptWiseView.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+     <action name="getDeptCompl"  class="com.Over2Cloud.ctrl.compliance.UpCommingComplianceAction" method="showDeptWiseCompl">
+    	<result name="success" type="json"></result>
+        <result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+    <action name="getEmployee"  class="com.Over2Cloud.common.compliance.ComplianceUniversalAction" method="getComplContacts">
+    	<result name="success" type="json"></result>
+        <result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+    <action name="getTotalDays"  class="com.Over2Cloud.common.compliance.ComplianceUniversalAction" method="getTotalDay">
+    	<result name="success" type="json"><param name="root">countDays</param></result>
+        <result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+    <action name="getReminder"  class="com.Over2Cloud.common.compliance.ComplianceUniversalAction" method="getReminder">
+    	<result name="success" type="json"><param name="root">remndDate</param></result>
+        <result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+    </action>
+ 
+ <!--mgmtDashboardData  -->
+ 
+   <action name="complDashboard" class="com.Over2Cloud.ctrl.compliance.ComplianceDashboardAction" method="getComplDashBoardDetail">
+          <result name="success">/view/Over2Cloud/Compliance/compliance_pages/complHODDashboard.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+    <action name="userComplDashboard" class="com.Over2Cloud.ctrl.compliance.ComplianceDashboardAction" method="getUserComplDashBoardDetail">
+          <result name="success">/view/Over2Cloud/Compliance/compliance_pages/userComplDashboard.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+    </action>
+ 
+ 
+  <action name="mgmtComplDashboard" class="com.Over2Cloud.ctrl.compliance.ComplianceDashboardAction" method="getMgmtComplDashBoardDetail">
+          <!--<result name="success">/view/Over2Cloud/Compliance/compliance_pages/mgmtComplDashboard.jsp</result>
+		  -->
+		  <result name="success">/view/Over2Cloud/Compliance/compliance_pages/ComplianceDashboard.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+    </action>
+ 
+  <action name="mgmtDashboardData" class="com.Over2Cloud.ctrl.compliance.ComplianceDashboardAction" method="getDataForComplGrid">
+    	<result name="success">/view/Over2Cloud/Compliance/compliance_pages/complDashboardData.jsp</result>
+        <result name="error" >/view/common_pages/error.jsp</result>
+		<result name="login" >/view/common_pages/invalidSession.jsp</result>
+  </action>
+    
+    <action name="userDashboardData" class="com.Over2Cloud.ctrl.compliance.ComplianceDashboardAction" method="getUserDataForComplGrid">
+    	<result name="success">/view/Over2Cloud/Compliance/compliance_pages/userDashBoardData.jsp</result>
+        <result name="error" >/view/common_pages/error.jsp</result>
+		<result name="login" >/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+    <action name="getUpCommingUserCompliancesOnDash"  class="com.Over2Cloud.ctrl.compliance.ComplianceDashboardView" method="getUpCommingUserCompliancesOnDash">
+    	<result name="success" type="json"></result>
+        <result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+    </action> 
+    
+    <action name="getUpCommingCompliancesOnDash"  class="com.Over2Cloud.ctrl.compliance.ComplianceDashboardView" method="complianceDashboardDataInGrid">
+    	<result name="success" type="json"></result>
+        <result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+    <action name="normalUserComplDashboard"  class="com.Over2Cloud.ctrl.compliance.ComplianceDashboardAction" method="getAgeingComplDashBoardDetail">
+    	 <result name="success">/view/Over2Cloud/Compliance/compliance_pages/ageingComplDashboard.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+    <!-- Added by Kamlesh -->
+    
+    <action name="PieChartForCompDash" class="com.Over2Cloud.ctrl.compliance.ComplianceDashboardAction" method="getPieChartForComplDash">
+		  <result name="success">/view/Over2Cloud/Compliance/dashboardv2/AllPieChart.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+     <action name="DoughnutChartForCompDash" class="com.Over2Cloud.ctrl.compliance.ComplianceDashboardAction" method="getDoughnutChartForComplDash">
+		  <result name="success">/view/Over2Cloud/Compliance/dashboardv2/AllDoughnut.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+    </action>
+     
+      <action name="jsonChartDataStatus"  class="com.Over2Cloud.ctrl.compliance.ComplianceDashboardAction" method="getJsonData4TaskStatus">
+        <result name="success" type="json"><param name="root">jsonArray</param></result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+     <action name="beforeCounterData"  class="com.Over2Cloud.ctrl.compliance.ComplianceDashboardAction" method="dataCounteForDash">
+        <result name="success" >/view/Over2Cloud/Compliance/compliance_pages/maximizeTableData.jsp</result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+     
+     <action name="jsonChartDatafrequency"  class="com.Over2Cloud.ctrl.compliance.ComplianceDashboardAction" method="getJsonData4Frequncy">
+        <result name="success" type="json"><param name="root">jsonArray</param></result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+     <action name="jsonChartDataAgieng"  class="com.Over2Cloud.ctrl.compliance.ComplianceDashboardAction" method="getJsonData4Agieng">
+        <result name="success" type="json"><param name="root">jsonArray</param></result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+    </action>
+      <action name="jsonChartDataTodaysRem"  class="com.Over2Cloud.ctrl.compliance.ComplianceDashboardAction" method="getJsonData4TodayPending">
+        <result name="success" type="json"><param name="root">jsonArray</param></result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+    </action>
+     <action name="jsonChartDataPrevMonthCompl"  class="com.Over2Cloud.ctrl.compliance.ComplianceDashboardAction" method="getJsonData4StatusBeforeMonth">
+        <result name="success" type="json"><param name="root">jsonArray</param></result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+    
+    <!-- Added by Kamlesh -->
+    
+<!--Take Action FROM Mail-->    
+    
+   <action name="beforeTakeActionFromMail" class="com.Over2Cloud.ctrl.compliance.UpCommingComplianceAction" method="beforeTakeActionByMail">
+           <result name="success">/view/Over2Cloud/Compliance/compliance_pages/beforeTakeActionOnComplianceByMail.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+   </action>  
+    
+   <action name="takeActionOnComplByMail" class="com.Over2Cloud.ctrl.compliance.UpCommingComplianceAction" method="takeActionOnComplianceByMail">
+           <result name="success">/view/success.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/invalidSession.jsp</result>
+   </action>
+   
+    <action name="getNextEscMap" class="com.Over2Cloud.common.compliance.ComplianceUniversalAction" method="getNextEscMap">
+         <result name="success" >/view/Over2Cloud/Compliance/changeJsp/onChangeEsclation.jsp</result>
+          <result name="lsuccess" >/view/Over2Cloud/Compliance/changeJsp/onChangeLEmployee.jsp</result>
+            <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/invalidSession.jsp</result>
+   </action>
+   
+   <action name="uploadDocument" class="com.Over2Cloud.ctrl.compliance.ConfigureComplianceAction" method="uploadDocument">
+           <result name="success">/view/success.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/invalidSession.jsp</result>
+   </action>  
+  
+     <action name="complTransferAction" class="com.Over2Cloud.ctrl.compliance.ComplianceTransferAction" method="beforeAllotedCompView" >
+           <result name="success">/view/Over2Cloud/Compliance/compliance_pages/ViewAllotedComp.jsp</result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+     <action name="getEmpData" class="com.Over2Cloud.ctrl.compliance.ComplianceTransferAction" method="getCompAllotedEmp" >
+           <result name="success" type="json"><param name="root">jsonArray</param> </result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+   
+   <action name="getAllotedComp" class="com.Over2Cloud.ctrl.compliance.ComplianceTransferAction" method="getAllotedCompl">
+           <result name="success" type="json"></result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/invalidSession.jsp</result>
+   </action>  
+   
+   <action name="getDept" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceContactsAction" method="beforeContactAdd" >
+           <result name="success">/view/Over2Cloud/Compliance/compliance_pages/TransferCompDetail.jsp</result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+   
+   <action name="updateReminderToPort" class="com.Over2Cloud.ctrl.compliance.ComplianceTransferAction" method="updateReminderToPort" >
+           <result name="success">/view/success.jsp</result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+   
+   <action name="lastMonthCompDetail" class="com.Over2Cloud.ctrl.compliance.ComplianceReportAction" method="beforeViewCompReportData" >
+           <result name="success">/view/Over2Cloud/Compliance/compliance_pages/ViewLastMonthCompData.jsp</result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+   
+   <action name="LastMonthCompAction" class="com.Over2Cloud.ctrl.compliance.ComplianceReportAction" method="ViewLastMonthCompData" >
+           <result name="success" type="json"></result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+   
+   <action name="beforeComplianceReport" class="com.Over2Cloud.ctrl.compliance.ComplianceReportAction" method="beforeGetCompReportData" >
+           <result name="success">/view/Over2Cloud/Compliance/compliance_pages/CreateCompReportData.jsp</result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+   
+   <action name="getOnloadDataAction" class="com.Over2Cloud.ctrl.compliance.ComplianceReportAction" method="beforeViewCompReportData" >
+           <result name="success">/view/Over2Cloud/Compliance/compliance_pages/ViewCompReportData.jsp</result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+   
+     <action name="getOnloadData" class="com.Over2Cloud.ctrl.compliance.ComplianceReportAction" method="beforeViewCompReportData" >
+           <result name="success">/view/Over2Cloud/Compliance/compliance_pages/reportData.jsp</result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+   
+   <action name="getSearchData" class="com.Over2Cloud.ctrl.compliance.ComplianceReportAction" method="searchViewCompReportData" >
+           <result name="success">/view/Over2Cloud/Compliance/compliance_pages/reportData.jsp</result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+   
+   <action name="complReportDataAction" class="com.Over2Cloud.ctrl.compliance.ComplianceReportAction" method="beforeViewCompReportData" >
+           <result name="success">/view/Over2Cloud/Compliance/compliance_pages/ViewCompReportData.jsp</result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+   
+   <action name="viewCompReport" class="com.Over2Cloud.ctrl.compliance.ComplianceReportAction" method="ViewCompReportData" >
+           <result name="success" type="json"></result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+   
+   <action name="docDownloadAction" class="com.Over2Cloud.ctrl.compliance.ComplianceReportAction" method="getDocDownload" >
+           <result name="success">/view/Over2Cloud/Compliance/compliance_pages/ConfirmDocDownload.jsp</result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+   
+   
+   <action name="confirmDownload" class="com.Over2Cloud.ctrl.compliance.ComplianceReportAction" method="docDownload" >
+           <result name="success" type="stream">
+             <param name="contentType">application/octet-stream</param>
+             <param name="inputName">fileInputStream</param>
+             <param name="contentDisposition">attachment;filename=%{fileName}</param>
+             <param name="bufferSize">4096</param>  </result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+
+	<action name="sendReportMailConfirmAction" class="com.Over2Cloud.ctrl.compliance.ComplianceReportAction" method="getCurrentColumn" >
+           <result name="success">/view/Over2Cloud/Compliance/compliance_pages/ConfirmForReportDownload.jsp</result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+  
+  <action name="reportDownloadAction" class="com.Over2Cloud.ctrl.compliance.ComplianceReportAction" method="downloadExcel">
+			<result name="success" type="stream">
+			<param name="contentType">application/vnd.ms-excel</param>
+			<param name="inputName">excelStream</param>
+			<param name="contentDisposition">attachment; filename="${excelFileName}"</param>
+			<param name="bufferSize">1024</param>
+			</result>
+			<result name="SENDMAILSUCCESS">/view/success.jsp</result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp
+			</result>
+	</action>
+    <!--<action name="beforeMyComplView" class="com.Over2Cloud.ctrl.compliance.ConfigureComplianceAction" method="beforeViewMyCompliance" >
+           <result name="success">/view/Over2Cloud/Compliance/compliance_pages/myComplView.jsp</result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+   
+   <action name="viewAllMyComplInGrid" class="com.Over2Cloud.ctrl.compliance.ConfigureComplianceAction" method="ViewAllMyComp" >
+           <result name="success" type="json"></result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+     
+  -->
+  <action name="printCompInfo" class="com.Over2Cloud.ctrl.compliance.ComplianceDashboardAction" method="getCompDetail4Print" >
+           <result name="success">/view/Over2Cloud/Compliance/compliance_pages/PrintComp.jsp</result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+   
+   <action name="sendMailConfirmAction" class="com.Over2Cloud.ctrl.compliance.ComplianceDashboardAction" method="getCurrentColumn" >
+           <result name="success">/view/Over2Cloud/Compliance/compliance_pages/ConfirmForDownload.jsp</result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+   <action name="beforeSendMail" class="com.Over2Cloud.ctrl.compliance.ComplianceDashboardAction" method="getBeforeMailData" >
+           <result name="success">/view/Over2Cloud/Compliance/compliance_pages/beforeSendMail.jsp</result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+  <action name="getEmployeeData"  class="com.Over2Cloud.ctrl.compliance.ComplianceDashboardAction" method="getEmployeeDataList" >
+               <result name="success">/view/Over2Cloud/Compliance/changeJsp/onChangeEmployee.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+   </action>
+  <action name="downloadAction" class="com.Over2Cloud.ctrl.compliance.ComplianceDashboardAction" method="downloadExcel">
+			<result name="success" type="stream">
+			<param name="contentType">application/vnd.ms-excel</param>
+			<param name="inputName">excelStream</param>
+			<param name="contentDisposition">attachment; filename="${excelFileName}"</param>
+			<param name="bufferSize">1024</param>
+			</result>
+			<result name="SENDMAILSUCCESS">/view/success.jsp</result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp
+			</result>
+	</action>
+	
+	<action name="beforeComplExcelupload" class="com.Over2Cloud.common.compliance.ComplianceUniversalAction" method="firstActionMethod">
+           <result name="success">/view/Over2Cloud/Compliance/compliance_pages/CreateCompExcelUpload.jsp</result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+   
+   <action name="downloadFormat" class="com.Over2Cloud.ctrl.compliance.CompExcelUploadAction" method="downloadFormat">
+           <result name="success" type="stream">
+			<param name="contentType">application/vnd.ms-excel</param>
+			<param name="inputName">excelStream</param>
+			<param name="contentDisposition">attachment; filename="${excelFileName}"</param>
+			<param name="bufferSize">1024</param>
+			</result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp
+			</result>
+   </action>
+  
+   <action name="uploadComliance" class="com.Over2Cloud.ctrl.compliance.CompExcelUploadAction" method="readExcelData">
+			<result name="success">/view/success.jsp</result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+
+   <action name="viewUploadExcelGridData" class="com.Over2Cloud.ctrl.compliance.CompExcelUploadAction" method="viewConfirmationData">
+			<result name="success" type="json"></result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+  
+   <action name="saveExcelData" class="com.Over2Cloud.ctrl.compliance.CompExcelUploadAction" method="saveSelectData111">
+			<result name="success">/view/success.jsp</result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+   
+   <action name="getNewUploadData" class="com.Over2Cloud.common.compliance.ComplianceUniversalAction" method="newExcelData">
+			 <result name="success" type="json"><param name="root">jsonArr</param> </result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+  
+  <action name="getTaskDetail" class="com.Over2Cloud.common.compliance.ComplianceUniversalAction" method="getTaskDetail">
+			<result name="success" type="json">
+				<param name="root">taskDetailMap</param>
+			</result>
+			<result name="login">/view/invalidSession.jsp</result>
+			<result name="error">/view/error.jsp</result>
+  </action>
+  
+  <action name="configCompExcelData" class="com.Over2Cloud.ctrl.compliance.ConfigureComplianceAction" method="configCompExcelData" >
+           <result name="success">/view/success.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/invalidSession.jsp</result>
+  </action>
+  
+  <action name="logedUserComplDashboard" class="com.Over2Cloud.ctrl.compliance.ComplianceDashboardAction" method="beforeViewUserCompl" >
+        <result name="success">/view/Over2Cloud/Compliance/compliance_pages/userDashBoardData.jsp</result>
+        <result name="error" >/view/common_pages/error.jsp</result>
+		<result name="login" >/view/common_pages/invalidSession.jsp</result>
+  </action>
+  
+  <action name="getTaskNameAction" class="com.Over2Cloud.common.compliance.ComplianceUniversalAction" method="getTaskNameDetails" >
+      		 <result name="success" type="json"><param name="root">jsonArr</param> </result>
+          	 <result name="error">/view/common_pages/error.jsp</result>
+          	 <result name="login">/view/common_pages/invalidSession.jsp</result>
+  </action>
+  
+  <!-- edited by kamlesh on 1-10-2014 -->
+  <action name="getDashboardData" class="com.Over2Cloud.ctrl.compliance.ComplianceDashboardAction" method="getMaximizeBlockData" >
+        <result name="VIEWGRAPHSUCCESS">/view/Over2Cloud/Compliance/compliance_pages/maximizeGraphData.jsp</result>
+        <result name="VIEWTABLESUCCESS">/view/Over2Cloud/Compliance/compliance_pages/maximizeTableData.jsp</result>
+        <result name="VIEW1STDASHGRAPH" >/view/Over2Cloud/Compliance/dashboardv2/maximizeGraphFor1stDash.jsp</result>
+        <result name="VIEWDONUTGRAPHSUCCESS" >/view/Over2Cloud/Compliance/dashboardv2/MaximizedDougnutComplDash.jsp</result>
+        <result name="VIEW2NDDASHGRAPH" >/view/Over2Cloud/Compliance/dashboardv2/maximizeGraphFor2ndDash.jsp</result>
+        <result name="VIEW3RDDASHGRAPH" >/view/Over2Cloud/Compliance/dashboardv2/maximizeGraphFor3rdDash.jsp</result>
+        <result name="VIEW4RTHDASHGRAPH" >/view/Over2Cloud/Compliance/dashboardv2/maximizeGraphFor4thDash.jsp</result>
+        <result name="VIEW7THDASHGRAPH" >/view/Over2Cloud/Compliance/dashboardv2/maximizeGraphFor7thDash.jsp</result>
+        <result name="error" >/view/common_pages/error.jsp</result>
+		<result name="login" >/view/common_pages/invalidSession.jsp</result>
+  </action>
+  <!-- edited by kamlesh on 1-10-2014 Ends Here-->
+  
+  <action name="BeforeCompTemplateView" class="com.Over2Cloud.ctrl.compliance.ComplianceTemplateAction" method="beforeCompTemplateView" >
+        <result name="success">/view/Over2Cloud/Compliance/compliance_pages/ViewComplTemplate.jsp</result>
+        <result name="error" >/view/common_pages/error.jsp</result>
+		<result name="login" >/view/common_pages/invalidSession.jsp</result>
+  </action>
+  
+  <action name="viewCompTemplate" class="com.Over2Cloud.ctrl.compliance.ComplianceTemplateAction" method="viewCompTemplate" >
+        <result name="success" type="json"></result>
+        <result name="error" >/view/common_pages/error.jsp</result>
+		<result name="login" >/view/common_pages/invalidSession.jsp</result>
+  </action>
+  
+  <action name="modifyCompTemplate" class="com.Over2Cloud.ctrl.compliance.ComplianceTemplateAction" method="modifyCompTemplate" >
+        <result name="success" type="json"></result>
+        <result name="error" >/view/common_pages/error.jsp</result>
+		<result name="login" >/view/common_pages/invalidSession.jsp</result>
+  </action>
+  
+  <action name="beforeCompTemplateAdd" class="com.Over2Cloud.ctrl.compliance.ComplianceTemplateAction" method="beforeComplTemplateAdd" >
+           <result name="success">/view/Over2Cloud/Compliance/compliance_pages/CreateComplTemplate.jsp</result>
+           <result name="error" >/view/message_draft/createError.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+  </action>
+  
+  <action name="ComplTemplateAction" class="com.Over2Cloud.ctrl.compliance.ComplianceTemplateAction" method="addComplTemplate" >
+           <result name="success">/view/success.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/invalidSession.jsp</result>
+  </action>
+  
+  <action name="getRemindDate" class="com.Over2Cloud.common.compliance.ComplianceUniversalAction" method="getReminder" >
+           <result name="success" type="json"><param name="root">remndDate</param></result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/invalidSession.jsp</result>
+  </action>
+  
+  <action name="BeforeTaskHistory" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceEditGridAction" method="beforeTaskHistoryAdd" >
+           <result name="success">/view/Over2Cloud/Compliance/compliance_pages/beforeTaskHistory.jsp</result>
+           <result name="error" >/view/message_draft/createError.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+  </action>
+  
+  <action name="complTaskHistoryAction" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceEditGridAction" method="taskHistoryGrid" >
+           <result name="success">/view/Over2Cloud/Compliance/compliance_pages/taskHistoryGridData.jsp</result>
+           <result name="error" >/view/message_draft/createError.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+  </action>
+  
+   <action name="viewCompHistoryReport" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceEditGridAction" method="viewHistoryOfTask" >
+	        <result name="success" type="json"></result>
+	        <result name="error" >/view/common_pages/error.jsp</result>
+			<result name="login" >/view/common_pages/invalidSession.jsp</result>
+  </action>
+  
+    <action name="beforeEmployeeProductivity" class="com.Over2Cloud.ctrl.compliance.ComplianceEmployeeProductivity" method="beforeEmpProduct" >
+           <result name="success">/view/Over2Cloud/Compliance/compliance_pages/beforeEmployeeProductivity.jsp</result>
+           <result name="error" >/view/message_draft/createError.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+  </action>
+  
+  <action name="employeeProductivityCounter" class="com.Over2Cloud.ctrl.compliance.ComplianceEmployeeProductivity" method="employeeProductivityCounter" >
+           <result name="success">/view/Over2Cloud/Compliance/compliance_pages/employeeProductivityCounter.jsp</result>
+           <result name="error" >/view/message_draft/createError.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+  </action>
+  
+   <action name="productivityGridCol" class="com.Over2Cloud.ctrl.compliance.ComplianceEmployeeProductivity" method="productivityGridCol" >
+           <result name="success">/view/Over2Cloud/Compliance/compliance_pages/productivityGridCol.jsp</result>
+           <result name="error" >/view/message_draft/createError.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+  </action>
+  
+  <action name="getProductivityGridData" class="com.Over2Cloud.ctrl.compliance.ComplianceEmployeeProductivity" method="getProductivityGridData" >
+	        <result name="success" type="json"></result>
+	        <result name="error" >/view/common_pages/error.jsp</result>
+			<result name="login" >/view/common_pages/invalidSession.jsp</result>
+  </action>
+   <action name="productivityGraph1111" class="com.Over2Cloud.ctrl.compliance.ComplianceEmployeeProductivity" method="productivityGraphDataAction" >
+           <result name="success">/view/Over2Cloud/Compliance/compliance_pages/productivityGraph.jsp</result>
+           <result name="error" >/view/message_draft/createError.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+  </action>
+  
+   <action name="beforeEscalationData" class="com.Over2Cloud.ctrl.compliance.ComplianceEmployeeProductivity" method="beforeEscalationData" >
+           <result name="success">/view/Over2Cloud/Compliance/compliance_pages/escalationDataLevel.jsp</result>
+           <result name="error" >/view/message_draft/createError.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+  </action>
+  
+   <action name="escalationAction" class="com.Over2Cloud.ctrl.compliance.ComplianceEmployeeProductivity" method="escalationActionData" >
+	        <result name="success" type="json"></result>
+	        <result name="error" >/view/common_pages/error.jsp</result>
+			<result name="login" >/view/common_pages/invalidSession.jsp</result>
+   </action>
+   <action name="beforeReminder" class="com.Over2Cloud.ctrl.compliance.ComplianceEmployeeProductivity" method="beforeReminder" >
+           <result name="success">/view/Over2Cloud/Compliance/compliance_pages/reminderDataLevel.jsp</result>
+           <result name="error" >/view/message_draft/createError.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+  
+   <action name="reminderAction" class="com.Over2Cloud.ctrl.compliance.ComplianceEmployeeProductivity" method="reminderActionData" >
+	        <result name="success" type="json"></result>
+	        <result name="error" >/view/common_pages/error.jsp</result>
+			<result name="login" >/view/common_pages/invalidSession.jsp</result>
+   </action>
+  
+   <action name="getCompliance4EditByEdit" class="com.Over2Cloud.ctrl.compliance.ComplianceEditAction" method="getCompliance4EditByEdit" >
+           <result name="success">/view/Over2Cloud/Compliance/compliance_pages/EditCompliance.jsp</result>
+           <result name="error" >/view/message_draft/createError.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>  
+   
+   <action name="getNextEscMap4Edit" class="com.Over2Cloud.ctrl.compliance.ComplianceEditAction" method="getNextEscMap">
+          <result name="success" type="json"><param name="root">jsonArr</param> </result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/invalidSession.jsp</result>
+   </action>
+  
+   <action name="EditComplianceAction" class="com.Over2Cloud.ctrl.compliance.ComplianceEditAction" method="EditComplianceAction" >
+           <result name="success">/view/success.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/invalidSession.jsp</result>
+    </action>
+  
+  
+   <action name="beforeActivityDashboard" class="com.Over2Cloud.ctrl.compliance.activityboard.ComplianceActivityBoard" method="beforeActivityBoardView" >
+           <result name="success">/view/Over2Cloud/Compliance/activityboard/beforeActivityPage.jsp</result>
+           <result name="error" >/view/message_draft/createError.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+  
+   <action name="activityDashboardView" class="com.Over2Cloud.ctrl.compliance.activityboard.ComplianceActivityBoard" method="activityBoardView" >
+           <result name="success">/view/Over2Cloud/Compliance/activityboard/viewActivityDashboard.jsp</result>
+           <result name="error" >/view/message_draft/createError.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+   
+    <action name="activityBoardGridView" class="com.Over2Cloud.ctrl.compliance.activityboard.ComplianceActivityBoard" method="viewActivityBoardData" >
+           <result name="success" type="json"></result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+   
+   
+   <action name="viewCheckList" class="com.Over2Cloud.ctrl.compliance.activityboard.ComplianceActivityBoard" method="viewCheckList" >
+            <result name="success">/view/Over2Cloud/Compliance/activityboard/viewCheckList.jsp</result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+  
+   <action name="viewStatusFormatter" class="com.Over2Cloud.ctrl.compliance.activityboard.ComplianceActivityBoard" method="viewStatusFormatter" >
+            <result name="success">/view/Over2Cloud/Compliance/activityboard/viewCheckList.jsp</result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+   
+   <action name="viewTATFormatter" class="com.Over2Cloud.ctrl.compliance.activityboard.ComplianceActivityBoard" method="viewTATFormatter" >
+            <result name="success">/view/Over2Cloud/Compliance/activityboard/viewCheckList.jsp</result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+   
+      <action name="viewAllotedToFormatter" class="com.Over2Cloud.ctrl.compliance.activityboard.ComplianceActivityBoard" method="viewAllotedToFormatter" >
+            <result name="success">/view/Over2Cloud/Compliance/activityboard/viewCheckList.jsp</result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+   
+   
+     <action name="viewAllotedByFormatter" class="com.Over2Cloud.ctrl.compliance.activityboard.ComplianceActivityBoard" method="viewAllotedByFormatter" >
+            <result name="success">/view/Over2Cloud/Compliance/activityboard/viewCheckList.jsp</result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+   
+      <action name="viewReminderFormatter" class="com.Over2Cloud.ctrl.compliance.activityboard.ComplianceActivityBoard" method="viewReminderFormatter" >
+            <result name="success">/view/Over2Cloud/Compliance/activityboard/viewCheckList.jsp</result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+   
+     <action name="viewFullViewFormatter" class="com.Over2Cloud.ctrl.compliance.activityboard.ComplianceActivityBoard" method="viewFullViewFormatter" >
+            <result name="success">/view/Over2Cloud/Compliance/activityboard/viewHistoryView.jsp</result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+   
+    <action name="fullViewActivity" class="com.Over2Cloud.ctrl.compliance.activityboard.ComplianceActivityBoard" method="fullViewActivity" >
+           <result name="success" type="json"></result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+   
+    <action name="viewBudgetedFormatter" class="com.Over2Cloud.ctrl.compliance.activityboard.ComplianceActivityBoard" method="viewBudgetedFormatter" >
+            <result name="success">/view/Over2Cloud/Compliance/activityboard/viewCheckList.jsp</result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+   
+     <action name="viewStatus" class="com.Over2Cloud.ctrl.compliance.activityboard.ComplianceActivityBoard" method="viewStatus" >
+            <result name="success">/view/Over2Cloud/Compliance/activityboard/viewCheckList.jsp</result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+   
+    <action name="fetchCounters" class="com.Over2Cloud.ctrl.compliance.activityboard.ComplianceActivityBoard" method="fetchCounters" >
+        <result name="success" type="json"><param name="root">headermap</param></result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/invalidSession.jsp</result>
+   </action>
+   <action name="DocDownload" class="com.Over2Cloud.ctrl.compliance.activityboard.ComplianceActivityBoard" method="DocDownload">
+			<result name="success" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">attachment;filename="%{fileName}"</param>
+				<param name="bufferSize">4096</param>
+			</result>
+			
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+  </action>
+   
+  </package>
+ 
+</struts>

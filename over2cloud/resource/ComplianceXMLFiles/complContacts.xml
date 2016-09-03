@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+
+  <package name="helpDesk/compliance_contacts" extends="struts-default,json-default" namespace="/view/Over2Cloud/Compliance/compl_contacts_pages">
+
+     <action name="beforeComplContact" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceContactsAction" method="beforeContactAdd" >
+           <result name="success">/view/Over2Cloud/Compliance/compl_contacts_pages/complContacts.jsp</result>
+           <result name="error" >/view/message_draft/createError.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+
+	<action name="beforeEmpData" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceContactsAction" method="beforeFindEmpDetail" >
+ 			<result name="success">/view/Over2Cloud/Compliance/compl_contacts_pages/viewEmployeeDetails.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+
+	 <action name="veiwEmpDetail"  class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceContactsAction" method="findEmpDetail">
+               <result name="success" type="json"></result>
+               <result name="error">/view/common_pages/error.jsp</result>
+               <result name="login">/view/common_pages/invalidSession.jsp</result>
+     </action>
+
+
+	<action name="complContactAction" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceContactsAction" method="complianceContactsAdd" >
+           <result name="success">/view/success.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+
+
+	<action name="beforeComplContactView" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceContactsAction" method="execute" >
+ 			<result name="success">/view/Over2Cloud/Compliance/compl_contacts_pages/beforeViewComplContacts.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+    <action name="fetchLevelValue" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceContactsAction" method="fetchLevelValue" >
+ 			<result name="success" type="json"><param name="levelValue">levelValue</param></result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+    <action name="beforeComplContactSearchView" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceContactsAction" method="beforeViewComplContacts" >
+ 		   <result name="success">/view/Over2Cloud/Compliance/compl_contacts_pages/viewComplContacts.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+
+<action name="getDeptSubdeptList" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceContactsAction" method="beforeContactAdd" >
+             <result name="success" type="json"><param name="root">jsonObjArray</param></result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+    <action name="getAllLocationList" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceContactsAction" method="getAllLocationList" >
+             <result name="success" type="json"><param name="root">jsonObjArray</param></result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+    <action name="getSubDepartmentList" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceContactsAction" method="getSubDepartmentList" >
+             <result name="success" type="json"><param name="root">jsonObjArray</param></result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+    <action name="getDepartmentList" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceContactsAction" method="getDepartmentList" >
+             <result name="success" type="json"><param name="root">jsonObjArray</param></result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+     <action name="getLocationList" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceContactsAction" method="getLocationListData" >
+             <result name="success" type="json"><param name="root">jsonObjArray</param></result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+    
+	<action name="viewComplContacts" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceContactsAction" method="viewComplContacts" >
+ 			<result name="success" type="json"></result>
+        <result name="error">/view/error.jsp</result>
+	    <result name="login">/view/invalidSession.jsp</result>
+    </action>
+
+	<action name="beforeComplContactDelete" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceContactsAction" method="beforeViewComplContacts" >
+ 			<result name="success">/view/Over2Cloud/Compliance/compl_contacts_pages/viewComplContacts.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+
+
+	<action name="deleteComplContact"  class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceEditGridAction" method="historyContactAction">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+    </action>
+
+	<action name="beforeMappedContact"  class="com.Over2Cloud.ctrl.compliance.complContacts.ContactsMappingAction" method="beforeMappedContact">
+            	<result name="success">/view/Over2Cloud/Compliance/compl_contacts_pages/createContactMapping.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+    <action name="getMappedEmp" class="com.Over2Cloud.ctrl.compliance.complContacts.ContactsMappingAction" method="getMappedEmp">
+            	<result name="success" type="json"><param name="root">jsonObjArray</param></result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+    </action>
+
+	<action name="getUnMappedEmp" class="com.Over2Cloud.ctrl.compliance.complContacts.ContactsMappingAction" method="beforeGetUnMappedEmp">
+            	<result name="success">/view/Over2Cloud/Compliance/compl_contacts_pages/viewUnMappedEmp.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+    <action name="veiwUnMappedEmpDetail" class="com.Over2Cloud.ctrl.compliance.complContacts.ContactsMappingAction" method="getUnMappedEmp">
+            	<result name="success" type="json"></result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+    </action>
+
+	<action name="mapUnMappedContact" class="com.Over2Cloud.ctrl.compliance.complContacts.ContactsMappingAction" method="mapUnMappedContact">
+           <result name="success">/view/success.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+    <action name="createContactSharing" class="com.Over2Cloud.ctrl.compliance.complContacts.ContactsMappingAction" method="createContactSharing">
+           <result name="success">/view/Over2Cloud/Compliance/compl_contacts_pages/createContactSharing.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+      <action name="getNameofModule" class="com.Over2Cloud.ctrl.compliance.complContacts.ContactsMappingAction" method="getNameofModule">
+           <result name="success">/view/Over2Cloud/Compliance/compl_contacts_pages/viewContMapping2.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+      <action name="getNameofModuleShare" class="com.Over2Cloud.ctrl.compliance.complContacts.ContactsMappingAction" method="getNameofModule">
+           <result name="success">/view/Over2Cloud/Compliance/compl_contacts_pages/viewContSharing2.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    <action name="viewContactSharing" class="com.Over2Cloud.ctrl.compliance.complContacts.ContactsMappingAction" method="beforeGetContactSharing">
+           <result name="success">/view/Over2Cloud/Compliance/compl_contacts_pages/viewContSharing.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+    <action name="levelMappedEmp" class="com.Over2Cloud.ctrl.compliance.complContacts.ContactsMappingAction" method="getEmpContactLevel">
+           <result name="success" type="json"></result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+    <action name="contShareEmp" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceContactsAction" method="getContShareEmpDetails">
+           <result name="success" type="json"></result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+    <action name="viewContactMapping" class="com.Over2Cloud.ctrl.compliance.complContacts.ContactsMappingAction" method="beforeGetContactSharing">
+           <result name="success">/view/Over2Cloud/Compliance/compl_contacts_pages/viewContMapping.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+    <action name="gridMappedEmp5" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceEditGridAction" method="getContactMapping5">
+           <result name="success" type="json"></result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+    <action name="gridMappedEmp4" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceEditGridAction" method="getContactMapping4">
+           <result name="success" type="json"></result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+    <action name="gridMappedEmp3" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceEditGridAction" method="getContactMapping3">
+           <result name="success" type="json"></result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+    <action name="gridMappedEmp2" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceEditGridAction" method="getContactMapping2">
+           <result name="success" type="json"></result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+    <action name="gridMappedEmp1" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceEditGridAction" method="getContactMapping1">
+           <result name="success" type="json"></result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+    <action name="getDeptBySubGroup" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceContactsAction" method="getDeptBySubGroup">
+           <result name="success" type="json"><param name="root">deptMap</param></result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+        <action name="fetchLevel" class="com.Over2Cloud.ctrl.compliance.complContacts.ContactsMappingAction" method="fetchLevel" >
+ 			<result name="success" type="json"><param name="levelValueForMapp">levelValueForMapp</param></result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+    
+  </package>
+</struts>

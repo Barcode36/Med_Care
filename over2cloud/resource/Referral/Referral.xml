@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+<package name="Referral" extends="struts-default,json-default" namespace="/view/Over2Cloud/Referral">
+
+
+    <action name="UHIDCheck" class="com.Over2Cloud.ctrl.referral.activity.ReferralActivityBoard" method="UHIDCheck">
+            <result name="success" type="json"></result>
+             <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+    <action name="beforeReferralUHID" class="com.Over2Cloud.ctrl.referral.activity.ReferralActivityBoard" method="beforeReferralUHIDView">
+            <result name="success">/view/Over2Cloud/Referral/activity/viewUHIDReferral.jsp</result>
+            <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+    </action>
+
+
+<action name="viewUHIDGridData" class="com.Over2Cloud.ctrl.referral.activity.ReferralActivityBoard" method="viewUHIDGridData">
+            <result name="success" type="json"></result>
+            <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+  	</action>
+
+    
+    <action name="beforeReferralViewHeader" class="com.Over2Cloud.ctrl.referral.activity.ReferralActivityBoard" method="beforeReferralViewHeader">
+            <result name="success">/view/Over2Cloud/Referral/activity/referralViewGridHeader.jsp</result>
+            <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+     <action name="beforeReferralView" class="com.Over2Cloud.ctrl.referral.activity.ReferralActivityBoard" method="beforeReferralView">
+            <result name="success">/view/Over2Cloud/Referral/activity/referralViewGrid.jsp</result>
+            <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+    </action>
+
+	 <action name="viewReferralData" class="com.Over2Cloud.ctrl.referral.activity.ReferralActivityBoard" method="viewReferralData">
+            <result name="success" type="json"></result>
+            <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+  	</action>
+  	
+  	  <action name="fetchDropDownData" class="com.Over2Cloud.ctrl.referral.activity.ReferralActivityBoard" method="fetchDropDownData">
+           <result name="success" type="json"><param name="root">jsonArr</param></result>
+            <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+  	</action>
+  	
+  	
+	    
+    <action name="beforeReferralLodge" class="com.Over2Cloud.ctrl.referral.action.ReferralAdd" method="beforeReferralLodge">
+            <result name="success">/view/Over2Cloud/Referral/referralLodge.jsp</result>
+            <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+    <action name="fetchDetails" class="com.Over2Cloud.ctrl.referral.services.ClientDataIntegration" method="fetchDetails">
+           <result name="success" type="json"><param name="root">commonJSONArray</param></result>
+            <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+  	</action>
+    
+    <action name="addReferral"  class="com.Over2Cloud.ctrl.referral.action.ReferralAdd" method="addReferral">
+            	<result name="success">/view/success.jsp</result>
+            	<result name="REPEATE">/view/Over2Cloud/Referral/action/takeActionOnRepeateReferral.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     
+      <action name="addReferralOnrepeate"  class="com.Over2Cloud.ctrl.referral.action.ReferralAdd" method="addReferral">
+            	<result name="success">/view/success.jsp</result>
+            	<result name="REPEATE">/view/Over2Cloud/Referral/action/takeActionOnRepeateReferral.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+    
+   
+	 <action name="beforeTakeActionReferral"  class="com.Over2Cloud.ctrl.referral.action.ActionOnReferral" method="beforeTakeActionReferral">
+         <result name="success">/view/Over2Cloud/Referral/action/takeActionOnReferral.jsp</result>
+         <result name="successInBulk">/view/Over2Cloud/Referral/action/takeActionOnReferralInBulk.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+	 </action>
+	      
+	      
+	 <action name="takeActionOnReferral"  class="com.Over2Cloud.ctrl.referral.action.ActionOnReferral" method="takeActionOnReferral">
+         <result name="success">/view/success.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+	  </action>
+    
+    <action name="getDocInfo"  class="com.Over2Cloud.ctrl.referral.action.ReferralAdd" method="beforeReferralLodge">
+         <result name="success" type="json"><param name="root">doctorNameMap</param></result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+	  </action>
+	  
+	   <action name="beforeViewActivityHistoryData"  class="com.Over2Cloud.ctrl.referral.action.ActionOnReferral" method="viewActivityHistoryData">
+     		<result name="success">/view/Over2Cloud/Referral/activity/referralTicketHistory.jsp</result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+	   </action>
+	   
+	   <action name="beforeEscalateAction"  class="com.Over2Cloud.ctrl.referral.action.ActionOnReferral" method="beforeEscalateAction">
+     		<result name="success">/view/Over2Cloud/Referral/action/escalationAction.jsp</result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+	   </action>
+	
+		<action name="esacateActionOnReferral"  class="com.Over2Cloud.ctrl.referral.action.ActionOnReferral" method="esacateActionOnReferral">
+         <result name="success">/view/success.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+	  </action>
+	  
+	  <action name="beforeTakeActionReferralDownload" class="com.Over2Cloud.ctrl.referral.activity.ReferralActivityBoard" method="getCurrentColumnRefferal" >
+           <result name="success">/view/Over2Cloud/Referral/activity/confirmForReferralDownload.jsp</result>
+           <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+   </action>
+   
+   <action name="feedbackDownloadAction" class="com.Over2Cloud.ctrl.referral.activity.ReferralActivityBoard" method="downloadExcel">
+		<result name="success" type="stream" >
+	             <param name="inputName">excelStream</param>
+	            <param name="contentType">application/octet-stream</param>
+	            <param name="contentDisposition">attachment; filename="${excelFileName}"</param>
+	            <param name="bufferSize">2448</param>
+	            </result>
+	            <result name="error">/view/error.jsp</result>
+	             <result name="input">/view/error.jsp</result>
+	             <result name="login" >/view/invalidSession.jsp</result>
+	</action>
+	     <!-- Referral Download -->
+	
+	 <action name="beforeReferralDownload" class="com.Over2Cloud.ctrl.referral.activity.ReferralActivityBoard" method="getCurrentRefferal" >
+           <result name="success">/view/Over2Cloud/Referral/activity/excelDownload.jsp</result>
+           <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+   </action>
+   
+   <action name="excelDownload" class="com.Over2Cloud.ctrl.referral.activity.ReferralActivityBoard" method="excelDownload">
+		<result name="success" type="stream" >
+	             <param name="inputName">excelStream</param>
+	            <param name="contentType">application/octet-stream</param>
+	            <param name="contentDisposition">attachment; filename="${excelFileName}"</param>
+	            <param name="bufferSize">2448</param>
+	            </result>
+	            <result name="error">/view/error.jsp</result>
+	             <result name="input">/view/error.jsp</result>
+	             <result name="login" >/view/invalidSession.jsp</result>
+	</action>
+	     <!-- Referral Download End -->
+	     <!-- Reason Master -->
+     <action name="getReasonName" class="com.Over2Cloud.ctrl.referral.action.ActionOnReferral" method="getReasonName" >
+ 		<result name="success" type="json"><param name="root">jsonArr</param></result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/invalidSession.jsp</result>
+    	</action>
+    <!-- End -->
+    
+    <!-- get counter  -->
+    
+    <action name="getCounterStatus"  class="com.Over2Cloud.ctrl.referral.action.ActionOnReferral" method="getCounterStatus">
+     		<result name="success" type="json"><param name="root">jsonArr</param></result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+	   </action>
+	     
+</package>
+</struts>

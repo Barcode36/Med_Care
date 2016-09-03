@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+<constant name="struts.custom.i18n.resources" value="ApplicationResources" />
+<constant name="struts.convention.default.parent.package" value="common_pages"/>
+<constant name="struts.devMode" value="true"/>
+<constant name="struts.configuration.xml.reload" value="false" />
+<constant name="struts.serve.static" value="true" />
+<constant name="struts.serve.static.browserCache" value="false" />
+<package name="commonpackage" extends="struts-default,json-default">
+
+<action name="info" class="com.Over2Cloud.ctrl.feedback.service.KeyWordRecvModem" method="addRecvKeyword">
+		<result name="success">/view/success.jsp</result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp
+		</result>
+	</action>
+	
+	
+ <action name="linkverify"  class="com.Over2Cloud.ctrl.Signup.VarificationLink" method="LinkVarification">
+         <result name="success">/productconfirmation.jsp</result>
+         <result name="signupprocesscompleted">/SignupProcessCompleted.jsp</result>
+         <result name="error">/error.jsp</result>
+         <result name="login">/view/invalidSession.jsp</result>
+ </action>
+ <action name="linkverifyForDemo"  class="com.Over2Cloud.ctrl.Signup.VarificationLink" method="linkverifyForDemo">
+         <result name="success">/demoConfirmation.jsp</result>
+         <result name="signupprocesscompleted">/signupAlreeadyDone.jsp</result>
+         <result name="error">/error.jsp</result>
+         <result name="login">/view/invalidSession.jsp</result>
+ </action>
+ <action name="pwdverification"  class="com.Over2Cloud.ctrl.Signup.PasswordVarificationLink" method="LinkpasswordVarification">
+         <result name="success">/pwdsucessfullyupdate.jsp</result>
+         <result name="error">/error.jsp</result>
+         <result name="login">/view/invalidSession.jsp</result>
+         <result name="login">/view/invalidSession.jsp</result>
+ </action>
+ 
+ <!-- Start Actions -->
+ <action name="doCaptcha" class="com.Over2Cloud.action.CaptchaAction">
+		<result name="success" type="json"><param name="root">capchavalue</param></result>
+		<result name="error">captcha.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+ </action>
+ <action name="signuppage"  class="com.Over2Cloud.ctrl.Signup.SiupAction" >
+        <result name="success">view/Signup/login.jsp</result>
+        <result name="login">/view/invalidSession.jsp</result>
+ </action> 
+ <action name="registerUser"  class="com.Over2Cloud.ctrl.Signup.SiupAction" >
+        <result name="success">view/Signup/signup.jsp</result>
+        <result name="login">/view/invalidSession.jsp</result>
+ </action> 
+ 
+ <action name="donewUserRegistation"  class="com.Over2Cloud.ctrl.Signup.SiupAction" method="Signupregistation">
+         <result name="success">/view/success.jsp</result>
+         <result name="error">/view/error.jsp</result>
+         <result name="login">/view/invalidSession.jsp</result>
+ </action>
+ <action name="doProductRegistation"  class="com.Over2Cloud.ctrl.Signup.VarificationLink" method="ProductIntrest">
+          <result name="success">/linkVarification.jsp</result>
+          <result name="demoCompleted">/demoCompleted.jsp</result>
+          <result name="error">/error.jsp</result>
+          <result name="login">/view/invalidSession.jsp</result>
+ </action>
+ 
+ <action name="doClientinformationDone"  class="com.Over2Cloud.ctrl.Signup.VarificationLink" method="clientinformationDone">
+          <result name="success">/SignupCompleted.jsp</result>
+          <result name="error">/error.jsp</result>
+          <result name="login">/view/invalidSession.jsp</result>
+ </action>
+	
+	<!-- End Actions -->
+	 <action name="loginaction" method="doLoginAuthenticate" class="com.Over2Cloud.ctrl.login.LoginCtrl">
+			 <result name="error">/error.jsp</result>
+	 		 <result name="errorClientId">/clientIDError.jsp</result>
+             <result name="errorClientIdBlock">/clientIdBlock.jsp</result>
+            <result name="errorUserNotAval" type="chain">signuppage</result>
+             <result name="chunkSpaceError">/chunkSpaceError.jsp</result>
+             <result name="clientSpaceError">/clientSpaceError.jsp</result>
+             <result name="dreamsolLogin">/dashboardDreamsol.jsp</result>
+             <result name="normalUserLogin">/dashboardDreamsolClient.jsp</result>
+             <result name="login">/view/invalidSession.jsp</result>
+             <result name="errorOfAccountExpire">/errorOfAccountExpire.jsp</result>
+             <result name="orgnLoginConfig" type="redirectAction">mainFrameconfiguration</result>
+     </action>      
+     
+     <action name="mainFrameconfiguration"  class="com.Over2Cloud.ctrl.login.MainAction" method="mainFrame">
+             <result name="success">/view/Over2Cloud/ConfigurationOver2Cloud/mainconfiguration.jsp</result>
+              <result name="login">/view/invalidSession.jsp</result>
+     </action>  
+     <action name="logout"  class="com.Over2Cloud.ctrl.login.LogoutAction">
+             <result name="success">/signup.jsp</result>
+             <result name="login">/view/invalidSession.jsp</result>
+     </action>  
+            
+     <action name="mainFrame"  class="com.Over2Cloud.ctrl.login.MainAction" method="mainFrame">
+             <result name="success">/dashboardDreamsolClient.jsp</result>
+             <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="main_Close" class="com.Over2Cloud.ctrl.login.LoginCtrl">
+             <result name="success">/index.jsp</result>
+             <result name="error">/error.jsp</result>
+             <result name="login">/view/invalidSession.jsp</result>
+     </action>  
+     
+     <!-- for demo account to regular account work -->
+     
+     <action name="demoToRegular"  class="com.Over2Cloud.ctrl.Signup.VarificationLink" method="demoToRegular">
+             <result name="success">/demoproductconfirmation.jsp</result>
+             <result name="signupprocesscompleted">/SignupProcessCompleted.jsp</result>
+             <result name="error">/error.jsp</result>
+              <result name="login">/view/invalidSession.jsp</result>
+    </action>
+ 
+	 <action name="linkverifyForDemoPwdUser"  class="com.Over2Cloud.ctrl.Signup.VarificationLink" method="beforelinkverifyDoneForDemoPwdUser">
+	             <result name="success">/userNameandPwdChangeDemo.jsp</result>
+	             <result name="signupprocesscompleted">/SignupProcessCompleted.jsp</result>
+	             <result name="error">/error.jsp</result>
+	              <result name="login">/view/invalidSession.jsp</result>
+	 </action>
+	 
+	 <action name="demoUserPwdChage"  class="com.Over2Cloud.ctrl.Signup.VarificationLink" method="linkverifyDoneForDemoPwdUser">
+	             <result name="success">/SignupProcessCompleted.jsp</result>
+	             <result name="signupprocesscompleted">/SignupProcessCompleted.jsp</result>
+	             <result name="error">/error.jsp</result>
+	              <result name="login">/view/invalidSession.jsp</result>
+	 </action>
+	 
+
+	 <action name="download" class="com.Over2Cloud.ctrl.homepage.HomePageActionCtrl" method="download">
+		  <result name="download" type="stream">
+		      <param name="contentType">application/octet-stream</param>
+		      <param name="inputName">fileInputStream</param>
+		      <param name="contentDisposition">attachment;filename=%{fileName}</param>
+		      <param name="bufferSize">4096</param>
+	      </result>
+	      <result name="login">/view/common_pages/invalidSession.jsp</result>
+	      <result name="error">/view/common_pages/error.jsp</result>
+    </action>
+    
+    
+	 <action name="inboxview">
+	             <result name="success">/view/inbox/mainInbox.jsp</result>
+	             <result name="error">/error.jsp</result>
+	              <result name="login">/view/invalidSession.jsp</result>
+	 </action>
+  
+   <!-- notification bar works from here -->
+	 <action name="notificationBar" class="com.Over2Cloud.ctrl.notification.NotificationAction" method="getCountOfNotification">
+             <result name="success">/notificationBar.jsp</result>
+             <result name="error">/error.jsp</result>
+             <result name="login">/view/invalidSession.jsp</result>
+	 </action>
+	 
+     <!-- MHDM Custom notification view -->
+	 <action name="selectData4Feedback" class="com.Over2Cloud.ctrl.notification.NotificationAction" method="selectData4Feedback">
+			<result name="success">/notificationData.jsp</result>
+			<result name="error">/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+	 </action>
+
+	 <action name="allFeedbackView" class="com.Over2Cloud.ctrl.notification.NotificationAction" method="selectData4Feedback">
+			<result name="success">/allFeedbackNotification.jsp</result>
+			<result name="error">/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+	 </action>
+	 <!-- MHDM Cus -->
+	 
+	 
+	 <action name="serverTime" class="com.Over2Cloud.ctrl.notification.NotificationAction">
+             <result name="success" type="json"><param name="root">serverTime</param></result>
+             <result name="error">/error.jsp</result>
+             <result name="login">/view/invalidSession.jsp</result>
+	 </action>
+	  <!-- HIS & T2M Integration -->
+	  <!-- Action For Other Application Request Handler --> 
+       <action name="sendsms" class="com.Over2Cloud.service.clientdata.integration.ClientRequestHandler">
+          <result name="success">/view/Over2Cloud/CommonOver2Cloud/integration.jsp</result> 
+       </action>
+        <!-- For Forget Password -->
+       <action name="fgtPassword"  class="com.Over2Cloud.ctrl.Signup.SiupAction" >
+             <result name="success">/view/Signup/forgetPassword.jsp</result>
+             <result name="login">/view/invalidSession.jsp</result>
+       </action> 
+        
+        <action name="newPassReq"  class="com.Over2Cloud.ctrl.Signup.SiupAction" method="newPassReq">
+             <result name="success">/view/success.jsp</result>
+             <result name="error">/view/error.jsp</result>
+             <result name="login">/view/invalidSession.jsp</result>
+        </action>
+ 
+ 
+	    <action name="reportABug" method="reportABug" class="com.Over2Cloud.ctrl.BugRepoting.BugRepotingAction">
+           <result name="success">/reportABug.jsp</result>
+           <result name="error" >/view/common_pages/error.jsp</result>
+           <result name="login" >/view/common_pages/invalidSession.jsp</result>
+        </action> 
+          
+        <action name="seekAssistence" method="reportABug" class="com.Over2Cloud.ctrl.BugRepoting.BugRepotingAction">
+            <result name="success">/seekAssistence.jsp</result>
+           <result name="error" >/view/common_pages/error.jsp</result>
+           <result name="login" >/view/common_pages/invalidSession.jsp</result>
+        </action> 
+	  
+	    <action name="bugRepoting" method="bugRepoting" class="com.Over2Cloud.ctrl.BugRepoting.BugRepotingAction">
+            <result name="success">/view/success.jsp</result>
+           <result name="error" >/view/common_pages/error.jsp</result>
+           <result name="login" >/view/common_pages/invalidSession.jsp</result>
+        </action> 
+         
+        <action name="seekAssisSubmit" method="seekAssistence" class="com.Over2Cloud.ctrl.BugRepoting.BugRepotingAction">
+            <result name="success">/view/success.jsp</result>
+           <result name="error" >/view/common_pages/error.jsp</result>
+           <result name="login" >/view/common_pages/invalidSession.jsp</result>
+        </action> 
+        
+        <action name="viewNewsandalerts" class="com.Over2Cloud.ctrl.newsEvents.NewsAlertsViewCtrl" method="viewNewsandalerts">
+            <result name="success">/view/Over2Cloud/newsAndEvents/newsAndAlerts.jsp</result>
+           <result name="error" >/view/common_pages/error.jsp</result>
+           <result name="login" >/view/common_pages/invalidSession.jsp</result>
+        </action> 
+	 
+        
+        
+        
+        
+        <!--For Logo Upload--> 
+        <action name="logoUpload">
+              <result>/view/Over2Cloud/userImage.jsp</result>
+        </action> 
+        
+         <action name="orgLogoUpload"  class="com.Over2Cloud.ctrl.organization.OrganizationAction" method="uploadOrgLogo">
+           <result name="success">/dashboardDreamsolClient.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+       </action>
+       
+       
+        
+     
+       <!-- Profile Pic Upload -->
+		<action name="pic">
+            <result name="success">/view/profilePic.jsp</result>
+           <result name="error" >/view/common_pages/error.jsp</result>
+           <result name="login" >/view/common_pages/invalidSession.jsp</result>
+        </action> 
+        
+        <action name="uploadPic" class="com.Over2Cloud.Rnd.ProfilePic" method="uploadPic">
+           <result name="success">/view/success.jsp</result>
+            <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+        </action>   
+          <action name="moreSettings" >
+           <result name="success">/view/Over2Cloud/MoreSettings/moreSettingPage.jsp</result>
+           <result name="error" >/view/common_pages/error.jsp</result>
+           <result name="login" >/view/common_pages/invalidSession.jsp</result>
+        </action> 
+        <action name="moreSettingsHDM" >
+           <result name="success">/view/Over2Cloud/MoreSettings/moreSettingPageHDM.jsp</result>
+           <result name="error" >/view/common_pages/error.jsp</result>
+           <result name="login" >/view/common_pages/invalidSession.jsp</result>
+        </action>
+          <action name="moreSettingsORD" >
+           <result name="success">/view/Over2Cloud/MachineOrderMaster/moreSettingsPageORD.jsp</result>
+           <result name="error" >/view/common_pages/error.jsp</result>
+           <result name="login" >/view/common_pages/invalidSession.jsp</result>
+        </action> 
+</package>
+<package name="common_pages"   extends="struts-default,json-default" namespace="/view/common_pages">
+		<action name="profilepage">
+		 <result>/profilepage.jsp</result>
+		</action>
+		<action name="settingpage">
+		 <result>/settingpage.jsp</result>
+		</action>
+</package>
+
+<include file="/StrutsXmlFiles/settingOver2Cloud.xml"/>
+<include file="/StrutsXmlFiles/registation.xml"/>
+<include file="/StrutsXmlFiles/mycloud.xml"></include>
+<include file="/StrutsXmlFiles/commonOver2Cloud.xml"/>
+<include file="/StrutsXmlFiles/HROver2Cloud.xml"/>
+<include file="/StrutsXmlFiles/configurationOver2Cloud.xml"/>
+<include file="/StrutsXmlFiles/contactdetailsOver2Cloud.xml"/>
+<include file="/StrutsXmlFiles/bprocessMgmt.xml"></include>
+<include file="/StrutsXmlFiles/EventReminder.xml"></include>
+
+
+<!-- Help desk XML Files -->
+ <include file="/HelpDeskXmlFiles/FeedbackDraft.xml"/>
+ <include file="/HelpDeskXmlFiles/LodgeFeedback.xml"/>
+ <include file="/HelpDeskXmlFiles/RoasterConf.xml"/>
+ <include file="/HelpDeskXmlFiles/ShiftConf.xml"/>
+ <include file="/HelpDeskXmlFiles/ShiftConf.xml"/>
+ <include file="/HelpDeskXmlFiles/Configuration.xml"/>
+ <include file="/HelpDeskXmlFiles/Dashboard.xml"/>
+ <include file="/HelpDeskXmlFiles/DashboardMgt.xml"/>
+ <include file="/HelpDeskXmlFiles/ActivityBoard.xml"/>
+ <include file="/HelpDeskXmlFiles/ConfigureCheckList.xml"/>
+ <include file="/HelpDeskXmlFiles/EscalationConfig.xml"/>
+ <!-- Seek Approval  -->
+ <include file="/SeekApprovalXmlFiles/SeekApproval.xml"></include>
+
+<!-- the Compliance xml file -->
+ <include file="/ComplianceXMLFiles/compliance.xml"/>
+ <include file="/ComplianceXMLFiles/complTask.xml"/>
+ <include file="/ComplianceXMLFiles/complTaskType.xml"/>
+ <include file="/ComplianceXMLFiles/complContacts.xml"/>
+ <include file="/ComplianceXMLFiles/EmployeeWithLocation.xml"/>
+ <include file="/AssetXmlFiles/Vendor.xml"/>
+ 
+ 
+ <include file="/mastersOver2Cloud.xml"/>
+ <include file="/StrutsXmlFiles/newsAlertsConfiguration.xml"/>
+ <!-- critical xml  -->
+    <include file="/CriticalPatient/Critical.xml"></include>
+	    <include file="/CriticalPatient/CriticalMaster.xml"></include>
+	    <include file="/CriticalPatient/Dashboard.xml"></include>
+ <!-- New Feedback XML -->
+ <include file="/FeedbackXmlFiles/feedbackReport.xml"/>
+ <include file="/FeedbackXmlFiles/FeedbackLodge.xml"/>
+ <include file="/FeedbackXmlFiles/feedbackOver2Cloud.xml"/>
+  <include file="/FeedbackXmlFiles/feedbackDash.xml"/>
+  
+    <!-- Working Hrs xml Files -->
+ <include file="/WorkingHrs/WorkingHrs.xml"/>
+ <include file="/SeverityXmlFiles/Severity.xml"/>
+   <!-- Asset xml Files -->
+ 
+  <!-- Buddy Setting  -->
+ <include file="/buddyOver2Cloud.xml"></include>
+ <include file="/FloorSettingOver2Cloud/FloorSetting.xml"></include>
+
+<!-- t2M -->
+   <include file="/T2MXmlFiles/t2m.xml"></include>
+<!-- for machine order -->
+
+<include file="/OrderRequestXmlFiles/ActivityBoard.xml"></include>
+<include file="/OrderRequestXmlFiles/LodgeFeedback.xml"></include>
+<include file="/OrderRequestXmlFiles/Dashboard.xml"></include>
+<include file="/OrderRequestXmlFiles/Pharmacy.xml"></include>
+<include file="/OrderRequestXmlFiles/lab_order.xml"></include>
+
+<include file="/MachineOrder/machineOrderMaster.xml"></include>
+
+<!-- Referral --> 
+	 <include file="/Referral/Referral.xml"></include>
+	  <include file="/Referral/Dashboard.xml"></include>
+	 <include file="/Referral/RefEscalationConfig.xml"></include>
+	 
+	 <!-- Long Stay patient  -->
+	 
+	 <include file="/OrderRequestXmlFiles/LongPatientStay.xml"></include>
+	 
+	  <!--  patient movement tracking -->
+<include file="/OrderRequestXmlFiles/PatientMovementTracking.xml"></include>
+ <!--DAR XMl Files -->
+ <include file="/DarXmlFile/Dar.xml"/>
+
+  <include file="/KRXMLFiles/krLibrary.xml"/>
+  <!--Configure Utility file -->
+  <include file="/ConfigureUtilityXmlFiles/ConfigureUtility.xml"/>
+   <!-- For Communication --> 
+  <include file="/CommunicationXmlFiles/Communication.xml"/>
+  <!-- Work Force XMl Files -->
+ <include file="/WFPMXmlFiles/offeringWFPMOver2Cloud.xml"/>
+ <include file="/WFPMXmlFiles/targetWFPMOver2Cloud.xml"/>
+ <include file="/WFPMXmlFiles/leadWFPMOver2Cloud.xml"/>
+ <include file="/WFPMXmlFiles/clientWFPMOver2Cloud.xml"/>
+ <include file="/WFPMXmlFiles/reportWFPMOver2Cloud.xml"/>
+ <include file="/WFPMXmlFiles/CRMWFPMOver2Cloud.xml"/>
+ <include file="/mastersOver2Cloud.xml"/>
+ <include file="/WFPMXmlFiles/associateWFPMOver2Cloud.xml"/>
+ <include file="/WFPMXmlFiles/salaryWFPMOver2Cloud.xml"/>
+ <include file="/WFPMXmlFiles/smsTemplateWFPMOver2Cloud.xml"/>
+ <include file="/WFPMXmlFiles/dashboardWFPMOver2Cloud.xml"/>
+ <include file="/WFPMXmlFiles/incentiveWFPMOver2Cloud.xml"/>
+ <include file="/WFPMXmlFiles/communicationWFPMOver2Cloud.xml"/>
+ <include file="/WFPMXmlFiles/excelWFPMOver2Cloud.xml"/>
+ <include file="/WFPMXmlFiles/obdTargetWFPMOver2Cloud.xml"/>
+ <include file="/WFPMXmlFiles/industryWFPMOver2Cloud.xml"/>  
+  
+   <!-- Bed tracking By Aarif start date 03-08-2016 -->
+   <include file="/BedTransfer/bedTransfer.xml"/> 
+   <!-- END OF BED TRANSFER  -->
+   
+     <!-- Discharge Announce By Aarif start date 23-08-2016-->
+   <include file="/DischargeAnnounce/dischargeAnnounce.xml"/> 
+   <!-- END OF Discharge Announce -->
+   <include file="/SmsEmailDraft.xml"></include>
+   <!-- Patieint Care Services-->
+   <include file="/CpsXmlFiles/CorporatePatientServices.xml"></include>
+   <include file="/CpsXmlFiles/Dashboard.xml"></include>
+  <constant name="struts.multipart.maxSize" value="900000000000000000" />
+</struts>

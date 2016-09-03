@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+<package name="referral/newdashboard" extends="struts-default,json-default" namespace="/view/Over2Cloud/Referral/Dashboard_Pages">
+     <action name="beforeDashboardView"  class="com.Over2Cloud.ctrl.referral.dashboard.ReferralDashboard" method="beforeDashboardAction">
+          <result name="success">/view/Over2Cloud/Referral/Dashboard_Pages/referral_dashboard.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="referralOrderCounterTable"  class="com.Over2Cloud.ctrl.referral.dashboard.ReferralDashboard" method="beforeDashboardAction">
+          <result name="success">/view/Over2Cloud/Referral/Dashboard_Pages/ticketStatusCounter.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="referralSpecialityCounterTable"  class="com.Over2Cloud.ctrl.referral.dashboard.ReferralDashboard" method="beforeDashboardAction">
+          <result name="success">/view/Over2Cloud/Referral/Dashboard_Pages/ticketStatusCounter.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="referralStatusCounterTable"  class="com.Over2Cloud.ctrl.referral.dashboard.ReferralDashboard" method="beforeDashboardAction">
+          <result name="success">/view/Over2Cloud/Referral/Dashboard_Pages/ticketStatusCounter.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="referralStatusCounter" class="com.Over2Cloud.ctrl.referral.dashboard.ReferralDashboard" method="getReferralStatusCounters">
+	        <result name="success" type="json"><param name="root">jsonArray</param></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+       </action>
+       
+        <action name="referralAttendedCounter" class="com.Over2Cloud.ctrl.referral.dashboard.ReferralDashboard" method="getReferralAttendedCounters">
+	        <result name="success" type="json"><param name="root">jsonArray</param></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+       </action>
+        <action name="referralSpecialityCounter" class="com.Over2Cloud.ctrl.referral.dashboard.ReferralDashboard" method="getReferralSpecialityCounters">
+	        <result name="success" type="json"><param name="root">jsonArray</param></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+       </action>
+       
+      <action name="referralOrderCounter" class="com.Over2Cloud.ctrl.referral.dashboard.ReferralDashboard" method="getReferralOrderCounters">
+	        <result name="success" type="json"><param name="root">jsonArray</param></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+       </action>
+         
+        <action name="beforeStatusGridView"  class="com.Over2Cloud.ctrl.referral.dashboard.ReferralDashboard" method="getStatusGridView">
+             <result name="success">/view/Over2Cloud/Referral/Dashboard_Pages/dashboardFeedback.jsp</result>
+            <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="statusGridData" class="com.Over2Cloud.ctrl.referral.dashboard.ReferralDashboard" method="getStatusGridData">
+		<result name="success" type="json"></result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+	</action>
+</package>
+</struts>

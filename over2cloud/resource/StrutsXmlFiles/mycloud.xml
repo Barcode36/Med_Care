@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+<package name="mycloudReport" extends="struts-default,json-default" namespace="/view/Over2Cloud/MycloudReport">
+     
+     <action name="onlineRegistationDetailsView" class="com.Over2Cloud.ctrl.MyCloud.OnlineWebCtrl">
+     <result name="success">/view/Over2Cloud/MyCloud/OnlineWebRegistation.jsp</result>
+     <result name="error">/view/error.jsp</result>
+     <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="onLineclien"  class="com.Over2Cloud.ctrl.MyCloud.OnlineWebCtrl" method="GetOnlineRegistationViewDetails">
+                <result name="success" type="json"></result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="onlineRegistationDetailsBlock" class="com.Over2Cloud.ctrl.MyCloud.OnlineWebCtrl">
+     <result name="success">/view/Over2Cloud/MyCloud/OnlineWebRegistationBlock.jsp</result>
+     <result name="error">/view/error.jsp</result>
+     <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="onlineAssociateDetilsView" class="com.Over2Cloud.ctrl.MyCloud.OnlineWebCtrl">
+     <result name="success">/view/Over2Cloud/MyCloud/OnlineAssociateRegistation.jsp</result>
+     <result name="error">/view/error.jsp</result>
+     <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="onLineAssocaiateClient"  class="com.Over2Cloud.ctrl.MyCloud.OnlineWebCtrl" method="GetAssociateRegistationViewDetails">
+                <result name="success" type="json"></result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="onlineAssocaiateDetailsBlock" class="com.Over2Cloud.ctrl.MyCloud.OnlineWebCtrl">
+     <result name="success">/view/Over2Cloud/MyCloud/OnlineAssocaiateRegistationBlock.jsp</result>
+     <result name="error">/view/error.jsp</result>
+     <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="onlineOrgnizationalDetilsView" class="com.Over2Cloud.ctrl.MyCloud.OnlineWebCtrl">
+     <result name="success">/view/Over2Cloud/MyCloud/onlineOrgnizationalDetils.jsp</result>
+     <result name="error">/view/error.jsp</result>
+     <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="Organizationalclient"  class="com.Over2Cloud.ctrl.MyCloud.OnlineWebCtrl" method="GetOrganizationalRegistationViewDetails">
+                <result name="success" type="json"></result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="onlineOrgnizationalDetailsBlock" class="com.Over2Cloud.ctrl.MyCloud.OnlineWebCtrl">
+     <result name="success">/view/Over2Cloud/MyCloud/OnlineOrgnizationalRegistationBlock.jsp</result>
+     <result name="error">/view/error.jsp</result>
+     <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+</package>
+
+<package name="myAccountmgmt" extends="struts-default,json-default" namespace="/view/Over2Cloud/AccountMgmt">
+
+		<action name="AccountInfo" class="com.Over2Cloud.ctrl.MyAccount.MyAccountCtrl">
+     				<result name="success">/view/Over2Cloud/MyAccount/AccountInfo.jsp</result>
+     				<result name="error">/view/error.jsp</result>
+     				<result name="login">/view/invalidSession.jsp</result>
+     	</action>
+
+      <action name="viewAccountDetails"  class="com.Over2Cloud.ctrl.MyAccount.MyAccountCtrl"  method="GetAccountViewDetails">
+                <result name="success" type="json"></result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+      </action>
+      
+       <action name="reqforOrgnization"  class="com.Over2Cloud.ctrl.MyAccount.MyAccountCtrl"  method="GetreqforOrgnization">
+                <result name="success">/view/Over2Cloud/MyAccount/OrgnizationRequest.jsp</result>
+     				<result name="error">/view/error.jsp</result>
+     				<result name="login">/view/invalidSession.jsp</result>
+      </action>
+      
+      <action name="allrequestpennel" class="com.Over2Cloud.ctrl.MyAccount.MyAccountCtrl" method="GetallRequestPennel">
+      <result name="success">view/Signup/success.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+      </action>
+      
+      <action name="ClientServerResponce" class="com.Over2Cloud.ctrl.MyAccount.MyAccountCtrl">
+     				<result name="success">/view/Over2Cloud/MyAccount/ClientServerResponce.jsp</result>
+     				<result name="error">/view/error.jsp</result>
+     				<result name="login">/view/invalidSession.jsp</result>
+      </action>
+      
+     <action name="ClientResponceSystemTake"  class="com.Over2Cloud.ctrl.MyAccount.MyAccountCtrl" method="ClientResponceSystemTake">
+                <result name="success" type="json"></result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+      
+      
+      
+      
+      
+</package>
+
+</struts>

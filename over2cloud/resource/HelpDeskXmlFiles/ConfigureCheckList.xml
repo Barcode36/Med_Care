@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+<package name="helpDesk/ActivityBoard1" extends="struts-default,json-default" namespace="/view/Over2Cloud/HelpDeskOver2Cloud/Configure_Check_List">
+	<action name="addConfigureCheckList" class="com.Over2Cloud.ctrl.helpdesk.activityboard.ConfigureCheckListAction" method="ConfigureCheckList">
+		<result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Configure_Check_List/configureCheckList.jsp</result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+	</action>
+	
+	 <action name="viewConfigureData"  class="com.Over2Cloud.ctrl.helpdesk.activityboard.ConfigureCheckListAction" method="viewConfigureDataList">
+          <result name="success" type="json"></result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+	
+	
+   <action name="viewCheckList" class="com.Over2Cloud.ctrl.helpdesk.activityboard.ConfigureCheckListAction" method="viewCheckList" >
+            <result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Configure_Check_List/viewCheckList.jsp</result>
+           <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+   </action>
+   
+      <action name="viewKrList" class="com.Over2Cloud.ctrl.helpdesk.activityboard.ConfigureCheckListAction" method="viewCheckList" >
+            <result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Configure_Check_List/viewCheckList.jsp</result>
+           <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+   </action>
+   
+	<action name="viewConfigureCheckList" class="com.Over2Cloud.ctrl.helpdesk.activityboard.ConfigureCheckListAction" method="ViewConfigureCheckList">
+		<result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Configure_Check_List/viewConfigureCheckList.jsp</result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+	</action>
+	
+	 <action name="saveConfigureCheckList" class="com.Over2Cloud.ctrl.helpdesk.activityboard.ConfigureCheckListAction" method="saveCheckList">
+		    <result name="success">/view/success.jsp</result>	
+		    <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+	</action>
+	 
+	 
+	 <action name="ViewCompletionTipKRAction" class="com.Over2Cloud.ctrl.helpdesk.activityboard.ConfigureCheckListAction" method="getCompletionTipKR" >
+ 		   <result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Configure_Check_List/ViewCompletionTipKR.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+	 
+	 
+	 
+</package>
+</struts>

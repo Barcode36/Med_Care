@@ -1,0 +1,266 @@
+
+	
+	/*
+	*notification bar css
+	*/
+	
+	.notification{
+	float:left; width:auto; padding:8px 30px 0px 30px;
+}
+.notification li{
+	float:left; width:22px; display:inline; padding:0px 15px 0px 0px; list-style:none; position:relative;
+}
+.notification li a{
+	float:left; width:22px; height:22px;
+}
+.notification li span{
+	position:absolute; font-weight:600; font-size:13px; top:-4px; right:7px; background:#bd4013; border-radius:10px; -moz-border-radius:10px; -webkit-border-radius:10px; color:#ffffff;
+	padding:0px 6px;
+}
+#organisation_request{
+	background:url(../images/organisation_request.png) no-repeat 0px 2px;
+}
+#kr_notification{
+	background:url(../images/kr_notification.png) no-repeat 3px 5px;
+}
+#client_activity{
+	background:url(../images/client_activity.png) no-repeat;
+}
+#associate_activity{
+	background:url(../images/associate_activity.png) no-repeat 0px 2px;
+}
+#new_ticket{
+	background:url(../images/ticket_open.png) no-repeat 0px 3px;
+}
+#snooze_lead{
+	background:url(../images/snooze_lead.png) no-repeat;
+}
+#calling{
+	background:url(../images/calling.png) no-repeat;
+}
+#comp{
+	background:url(../images/computer.png) no-repeat;
+}
+#paperFeed{
+	background:url(../images/paperFeed.jpg);
+}
+#feed_SMS{
+	background:url(../images/computer.png) no-repeat;
+}
+/*  Inner Page Content Starts Here  */
+
+a.like_button{
+	background:url(../images/like_reply.png) no-repeat left top; text-indent:15px;
+}
+a.remove_button{
+	background:url(../images/remove.png) no-repeat left top; text-indent:15px;
+}
+
+.notification_detailed{
+	position:absolute; width:306px; top:0px; left:0px;
+	border: 1px solid rgba(100, 100, 100, 0.4);
+    border-radius:5px; -webkit-border-radius:5px; -moz-border-radius:5px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+	background:url(../images/content_bg.png);
+	top:35px; left:-45px; /*padding:3px;*/
+}
+.notification_content{
+	float:left; width:306px; font-size:12px; font-weight:400; color:#181818; text-align:left; line-height:20px; max-height: 50%; /*overflow-y:scroll;*/ overflow:hidden; padding:3px 0px;
+}
+.notifications_all{
+	float:left; width:300px; padding:3px;
+}
+.notifications_all a{
+	float:left; width:298px!important; height:auto!important; background:url(../images/body_bg.png); padding:2px 0px; text-align:center; text-decoration:none; color:#A13812; font-weight:600;
+	border:1px solid #dedcdc; border-radius:0px 0px 5px 5px; -webkit-border-radius:0px 0px 5px 5px; -moz-border-radius:0px 0px 5px 5px;
+}
+.notifications_all a:hover{
+	color:#181818; text-decoration:none;
+}
+.notifications_pointer{
+	float:left; width:100%; margin-top:-7px;
+}
+.notification_content p{
+	line-height:18px; font-weight:400; display:inline-block; width:296px; padding:3px 5px;
+}
+.notification_content p.alternate_note{
+	background:#efefef;
+}
+
+.notification li ul{
+	display: none; width: 300px; 
+}
+.notification li li{
+	/*padding:0px; width: 50%;*/ float:left; /*font-size:11px; line-height: 20px;*/ top:-8px; z-index:999;
+}
+.notification li li a{
+	width: 100%; text-decoration: none; display: block; text-align:center;
+	font-weight:normal;
+}
+.notification li li a:hover{
+	border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;
+	transition:all 0.3s ease-in-out 0s; -webkit-transition:all 0.3s ease-in-out 0s;
+	-o-transition:all 0.3s ease-in-out 0s;
+}
+.notification li:hover ul{
+	display: block; position: absolute; padding-bottom:2px;
+}
+.notification li li a.last{
+	margin-bottom:10px;
+}
+.notification li li ul{
+	display: none !important; width: 195px; background: #059fd7 !important;
+}
+.notification li li li{
+	padding:0px; width: 195px; font-size:12px; line-height: 20px; background: #003250;
+}
+.notification li li li a{
+	padding-left: 20px; width: 175px; color: #fff; text-decoration: none; display: block; line-height: 23px; 
+	background: none !important;
+}
+.notification li li li a:hover{
+	color:#000;
+}
+.notification ul li li:hover ul{
+	display: block !important; position: absolute; left: 195px; top: 0px; padding-bottom:2px; z-index: 10;
+}
+
+
+/*::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+	*/
+	
+	/*
+	Scroll CSS
+	*/
+	#mcs_container{position:relative; margin:0px; width:100%; height:470px; padding:0px;}
+	#mcs_container .customScrollBox{position:relative; height:97%;overflow:hidden;}
+	#mcs_container .customScrollBox .container{position:relative; width:590px; top:0; float:left;}
+	#mcs_container .customScrollBox .content{clear:both;}
+	#mcs_container .customScrollBox img{border:5px solid #fff;}
+	#mcs_container .dragger_container{position:relative; width:8px; height:400px; float:left; margin:10px 0 0 10px; background:#c2c3c5; cursor:s-resize;}
+	#mcs_container .dragger{position:absolute; width:8px; height:30px; background:#646680; }
+	#mcs_container .dragger_pressed{position:absolute; width:8px; height:60px; background:#999; text-align:center; line-height:60px; color:#666; overflow:hidden; border-radius:4px; cursor:s-resize;}
+	.content_scroll{
+		float:left; width:100%; min-height:inherit;
+	}
+	
+	
+	/*
+	*Notification full view CSS added on 16-5-2013
+	*/
+	
+	
+	.sub_container_block h1{
+	font-family:'Open Sans',sans-serif; font-size:14px; font-weight:600; padding:0px 0px 7px 0px; color:#181818;
+	border-bottom:1px solid #767474; text-indent:10px;
+}
+.sub_container_block h2{
+	font-family:'Open Sans',sans-serif; font-size:13px; font-weight:600; padding:0px 0px 7px 0px; color:#181818;
+	border-bottom:1px solid #999797; text-indent:10px;
+}
+.sub_container_block a{
+	color:#a13812; margin:0px 5px;
+}
+.sub_container_block a:hover{
+	color:#181818;
+}
+.sub_container_block span.get_notifications{
+	color:#716f6f; font-weight:600;
+}
+.sub_container_block li{
+	display:block; list-style:none; color:#000000; font-size:12px; line-height:23px; padding-left:35px; padding-bottom:5px;
+	border-bottom:1px solid #eaeaeb; font-family:arial;
+}
+.sub_container_block li:last-child{
+	border:none;
+}
+.sub_container_block li span{
+	color:#939292; font-size:10px;
+}
+.sub_container_block li a{
+	color:#a13812; margin:0px;
+}
+.sub_container_block li a:hover{
+	color:#181818;
+}
+.sub_container_block li.notify{
+	background:url(../images/notify.png) no-repeat 12px 4px;
+}
+.sub_container_block li.commented{
+	background:url(../images/commented.png) no-repeat 12px 4px;
+}
+.sub_container_block li.likes{
+	background:url(../images/like_reply.png) no-repeat 12px 4px;
+}
+.sub_container_block li.friends{
+	background:url(../images/friends.png) no-repeat 12px 4px;
+}
+.sent_day{
+	padding-bottom:5px;
+}
+.sub_container_block{
+	float: left;
+	width: 96%;
+	padding: 0px 1.5% 15px 1.5%;
+	position: relative;
+}
+
+/*
+Home page CSS added by sandeep on 16-5-2013
+*/
+
+/*  Notificaton Page CSS starts here */
+
+.notification_profile{
+	float:left; width:80%; padding:0px 0px 0px 0px;
+}
+.notification_profile p{
+	font-size:13px; color:#181818; line-height:26px;
+}
+.notification_profile p a{
+	color:#a13812; text-decoration:none;
+}
+.notification_profile p a:hover{
+	color:#181818; text-decoration:none;
+}
+.notification_profile p.username{
+	font-size:21px;
+}
+
+.member_notification{
+	float:left; width:90%;
+}
+.member_notification h2{
+	font-family:'Open Sans',sans-serif; font-size:12px; font-weight:600;
+}
+.member_notification h2 a{
+	color:#A13812;
+}
+.member_notification h2 a:hover{
+	color:#A13812;
+}
+.member_notification p{
+	line-height:18px; padding:5px 0px; text-align:justify;
+}
+.member_notification li{
+	display:inline; padding:0px 10px 0px 0px; list-style:none; font-size:10px; color:#7a7878;
+}
+.member_notification li a{
+	color:#A13812; display:inline-block;
+}
+.member_notification li a:hover{
+	color:#181818;
+}
+

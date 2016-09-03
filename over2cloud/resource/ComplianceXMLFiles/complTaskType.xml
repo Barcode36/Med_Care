@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+
+  <package name="helpDesk/compliance_task_type" extends="struts-default,json-default" namespace="/view/Over2Cloud/Compliance/compl_task_type_page">
+
+     <action name="beforeComplTaskType" class="com.Over2Cloud.ctrl.compliance.taskTypeMaster.TaskTypeAction" method="beforeTaskTypeAdd" >
+           <result name="success">/view/Over2Cloud/Compliance/compl_task_type_page/complTaskType.jsp</result>
+           <result name="error" >/view/message_draft/createError.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+    <action name="taskType" class="com.Over2Cloud.ctrl.compliance.taskTypeMaster.TaskTypeAction" method="addTaskType" >
+           <result name="success">/view/success.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+     <action name="beforeComplTaskTypeView" class="com.Over2Cloud.ctrl.compliance.taskTypeMaster.TaskTypeAction" method="beforeViewTaskType" >
+           <result name="success">/view/Over2Cloud/Compliance/compl_task_type_page/viewComplTaskType.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+     <action name="beforeComplTaskTypeModify" class="com.Over2Cloud.ctrl.compliance.taskTypeMaster.TaskTypeAction" method="beforeViewTaskType" >
+           <result name="success">/view/Over2Cloud/Compliance/compl_task_type_page/viewComplTaskType.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+    <action name="viewTaskType" class="com.Over2Cloud.ctrl.compliance.taskTypeMaster.TaskTypeAction" method="viewTaskType" >
+           <result name="success" type="json"></result>
+        <result name="error">/view/error.jsp</result>
+	    <result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+    <action name="viewModifyTaskTypeAction"  class="com.Over2Cloud.ctrl.compliance.taskTypeMaster.TaskTypeAction" method="viewModifyTaskType">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+    
+  </package>
+ 
+</struts>

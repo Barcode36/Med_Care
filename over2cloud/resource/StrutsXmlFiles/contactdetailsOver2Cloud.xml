@@ -1,0 +1,46 @@
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<package name="contactDetails" extends="struts-default,json-default" namespace="/view/contactOver2Cloud">
+		<action name="beforecontactmasterAdd" class="com.Over2Cloud.ctrl.contact.ContactDetailsAction" method="beforeContactdetailsAdd">
+        <result name="success">/view/Over2Cloud/ContactOver2Cloud/createcontact.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+		</action>
+		     <action name="addcontactbasicDetails"  class="com.Over2Cloud.ctrl.contact.ContactDetailsAction" method="addcontactbasicDetails">
+                <result name="success">/view/success.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+       <action name="addcontactAddressingDetails"  class="com.Over2Cloud.ctrl.contact.ContactDetailsAction" method="addcontactbasicDetails">
+                <result name="success">/view/success.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+      <action name="getContactDataList"  class="com.Over2Cloud.ctrl.contact.ContactDetailsAction" method="getContactDataList">
+                <result name="success">/view/Over2Cloud/ContactOver2Cloud/contactList.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+      <action name="getAdressContactDataListsss"  class="com.Over2Cloud.ctrl.contact.ContactDetailsAction" method="getAdressContactDataListsss">
+                <result name="success">/view/Over2Cloud/ContactOver2Cloud/contactadressing.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+         <action name="beforecontactmasterView"  class="com.Over2Cloud.ctrl.contact.ContactviewAction" method="beforecontactmasterView">
+                <result name="success">/view/Over2Cloud/ContactOver2Cloud/contactview.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="viewcontactData" class="com.Over2Cloud.ctrl.contact.ContactviewAction" method="viewcontactData">
+        <result name="success" type="json"></result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="editContactDataGrid" class="com.Over2Cloud.ctrl.contact.ContactDetailsAction" method="editcontactData">
+            <result name="success">/view/success.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+    
+		</package>
+		</struts>

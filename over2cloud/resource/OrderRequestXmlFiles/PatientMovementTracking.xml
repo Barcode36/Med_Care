@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+
+
+<package name="patMovement" extends="struts-default,json-default" namespace="/view/Over2Cloud/PatientMovementTracking">
+	     
+	    <!-- Patient Movement Tracking :Sanjay 2016 -->
+    
+			<action name="viewPatientMovementTrackingHeader" class="com.Over2Cloud.ctrl.PatientMovementTracking.viewPatientMovementTracking" method="beforeViewActivityBoard">
+	            <result name="success" >/view/Over2Cloud/PatientMovementTracking/longPatientStayViewHeader.jsp</result>
+	            <result name="error">/view/error.jsp</result>
+	            <result name="login">/view/invalidSession.jsp</result>
+       		</action>
+       		
+			<action name="viewActivityBoardDetail" class="com.Over2Cloud.ctrl.PatientMovementTracking.viewPatientMovementTracking" method="viewActivityBoardDetail">
+	            <result name="success" >/view/Over2Cloud/PatientMovementTracking/viewlongPatientStayDetails.jsp</result>
+	            <result name="error">/view/error.jsp</result>
+	            <result name="login">/view/invalidSession.jsp</result>
+       		</action>	
+
+			<action name="viewActivityBoardData" class="com.Over2Cloud.ctrl.PatientMovementTracking.viewPatientMovementTracking" method="viewActivityBoardData">
+	            <result name="success" type="json" ></result>
+	            <result name="error">/view/error.jsp</result>
+	            <result name="login">/view/invalidSession.jsp</result>
+       		</action>
+       		 
+       		  <action name="fetchFilterNurshingUnit"  class="com.Over2Cloud.ctrl.PatientMovementTracking.viewPatientMovementTracking"  method="fetchFilterNurshingUnit">
+     		<result name="success" type="json"><param name="root">jsonArr</param></result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+	   </action>
+	   
+	    <action name="fetchFilterLocation"  class="com.Over2Cloud.ctrl.PatientMovementTracking.viewPatientMovementTracking"  method="fetchFilterLocation">
+     		<result name="success" type="json"><param name="root">jsonArr</param></result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+	   </action>
+
+		<action name="fetchCounterStatus"  class="com.Over2Cloud.ctrl.PatientMovementTracking.viewPatientMovementTracking"  method="fetchCounterStatus">
+     		<result name="success" type="json"><param name="root">jsonArr</param></result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+	   </action>
+</package>
+	 
+	 
+</struts>

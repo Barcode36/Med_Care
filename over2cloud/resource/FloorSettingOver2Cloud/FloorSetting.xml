@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<package name="buddy" extends="struts-default,json-default" namespace="/view/Over2Cloud/FloorSettingOver2Cloud">
+	
+	<action name="CreateFloorSetting" class="com.Over2Cloud.ctrl.floorsetting.FloorSetting" method="CreateFloorSetting">
+			<result name="success">/view/Over2Cloud/FloorSettingOver2Cloud/CreateFloorSetting.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+	</action>
+	<action name="subRoomFloorDetail" class="com.Over2Cloud.ctrl.floorsetting.FloorSetting" method="getsubLocationFloorDetails">
+			<result name="success" type="json"><param name="root">empObj</param></result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp</result>
+	</action>
+	<action name="addFloor" class="com.Over2Cloud.ctrl.floorsetting.FloorSetting" method="addFloor">
+			<result name="success">/view/success.jsp</result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp</result>
+	</action>
+	
+	<action name="addWings" class="com.Over2Cloud.ctrl.floorsetting.FloorSetting" method="addWings">
+			<result name="success">/view/success.jsp</result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp</result>
+	</action>
+
+	<action name="addRoom" class="com.Over2Cloud.ctrl.floorsetting.FloorSetting" method="addRoom">
+			<result name="success">/view/success.jsp</result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp</result>
+	</action>
+    
+    <action name="CreateCCSetting" class="com.Over2Cloud.ctrl.floorsetting.FloorSetting" method="CreateCCSetting">
+			<result name="success">/view/Over2Cloud/FloorSettingOver2Cloud/CreateCCSetting.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+	</action>
+	
+	<action name="getEmployee" class="com.Over2Cloud.ctrl.floorsetting.FloorSetting" method="getEmployee">
+			<result name="success">/view/Over2Cloud/FloorSettingOver2Cloud/Employee.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+	</action>
+    
+     <action name="BeforeGetUnMappedData" class="com.Over2Cloud.ctrl.floorsetting.FloorSetting" method="BeforeGetUnMappedData">
+			<result name="DeptWise">/view/Over2Cloud/FloorSettingOver2Cloud/UnMappedDeptView.jsp</result>
+			<result name="FloorWise">/view/Over2Cloud/FloorSettingOver2Cloud/UnMappedRoomView.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+	</action>
+    
+    <action name="gridDeptWise" class="com.Over2Cloud.ctrl.floorsetting.FloorSetting" method="gridUnMappedDept">
+			<result name="success" type="json"></result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp</result>
+	</action>
+	
+	 <action name="gridRoomWise" class="com.Over2Cloud.ctrl.floorsetting.FloorSetting" method="gridUnMappedRoom">
+			<result name="success" type="json"></result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp</result>
+	</action>
+	
+	<action name="MapDeptCC" class="com.Over2Cloud.ctrl.floorsetting.FloorSetting" method="mapDeptCC">
+			<result name="success">/view/success.jsp</result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp</result>
+	</action>
+	
+	<action name="CreateCCSetting" class="com.Over2Cloud.ctrl.floorsetting.FloorSetting" method="CreateCCSetting">
+			<result name="success">/view/Over2Cloud/FloorSettingOver2Cloud/CreateCCSetting.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+	</action>
+	
+	<action name="MapRoomCC" class="com.Over2Cloud.ctrl.floorsetting.FloorSetting" method="mapRoomCC">
+			<result name="success">/view/success.jsp</result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp</result>
+	</action>
+	
+	<action name="subRoomDetail" class="com.Over2Cloud.ctrl.floorsetting.FloorSetting" method="getsubLocationDetails">
+			<result name="success" type="json"><param name="root">empObj</param></result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp</result>
+	</action>
+	
+	<action name="BeforeViewFloorSetting" class="com.Over2Cloud.ctrl.floorsetting.FloorSetting">
+			<result name="success">/view/Over2Cloud/FloorSettingOver2Cloud/ViewFloorSetting.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+	</action>
+	
+	<action name="gridMappedFloor1" class="com.Over2Cloud.ctrl.floorsetting.FloorSetting" method="gridMappedFloor1">
+			<result name="success" type="json"></result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp</result>
+	</action>
+	
+	<action name="gridMappedWings" class="com.Over2Cloud.ctrl.floorsetting.FloorSetting" method="gridMappedWings">
+			<result name="success" type="json"></result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp</result>
+	</action>
+	
+	<action name="gridMappedRoom2" class="com.Over2Cloud.ctrl.floorsetting.FloorSetting" method="gridMappedRoom2">
+			<result name="success" type="json"></result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp</result>
+	</action>
+	
+	<action name="gridMappedEmp3" class="com.Over2Cloud.ctrl.floorsetting.FloorSetting" method="gridMappedEmp3">
+			<result name="success" type="json"></result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp</result>
+	</action>
+	
+	
+	
+	</package>
+</struts>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

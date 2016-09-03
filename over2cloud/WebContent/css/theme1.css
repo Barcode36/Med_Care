@@ -1,0 +1,18 @@
+a{
+	color:#181818; text-decoration:none;
+}
+a:hover{
+	color:#181818; text-decoration:none;
+}
+body{
+	background:url(../images/body_bg.png) repeat;
+}
+.content{
+	background:url(../images/content_bg.png) repeat;
+}
+.page_title{
+	float:left; width:100%; background-color:#D6D6D6;
+}
+.page_title h1{
+	font-size:15px; font-weight:normal; text-indent:30px; line-height:14px; color:#222222;
+}

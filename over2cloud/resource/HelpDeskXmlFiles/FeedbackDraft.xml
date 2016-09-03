@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+<package name="helpDesk/feeddraft" extends="struts-default,json-default" namespace="/view/Over2Cloud/HelpDeskOver2Cloud/Feedback_Draft">
+
+     <action name="beforeFeedDraftView"  class="com.Over2Cloud.ctrl.helpdesk.feeddraft.EditFeedbackDraft" method="beforeFeedbackDraftView">
+            	<result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Feedback_Draft/viewFbDraft.jsp</result>
+				<result name="deptSUCCESS">/view/Over2Cloud/HelpDeskOver2Cloud/Feedback_Draft/viewFbDraftConf.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="viewFeedSubDept"  class="com.Over2Cloud.ctrl.helpdesk.feeddraft.EditFeedbackDraft" method="viewFeedSubDept">
+               <result name="success" type="json"></result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="beforeFeedDraftAdd"  class="com.Over2Cloud.ctrl.helpdesk.feeddraft.FeedbackDraftAction" method="firstAction4AddOrUpdate">
+            	<result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Feedback_Draft/createFbDraft.jsp</result>
+            	<result name="deptSUCCESS">/view/Over2Cloud/HelpDeskOver2Cloud/Feedback_Draft/createDeptFbDraft.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="beforeFeedUpload"  class="com.Over2Cloud.ctrl.helpdesk.feeddraft.FeedbackDraftAction" method="firstAction4AddOrUpdate">
+            	<result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Feedback_Draft/uploadFbDraft.jsp</result>
+            	<result name="deptSUCCESS">/view/Over2Cloud/HelpDeskOver2Cloud/Feedback_Draft/uploadDeptFbDraft.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="addFeedbackType"  class="com.Over2Cloud.ctrl.helpdesk.feeddraft.FeedbackDraftAction" method="addFeedbackType">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="addFeedCategory"  class="com.Over2Cloud.ctrl.helpdesk.feeddraft.FeedbackDraftAction" method="addFeedbackCategory">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+      </action>
+      
+       <action name="SubCatgDetail"  class="com.Over2Cloud.ctrl.helpdesk.common.HelpdeskUniversalAction" method="getFBSubCategDetail">
+                <result name="success" type="json"><param name="root">feedDraft</param></result>
+                <result name="error">/view/common_pages/error.jsp</result>
+                <result name="login">/view/common_pages/invalidSession.jsp</result>
+      </action>
+      
+      <action name="SubCatgDetailDept"  class="com.Over2Cloud.ctrl.helpdesk.common.HelpdeskUniversalAction" method="getFBSubCategDetailDept">
+                <result name="success" >/view/Over2Cloud/HelpDeskOver2Cloud/Lodge_Feedback/onChangeDept.jsp</result>
+                <result name="error">/view/common_pages/error.jsp</result>
+                <result name="login">/view/common_pages/invalidSession.jsp</result>
+      </action>
+      
+       <action name="resolutionTime11"  class="com.Over2Cloud.ctrl.helpdesk.common.HelpdeskUniversalAction" method="getResolutionTime11">
+                <result name="success" type="json"><param name="root">feedDraft</param></result>
+                <result name="error">/view/common_pages/error.jsp</result>
+                <result name="login">/view/common_pages/invalidSession.jsp</result>
+      </action>
+      
+      
+      <action name="addFeedSubCategory"  class="com.Over2Cloud.ctrl.helpdesk.feeddraft.FeedbackDraftAction" method="addFeedbackSubCategory">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+      </action>
+      
+      
+     
+      <action name="beforeFeedDraftModify"  class="com.Over2Cloud.ctrl.helpdesk.feeddraft.FeedbackDraftAction" method="beforeFeedbackDraftModify">
+            	<result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Feedback_Draft/viewFbDraft.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="editFeedType"  class="com.Over2Cloud.ctrl.helpdesk.feeddraft.EditFeedbackDraft" method="modifyFeedType">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="editfeedCategory"  class="com.Over2Cloud.ctrl.helpdesk.feeddraft.EditFeedbackDraft" method="modifyfeedCategory">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="editfeedSubCategory"  class="com.Over2Cloud.ctrl.helpdesk.feeddraft.EditFeedbackDraft" method="modifyfeedSubCategory">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+   
+     
+     <action name="viewFeedType4HDM"  class="com.Over2Cloud.ctrl.helpdesk.feeddraft.EditFeedbackDraft" method="viewFeedType4HDM">
+               <result name="success" type="json"></result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="viewFeedType4Asset"  class="com.Over2Cloud.ctrl.helpdesk.feeddraft.EditFeedbackDraft" method="viewFeedType4ASTM">
+               <result name="success" type="json"></result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="viewFeedType4FM"  class="com.Over2Cloud.ctrl.helpdesk.feeddraft.EditFeedbackDraft" method="viewFeedType4FM">
+               <result name="success" type="json"></result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="viewDeptwiseFeedType"  class="com.Over2Cloud.ctrl.helpdesk.feeddraft.EditFeedbackDraft" method="viewDeptwiseFeedType">
+               <result name="success" type="json"></result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="viewFeedType4WFPM"  class="com.Over2Cloud.ctrl.helpdesk.feeddraft.EditFeedbackDraft" method="viewFeedType4WFPM">
+               <result name="success" type="json"></result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="viewFeedCategory"  class="com.Over2Cloud.ctrl.helpdesk.feeddraft.EditFeedbackDraft" method="viewFeedCategory">
+               <result name="success" type="json"></result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="viewFeedSubCategory"  class="com.Over2Cloud.ctrl.helpdesk.feeddraft.EditFeedbackDraft" method="viewFeedSubCategory">
+               <result name="success" type="json"></result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="uploadFbDraftExcel" class="com.Over2Cloud.ctrl.helpdesk.feeddraft.FeedbackExcelUpload" method="uploadExcel">
+            <result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Feedback_Draft/confirmFbDraftExcel.jsp</result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+     </action>
+         
+     <action name="showFbDraftExcel"  class="com.Over2Cloud.ctrl.helpdesk.feeddraft.FeedbackExcelUpload" method="showUploadFbDraft">
+            <result name="success" type="json"></result>
+            <result name="error" >/view/error.jsp</result>
+            <result name="login" >/view/invalidSession.jsp</result>
+     </action>
+         
+     <action name="saveFbDraftExcel"  class="com.Over2Cloud.ctrl.helpdesk.feeddraft.FeedbackExcelUpload" method="saveExcelData">
+            <result name="success">/view/success.jsp</result>
+            <result name="error" >/view/error.jsp</result>
+            <result name="login" >/view/invalidSession.jsp</result>
+     </action>
+     
+     
+       <action name="beforeFeedDownload"  class="com.Over2Cloud.ctrl.helpdesk.feeddraft.FeedbackDraftAction" method="firstAction4Download">
+            	<result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Feedback_Draft/downloadFbDraft.jsp</result>
+            	<result name="deptSUCCESS">/view/Over2Cloud/HelpDeskOver2Cloud/Feedback_Draft/downloadDeptFbDraft.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+       </action>
+     
+       <action name="fbDraftExcel" class="com.Over2Cloud.ctrl.helpdesk.feeddraft.FeedbackExcelUpload" method="downloadFbDraftPage">
+            <result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Feedback_Draft/confirmDownloadFbDraftExcel.jsp</result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+         </action>
+         
+          <action name="showFbDraftExcel4Download" class="com.Over2Cloud.ctrl.helpdesk.feeddraft.FeedbackExcelUpload" method="getData4Download">
+            <result name="success" type="json"></result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+         </action>
+         
+         <action name="downloadFbDraftExcel" class="com.Over2Cloud.ctrl.helpdesk.feeddraft.FeedbackExcelUpload" method="downloadFeedbackDraft">
+            <result name="success">/view/success.jsp</result>
+             <result name="success" type="stream">
+			<param name="contentType">application/vnd.ms-excel</param>
+			<param name="inputName">excelStream</param>
+			<param name="contentDisposition">attachment; filename="${excelFileName}"</param>
+			<param name="bufferSize">1024</param>
+			</result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+         </action>
+</package>
+</struts>

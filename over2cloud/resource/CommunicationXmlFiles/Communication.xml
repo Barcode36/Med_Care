@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+<package name="communication" extends="struts-default,json-default" namespace="/view/Over2Cloud/CommunicationOver2Cloud/Comm">
+     
+      <!--Start Black List Module-->
+     
+     <action name="BlackListGridView"  class="com.Over2Cloud.ctrl.communication.blackList.BlackListModule" method="BlackListGridView" >
+             <result name="success">/view/Over2Cloud/CommunicationOver2Cloud/blacklist/ViewBlackList.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     
+      <action name="beforeBlackListView"  class="com.Over2Cloud.ctrl.communication.blackList.BlackListModule" method="beforeBlackListView" >
+             <result name="success">/view/Over2Cloud/CommunicationOver2Cloud/blacklist/BeforeBlackListView.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="beforeBlackListAdd"  class="com.Over2Cloud.ctrl.communication.blackList.BlackListModule" method="beforeBlackListAdd" >
+             <result name="success">/view/Over2Cloud/CommunicationOver2Cloud/blacklist/AddBlackList.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="insertDataBlackList"  class="com.Over2Cloud.ctrl.communication.blackList.BlackListModule" method="insertDataBlackList" >
+             <result name="success">/view/success.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="viewBlacKListDataGrid"  class="com.Over2Cloud.ctrl.communication.blackList.BlackListModule" method="viewBlacKListDataGrid" >
+             <result name="success" type="json"></result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     
+     <action name="modifyBlackList"  class="com.Over2Cloud.ctrl.communication.blackList.BlackListModule" method="modifyBlackList" >
+             <result name="success">/view/success.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="getContforBlack" class="com.Over2Cloud.ctrl.communication.blackList.BlackListModule" method="getContact">
+                <result name="success" type="json"><param
+					name="root">commonJSONArray</param></result>
+                <result name="error">/view/error.jsp</result>
+                <result name="login">/view/invalidSession.jsp</result>
+     </action>
+      
+     <action name="searchblackListurl"  class="com.Over2Cloud.ctrl.communication.blackList.BlackListModule" method="searchblackListview" >
+   <result name="success" type="json"></result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+      
+     <!--
+     <action name="beforeBlackListExcelUpload"  class="com.Over2Cloud.ctrl.communication.blackList.BlackListModule" method="beforeBlackListExcelUpload" >
+             <result name="success">/view/Over2Cloud/CommunicationOver2Cloud/Comm/BlackListExcelUpload.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     -->
+     
+     <action name="uploadExcelblack" class="com.Over2Cloud.ctrl.communication.blackList.ExcelUpload" method="readExcelData">
+			<result name="success">/view/Over2Cloud/CommunicationOver2Cloud/blacklist/beforeSaveXls.jsp</result> 
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp</result>
+		</action>
+		
+		
+     <action name="blacklistuploadTextFile" class="com.Over2Cloud.ctrl.communication.blackList.ExcelUpload" method="uploadTextFiledata">
+			<result name="success">/view/Over2Cloud/CommunicationOver2Cloud/blacklist/beforeSaveXls.jsp</result> 
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp</result>
+		</action>
+     
+     <action name="viewUploadExcelGridData" class="com.Over2Cloud.ctrl.communication.blackList.ExcelUpload" method="viewConfirmationData">
+			<result name="success" type="json"></result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp</result>
+		</action>
+		
+			<action name="saveExcelData" class="com.Over2Cloud.ctrl.communication.blackList.ExcelUpload" method="saveSelectData">
+			<result name="success">/view/success.jsp</result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp</result>
+		</action>
+		
+		 <action name="showExcell"  class="com.Over2Cloud.ctrl.communication.blackList.ExcelUpload" method="showUpload">
+            <result name="success" type="json"></result>
+            <result name="error" >/view/error.jsp</result>
+            <result name="login" >/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="savebalclistExcel" class="com.Over2Cloud.ctrl.communication.blackList.ExcelUpload" method="saveblacklistData">
+			<result name="success">/view/success.jsp</result>
+			<result name="error">/view/common_pages/error.jsp</result>
+			<result name="login">/view/common_pages/invalidSession.jsp</result>
+		</action>
+     
+     
+     <action name="beforeBlackListGridDataDownload"  class="com.Over2Cloud.ctrl.communication.blackList.BlackListModule" method="beforeBlackListGridDataDownload" >
+             <result name="success">/view/Over2Cloud/CommunicationOver2Cloud/Comm/BlackListGridDataDownload.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     
+     <!--Start Instant Message Mapping -->
+     
+     <action name="beforeinstantmessageView"  class="com.Over2Cloud.ctrl.communication.instantMsg.CreateInstantMsg" method="beforeinstantmessageView" >
+             <result name="success">/view/Over2Cloud/CommunicationOver2Cloud/instant_msg/InstantMessageView.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="getdataselectstatus"  class="com.Over2Cloud.ctrl.communication.instantMsg.CreateInstantMsg" method="beforeinstantmessageView" >
+             <result name="success">/view/Over2Cloud/CommunicationOver2Cloud/instant_msg/ajaxsmsviewpage.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="getdataselecteddate"  class="com.Over2Cloud.ctrl.communication.instantMsg.CreateInstantMsg" method="beforeinstantmessageView" >
+             <result name="success">/view/Over2Cloud/CommunicationOver2Cloud/instant_msg/ajaxsmsviewpage.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <!--                 GET SUB DEPARTMENT  PART       -->
+      <action name="subDeptViaAjax"  class="com.Over2Cloud.ctrl.communication.instantMsg.CreateInstantMsg" method="getSubDepartment">
+                <result name="success">/view/Over2Cloud/CommunicationOver2Cloud/Comm/ajaxResSubDept.jsp</result>
+                <result name="error">/view/common_pages/error.jsp</result>
+                <result name="login">/view/common_pages/invalidSession.jsp</result>
+      </action>
+     
+      <action name="checkMsg" class="com.Over2Cloud.ctrl.communication.instantMsg.CreateInstantMsg" method="getmessagetext" >
+            <result name="success" type="json"><param name="root">messageName</param></result>
+            <result name="error" >/view/error.jsp</result>
+            <result name="login" >/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="beforeInstantMessageAdd"  class="com.Over2Cloud.ctrl.communication.instantMsg.CreateInstantMsg" method="beforeInstantMessageAdd" >
+             <result name="success">/view/Over2Cloud/CommunicationOver2Cloud/instant_msg/InstantMessageAdd.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="insertDatainstantmsg"  class="com.Over2Cloud.ctrl.communication.instantMsg.CreateInstantMsg" method="insertDatainstantmsg" >
+             <result name="success">/view/Over2Cloud/CommunicationOver2Cloud/Comm/confirmationPage.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="instantviewmsgdata"  class="com.Over2Cloud.ctrl.communication.instantMsg.CreateInstantMsg" method="viewInstantMsgData" >
+             <result name="success" type="json"></result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="resendsms">
+      <result name="success">/view/Over2Cloud/CommunicationOver2Cloud/instant_msg/resendsms.jsp</result>
+     </action>
+     
+     <action name="searchviewdata"  class="com.Over2Cloud.ctrl.communication.instantMsg.ReportSearchAction" method="searchviewdata" >
+             <result name="success" type="json"></result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="insertConfirmationMsgurl"  class="com.Over2Cloud.ctrl.communication.instantMsg.CreateInstantMsg" method="insertConfirmationMsgData" >
+             <result name="success">/view/success.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+    
+     
+     <action name="beforeAutoPushReportView"  class="com.Over2Cloud.ctrl.communication.autoPushReport.AutoPushReportModule" method="beforeAutoPushReportView" >
+             <result name="success">/view/Over2Cloud/CommunicationOver2Cloud/Comm/AutoPushReportView.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="getAutoPushReport"  class="com.Over2Cloud.ctrl.communication.autoPushReport.AutoPushReportModule" method="getAutoPushReport" >
+             <result name="success">/view/Over2Cloud/CommunicationOver2Cloud/Comm/AutoPushReport.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="instantHindiSearchReport"  class="com.Over2Cloud.ctrl.communication.autoPushReport.AutoPushReportModule" method="getAutoPushReport" >
+             <result name="success">/view/Over2Cloud/CommunicationOver2Cloud/Comm/InstantHindiSearchReport.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+    
+    <action name="totalReport"  class="com.Over2Cloud.ctrl.communication.totalReport.TotalReport" method="totalReport" >
+             <result name="success">/view/Over2Cloud/CommunicationOver2Cloud/Comm/TotalReport.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+       <action name="uploadASExcel" method="UploadExceldata" class="com.Over2Cloud.ctrl.common.communication.UploadSmsExceldata">
+       		   <result name="success">/view/Over2Cloud/CommunicationOver2Cloud/instant_msg/confirmSMS.jsp</result>
+               <result name="none">/view/success.jsp</result> 
+               <result name="error" >/view/error.jsp</result>
+               <result name="login" >/view/invalidSession.jsp</result>
+       </action>
+          <action name="showSMSConfirmExceldata" method="ShowConformExceldata" class="com.Over2Cloud.ctrl.common.communication.UploadSmsExceldata">
+      <result name="success" type="json"></result>
+      <result name="error">/view/error.jsp</result>
+      <result name="login" >/view/invalidSession.jsp</result>
+       </action>
+       <action name="uploadTextFile" method="UploadTextFiledata" class="com.Over2Cloud.ctrl.common.communication.UploadSmsExceldata">
+      		   <result name="success">/view/Over2Cloud/CommunicationOver2Cloud/instant_msg/confirmSMS.jsp</result>
+               <result name="none">/view/success.jsp</result> 
+               <result name="error" >/view/error.jsp</result>
+               <result name="login" >/view/invalidSession.jsp</result>
+       </action>
+       <action name="getViaAjaxSendMsg" method="SendSMS" class="com.Over2Cloud.ctrl.common.communication.UploadSmsExceldata" >
+			<result name="login" >/view/invalidSession.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="success">/view/success.jsp</result>
+		</action>
+		 <action name="getViaAjaxinstantSendMsg" method="SaveSMS" class="com.Over2Cloud.ctrl.common.communication.UploadSmsExceldata">
+    		 <result name="success">/view/success.jsp</result> 
+               <result name="error" >/view/error.jsp</result>
+               <result name="login" >/view/invalidSession.jsp</result>
+       </action>
+       
+ <action name="dowloadformate" class="com.Over2Cloud.ctrl.common.communication.UploadSmsExceldata" method="dowloadformate">
+       <result name="success" type="stream">
+            <param name="contentType">application/vnd.ms-excel</param>
+            <param name="inputName">fileInputStream</param>
+            <param name="contentDisposition">attachment; filename="file.txt"</param>
+            <param name="bufferSize">1024</param>
+            </result>
+             <result name="error" >/view/error.jsp</result>
+            <result name="login" >/view/invalidSession.jsp</result>
+       </action>
+       
+ <action name="dowloadexcelformate" class="com.Over2Cloud.ctrl.common.communication.UploadSmsExceldata" method="dowloadexcelformate">
+       <result name="success" type="stream">
+            <param name="contentType">application/vnd.ms-excel</param>
+            <param name="inputName">fileInputStream</param>
+            <param name="contentDisposition">attachment; filename="xlfile.xls"</param>
+            <param name="bufferSize">1024</param>
+            </result>
+             <result name="error" >/view/error.jsp</result>
+            <result name="login" >/view/invalidSession.jsp</result>
+       </action>
+       
+       <action name="blacklistdowloadtextformate" class="com.Over2Cloud.ctrl.common.communication.UploadSmsExceldata" method="dowloadblacklisttextformate">
+       <result name="success" type="stream">
+            <param name="contentType">application/vnd.ms-excel</param>
+            <param name="inputName">fileInputStream</param>
+            <param name="contentDisposition">attachment; filename="blacklist.txt"</param>
+            <param name="bufferSize">1024</param>
+            </result>
+             <result name="error" >/view/error.jsp</result>
+            <result name="login" >/view/invalidSession.jsp</result>
+       </action>
+       
+        <action name="blacklistdowloadexcelformate" class="com.Over2Cloud.ctrl.common.communication.UploadSmsExceldata" method="dowloadblacklistexcelformate">
+       <result name="success" type="stream">
+            <param name="contentType">application/vnd.ms-excel</param>
+            <param name="inputName">fileInputStream</param>
+            <param name="contentDisposition">attachment; filename="blackList.xlsx"</param>
+            <param name="bufferSize">1024</param>
+            </result>
+             <result name="error" >/view/error.jsp</result>
+            <result name="login" >/view/invalidSession.jsp</result>
+       </action>
+       
+       <action name="getViaAjaxcontactsubType"  class="com.Over2Cloud.ctrl.communication.instantMsg.InstantmsgcontactAction" method="getcontactsubType">
+         <result name="success" type="json"><param name="root">commonJSONArray</param></result>
+		<result name="error">/view/common_pages/error.jsp</result>
+		<result name="login">/view/common_pages/invalidSession.jsp</result>
+     </action>
+<action name="getViaAjaxtemplate"  class="com.Over2Cloud.ctrl.communication.instantMsg.InstantmsgcontactAction" method="gettemplatedata">
+<result name="success" type="json"><param name="root">commonJSONArray</param></result>
+		<result name="error">/view/common_pages/error.jsp</result>
+		<result name="login">/view/common_pages/invalidSession.jsp</result>
+</action>     
+     
+<action name="getViaAjaxcontactType"  class="com.Over2Cloud.ctrl.communication.instantMsg.InstantmsgcontactAction" method="getcontactType">
+          <result name="success">/view/Over2Cloud/CommunicationOver2Cloud/instant_msg/ajaxdrop.jsp</result>
+ 		<result name="error">/view/common_pages/error.jsp</result>
+		<result name="login">/view/common_pages/invalidSession.jsp</result>
+     </action>
+     <action name="getViaAjaxmailcontactType"  class="com.Over2Cloud.ctrl.communication.instantMsg.InstantmsgcontactAction" method="getcontactmailType">
+          <result name="success">/view/Over2Cloud/CommunicationOver2Cloud/instant_msg/ajaxdrop.jsp</result>
+ 		<result name="error">/view/common_pages/error.jsp</result>
+		<result name="login">/view/common_pages/invalidSession.jsp</result>
+     </action>
+       <action name="groupdetailsview" method="getgroup"  class="com.Over2Cloud.ctrl.communication.instantMsg.InstantmsgcontactAction">
+	          <result>/view/Over2Cloud/ContactOver2Cloud/groupMastre/groupview.jsp</result>
+	        </action>
+	        <action name="getselectedgroupdata">
+	           <result>/view/Over2Cloud/ContactOver2Cloud/groupMastre/ajaxgroupview.jsp</result>
+	        </action>
+             <action name="viewgroupData" class="com.Over2Cloud.ctrl.AllCommonModule.GroupdataAdd" method="viewgroupData">
+               <result name="success" type="json"></result>
+                <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+          </action>
+           <action name="editgroupurl" class="com.Over2Cloud.ctrl.AllCommonModule.GroupdataAdd" method="editgroupaction">
+                <result name="success">/view/success.jsp</result>
+                <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+          </action>
+           <action name="addroupdataurl" class="com.Over2Cloud.ctrl.AllCommonModule.ContactDetailsAction" method="getgroupname">
+	       <result name="success">/view/Over2Cloud/ContactOver2Cloud/groupMastre/addingroup.jsp</result>
+	      <result name="error">/view/error.jsp</result>
+		 <result name="login">/view/invalidSession.jsp</result>
+	     </action>
+	     <action name="addnewroupdataurl" class="com.Over2Cloud.ctrl.AllCommonModule.ContactDetailsAction" >
+	       <result name="success">/view/Over2Cloud/ContactOver2Cloud/groupMastre/creategroup.jsp</result>
+	      <result name="error">/view/error.jsp</result>
+		 <result name="login">/view/invalidSession.jsp</result>
+	     </action>
+	     <action name="getViaAjaxcontactTypeView">
+	       <result name="success">/view/Over2Cloud/ContactOver2Cloud/groupMastre/ajaxgroupview.jsp</result>
+	      <result name="error">/view/error.jsp</result>
+		 <result name="login">/view/invalidSession.jsp</result>
+	     </action>
+	     <action name="viewgroupDataurl" class="com.Over2Cloud.ctrl.communication.instantMsg.InstantmsgcontactAction" method="getgroupDataview">
+               <result name="success" type="json"></result>
+                <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+          </action>
+          <action name="addingroupdata" method="addgroupdata" class="com.Over2Cloud.ctrl.communication.instantMsg.InstantmsgcontactAction">
+    		 <result name="success">/view/success.jsp</result> 
+               <result name="error" >/view/error.jsp</result>
+               <result name="login" >/view/invalidSession.jsp</result>
+       </action>
+       <action name="addgroup" method="creategroup" class="com.Over2Cloud.ctrl.communication.instantMsg.InstantmsgcontactAction">
+    		 <result name="success">/view/success.jsp</result> 
+               <result name="error" >/view/error.jsp</result>
+               <result name="login" >/view/invalidSession.jsp</result>
+       </action>
+          
+</package>
+
+<package name="instant_mail"  extends="struts-default,json-default" namespace="/view/Over2Cloud/CommunicationOver2Cloud/mail">
+
+<action name="beforeInstantmailsend" class="com.Over2Cloud.ctrl.communication.instantmail.InstantmailAction" method="beforeInstantmailsend">
+  <result name="success">/view/Over2Cloud/CommunicationOver2Cloud/instant_mail/Instantmailsend.jsp</result>
+  <result name="error">/view/error.jsp</result>
+  <result name="login">/view/invalidSession.jsp</result>
+</action>
+
+<action name="urlbeforemailsender" class="com.Over2Cloud.ctrl.communication.instantmail.InstantmailAction" method="urlbeforemailsender">
+<result name="success">/view/Over2Cloud/CommunicationOver2Cloud/instant_mail/mailconfirmationPage.jsp</result>
+<result name="error">/view/error.jsp</result>
+<result name="login">/view/invalidSession.jsp</result>
+</action>
+ <action name="insertConfirmationmailData"  class="com.Over2Cloud.ctrl.communication.instantmail.InstantmailAction" method="insertConfirmationmailaction" >
+ <result name="success">/view/success.jsp</result>
+ <result name="error">/view/error.jsp</result>
+ <result name="login">/view/invalidSession.jsp</result>
+</action>
+
+   <action name="uploadASExcel" method="UploadExceldata" class="com.Over2Cloud.ctrl.communication.instantmail.InstantmailUploadaction">
+       		   <result name="success">/view/Over2Cloud/CommunicationOver2Cloud/instant_mail/confirmSMS.jsp</result>
+               <result name="none">/view/success.jsp</result> 
+               <result name="error" >/view/error.jsp</result>
+               <result name="login" >/view/invalidSession.jsp</result>
+       </action>
+          <action name="showSMSConfirmExceldata" method="ShowConformExceldata" class="com.Over2Cloud.ctrl.communication.instantmail.InstantmailUploadaction">
+      <result name="success" type="json"></result>
+      <result name="error">/view/error.jsp</result>
+      <result name="login" >/view/invalidSession.jsp</result>
+       </action>
+       <action name="uploadTextFile" method="UploadTextFiledata" class="com.Over2Cloud.ctrl.communication.instantmail.InstantmailUploadaction">
+      		   <result name="success">/view/Over2Cloud/CommunicationOver2Cloud/instant_mail/confirmSMS.jsp</result>
+               <result name="none">/view/success.jsp</result> 
+               <result name="error" >/view/error.jsp</result>
+               <result name="login" >/view/invalidSession.jsp</result>
+       </action>
+       <action name="getViaAjaxSendMsg" method="SendSMS" class="com.Over2Cloud.ctrl.communication.instantmail.InstantmailUploadaction" >
+			<result name="login" >/view/invalidSession.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="success">/view/success.jsp</result>
+		</action>
+		 <action name="getViaAjaxinstantSendMsg" method="SaveSMS" class="com.Over2Cloud.ctrl.communication.instantmail.InstantmailUploadaction">
+    		 <result name="success">/view/success.jsp</result> 
+               <result name="error" >/view/error.jsp</result>
+               <result name="login" >/view/invalidSession.jsp</result>
+       </action>
+       <action name="tamplemail"   method="templatetext" class="com.Over2Cloud.ctrl.communication.instantmail.InstantmailAction">
+      <result name="success" type="json"><param name="root">messageName</param></result>
+            <result name="error" >/view/error.jsp</result>
+            <result name="login" >/view/invalidSession.jsp</result>
+       </action>
+       
+
+</package>
+
+<package name="sms_template" extends="struts-default,json-default" namespace="/view/Over2Cloud/CommunicationOver2Cloud/template">
+
+    <action name="beforeTemplateView" class="com.Over2Cloud.ctrl.communication.template.TemplateAction" method="beforeTemplateView" >
+         <result name="success">/view/Over2Cloud/CommunicationOver2Cloud/sms_template/viewTemplates.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    <action name="beforemailTemplateView" class="com.Over2Cloud.ctrl.communication.template.MailTemplateAction" method="befortemplateadd" >
+         <result name="success">/view/Over2Cloud/CommunicationOver2Cloud/mail_template/addmailtemplate.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    <action name="addtemplateaction" class="com.Over2Cloud.ctrl.communication.template.MailTemplateAction" method="addtemplateaction">
+    <result name="success">/view/success.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+    
+    <action name="beforesearchTemplateView" class="com.Over2Cloud.ctrl.communication.template.TemplateAction" method="beforeTemplateView" >
+         <result name="success">/view/Over2Cloud/CommunicationOver2Cloud/sms_template/searchviewTemplates.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+    <action name="addTemplateData" class="com.Over2Cloud.ctrl.communication.template.TemplateAction" method="addTemplateData" >
+         <result name="success">/view/Over2Cloud/CommunicationOver2Cloud/sms_template/addTemplates.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+    <action name="insertDataForTemplate" class="com.Over2Cloud.ctrl.communication.template.TemplateAction" method="insertDataForTemplate" >
+           <result name="success">/view/success.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+    <action name="viewTemplateDataGrid" class="com.Over2Cloud.ctrl.communication.template.TemplateAction" method="viewTemplateDataGrid" >
+            <result name="success" type="json"></result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+
+
+
+ <action name="beforeOperatorView" class="com.Over2Cloud.ctrl.communication.template.TemplateAction" method="beforeOperatorView" >
+             <result name="success">/view/Over2Cloud/CommunicationOver2Cloud/sms_template/viewOperator.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+    <action name="addOperatorData" class="com.Over2Cloud.ctrl.communication.template.TemplateAction" method="addOperatorData" >
+         <result name="success">/view/Over2Cloud/CommunicationOver2Cloud/sms_template/addOperator.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    <action name="inserOperatorData" class="com.Over2Cloud.ctrl.communication.template.TemplateAction" method="inserOperatorData" >
+          <result name="success">/view/success.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    <action name="viewOperDataGrid" class="com.Over2Cloud.ctrl.communication.template.TemplateAction" method="viewOperDataGrid" >
+           <result name="success" type="json"></result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+    <action name="addResponse" class="com.Over2Cloud.ctrl.communication.template.TemplateAction" method="addResponse4Employee" >
+         <result name="success">/view/Over2Cloud/CommunicationOver2Cloud/sms_template/beforeTakeActionTemplate.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    <action name="responseAddAction" class="com.Over2Cloud.ctrl.communication.template.TemplateAction" method="updateRequest">
+                <result name="success">/view/success.jsp</result>
+                <result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+    </action>
+    <action name="modifyTemplate"  class="com.Over2Cloud.ctrl.communication.template.TemplateAction" method="modifyTemplate" >
+		 			<result name="success">/view/success.jsp</result>
+		             <result name="error">/view/error.jsp</result>
+					<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="viewtemplatedata" class="com.Over2Cloud.ctrl.communication.template.TemplateAction" method="viewtemplatemsgwrite" >
+           <result name="success">/view/Over2Cloud/CommunicationOver2Cloud/sms_template/viewtemplatemsgwrite.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+     <action name="templateSubmission"  class="com.Over2Cloud.ctrl.communication.template.TemplateAction" method="templateSubmission" >
+		 			<result name="success">/view/Over2Cloud/CommunicationOver2Cloud/sms_template/templateSubmissionForm.jsp</result>
+		             <result name="error">/view/error.jsp</result>
+					<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="templateSubmissionaction"  class="com.Over2Cloud.ctrl.communication.template.TemplateAction" method="templateSubmission" >
+		 			<result name="success">/view/Over2Cloud/CommunicationOver2Cloud/sms_template/templateForm.jsp</result>
+		             <result name="error">/view/error.jsp</result>
+					<result name="login">/view/invalidSession.jsp</result>
+     </action>
+      <action name="templateSubmission"  class="com.Over2Cloud.ctrl.communication.template.TemplateAction" method="templateSubmission" >
+		 			<result name="success">/view/Over2Cloud/CommunicationOver2Cloud/sms_template/templateSubmissionForm.jsp</result>
+		             <result name="error">/view/error.jsp</result>
+					<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="insertUseTeplate"  class="com.Over2Cloud.ctrl.communication.template.TemplateAction" method="insertUseTeplate" >
+		 			<result name="success">/view/success.jsp</result>
+		             <result name="error">/view/error.jsp</result>
+					<result name="login">/view/invalidSession.jsp</result>
+     </action>
+ <action name="gettemplatemsgcontaint" class="com.Over2Cloud.ctrl.communication.template.TemplateAction" method="templateSubmission">
+     <result name="success">/view/Over2Cloud/CommunicationOver2Cloud/sms_template/templateSubmissionForm.jsp</result>
+		             <result name="error">/view/error.jsp</result>
+					<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="insertemplatemsgurl"  class="com.Over2Cloud.ctrl.communication.instantMsg.CreateInstantMsg" method="insertmsgfromtemplate" >
+		 			<result name="success">/view/success.jsp</result>
+		             <result name="error">/view/error.jsp</result>
+					<result name="login">/view/invalidSession.jsp</result>
+     </action>
+</package>
+
+<package name="accountstatus" extends="struts-default,json-default" namespace="/view/Over2Cloud/CommunicationOver2Cloud/accountstatus">
+                
+                   <action name="accountstatusView" class="com.Over2Cloud.ctrl.common.communication.AccountstatusAction" method="accountstatusView">
+                     <result name="success">/view/Over2Cloud/CommunicationOver2Cloud/accountstatus/viewaccountstatus.jsp</result>
+		             <result name="error">/view/error.jsp</result>
+					<result name="login">/view/invalidSession.jsp</result>
+				</action>
+				
+				
+				
+                   <action name="dailyautopushreport" class="com.Over2Cloud.ctrl.common.communication.AutoPushReportAction" method="beforviewAutoPushreport">
+                     <result name="success">/view/Over2Cloud/CommunicationOver2Cloud/autopush_report/autopushreport.jsp</result>
+		             <result name="error">/view/error.jsp</result>
+					<result name="login">/view/invalidSession.jsp</result>
+					</action>
+					<action name="viewautopushGridurl" class="com.Over2Cloud.ctrl.common.communication.AutoPushReportAction" method="viewautopushreport">
+            		<result name="success" type="json"></result>
+                    <result name="error" >/view/error.jsp</result>
+                    <result name="login">/view/common_pages/invalidSession.jsp</result>
+				   </action>
+			    <action name="autopushreportsearchviewurl"  class="com.Over2Cloud.ctrl.common.communication.AutoPushReportAction" method="autupushreportserach" >
+			            <result name="success" type="json"></result>
+			            <result name="error">/view/error.jsp</result>
+					<result name="login">/view/invalidSession.jsp</result>
+			    </action>
+              <action name="getpushreportstatus"  class="com.Over2Cloud.ctrl.common.communication.AutoPushReportAction" method="beforviewAutoPushreport" >
+              <result name="success">/view/Over2Cloud/CommunicationOver2Cloud/autopush_report/ajaxatupushviewpage.jsp</result>
+              <result name="error">/view/error.jsp</result>
+			 <result name="login">/view/invalidSession.jsp</result>
+           </action>
+     <action name="getpushreportselecteddate"  class="com.Over2Cloud.ctrl.common.communication.AutoPushReportAction" method="beforviewAutoPushreport" >
+             <result name="success">/view/Over2Cloud/CommunicationOver2Cloud/autopush_report/ajaxatupushviewpage.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="getdataselectmobile"  class="com.Over2Cloud.ctrl.common.communication.AutoPushReportAction" method="beforviewAutoPushreport" >
+             <result name="success">/view/Over2Cloud/CommunicationOver2Cloud/autopush_report/ajaxatupushviewpage.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+
+</package>
+
+</struts>

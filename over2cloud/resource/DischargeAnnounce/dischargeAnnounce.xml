@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+
+
+<package name="dischargeAnnounce" extends="struts-default,json-default" namespace="/view/Over2Cloud/dischargeAnnounce">
+	     
+	     <action name="beforeViewDischargeAnnounceHeader" class="com.Over2Cloud.ctrl.dischargeAnnounce.DIschargeAnnounceActivityBoard" method="beforeViewActivityBoard">
+	            <result name="success" >/view/Over2Cloud/DischargeAnnounce/beforeViewDischargeHeader.jsp</result>
+	            <result name="error">/view/error.jsp</result>
+	            <result name="login">/view/invalidSession.jsp</result>
+       		</action>
+       	<action name="beforeActivityBoardView" class="com.Over2Cloud.ctrl.dischargeAnnounce.DIschargeAnnounceActivityBoard" method="beforeActivityBoardView">
+	            <result name="success" >/view/Over2Cloud/DischargeAnnounce/dischargeAnnounceGridView.jsp</result>
+	            <result name="error">/view/error.jsp</result>
+	            <result name="login">/view/invalidSession.jsp</result>
+       		</action>	
+       	
+       	<action name="viewActivityBoardData" class="com.Over2Cloud.ctrl.dischargeAnnounce.DIschargeAnnounceActivityBoard" method="viewActivityBoardData">
+            <result name="success" type="json" ></result>
+            <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+       		 </action>	
+       	
+       	  <action name="announceCommonHistory" class="com.Over2Cloud.ctrl.dischargeAnnounce.DIschargeAnnounceActivityBoard" method="announceCommonHistory">
+             <result name="success" >/view/Over2Cloud/DischargeAnnounce/dischargeAnnounceHistoryView.jsp</result>
+             <result name="successSeperate" >/view/Over2Cloud/DischargeAnnounce/dischanrgeAnnounceSeperateHistory.jsp</result>
+            <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+       		 </action>	
+       		 
+       		   <action name="fetchCounterStatus"  class="com.Over2Cloud.ctrl.dischargeAnnounce.DIschargeAnnounceActivityBoard"  method="fetchCounterStatus">
+     		<result name="success" type="json"><param name="root">jsonArr</param></result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+	   </action>
+	    <!-- Bed Tracking started by Aarif On 03-08-2016 -->
+    
+			<!--<action name="beforeViewBedTrackingHeader" class="com.Over2Cloud.ctrl.bedTransfer.BedTransferActivityBoard" method="beforeViewActivityBoard">
+	            <result name="success" >/view/Over2Cloud/BedTransfer/beforeViewBedTransferHeader.jsp</result>
+	            <result name="error">/view/error.jsp</result>
+	            <result name="login">/view/invalidSession.jsp</result>
+       		</action>
+       		
+       		<action name="beforeActivityBoardView" class="com.Over2Cloud.ctrl.bedTransfer.BedTransferActivityBoard" method="beforeActivityBoardView">
+	            <result name="success" >/view/Over2Cloud/BedTransfer/bedTransferGridView.jsp</result>
+	            <result name="error">/view/error.jsp</result>
+	            <result name="login">/view/invalidSession.jsp</result>
+       		</action>	
+       		
+       		<action name="viewActivityBoardData" class="com.Over2Cloud.ctrl.bedTransfer.BedTransferActivityBoard" method="viewActivityBoardData">
+            <result name="success" type="json" ></result>
+            <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+       		 </action>
+       		
+       		 
+       		  <action name="bedTransferHistory" class="com.Over2Cloud.ctrl.bedTransfer.BedTransferActivityBoard" method="bedTransferHistory">
+             <result name="success" >/view/Over2Cloud/BedTransfer/bedTransferHistoryView.jsp</result>
+            <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+       		 </action>		 
+       		 
+       		 <action name="viewHistoryEscalationDetailsOnBedTransfer" class="com.Over2Cloud.ctrl.bedTransfer.BedTransferActivityBoard" method="viewHistoryEscalationDetailsOnBedTransfer">
+            <result name="success" >/view/Over2Cloud/BedTransfer/historyEscalationOnBedTransfer.jsp</result>
+            <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+       </action>
+       		 
+       		  <action name="fetchCounterStatus"  class="com.Over2Cloud.ctrl.bedTransfer.BedTransferActivityBoard"  method="fetchCounterStatus">
+     		<result name="success" type="json"><param name="root">jsonArr</param></result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+	   </action>
+	   
+	     
+	   
+	      --><!-- Escalation Master Work Start Here -->
+			  <!--   <action name="getEscalationDataOnGrid"  class="com.Over2Cloud.ctrl.bedTransfer.ExcaltionOnBedTransfer" method="getGridData">
+		          <result name="success" type="json"></result>
+				  <result name="error">/view/error.jsp</result>
+				  <result name="login">/view/invalidSession.jsp</result>
+		     </action>
+		     
+		         <action name="beforeConfigEscalation"  class="com.Over2Cloud.ctrl.bedTransfer.ExcaltionOnBedTransfer" method="beforeConfigEscalation">
+          <result name="success">/view/Over2Cloud/BedTransfer/bedEscalation/addBedTransferEscalation.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="addEscalation"  class="com.Over2Cloud.ctrl.bedTransfer.ExcaltionOnBedTransfer" method="addEscalation">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="nextEscMap4EmpL2"  class="com.Over2Cloud.ctrl.bedTransfer.ExcaltionOnBedTransfer" method="nextEscMap4Emp">
+          <result name="success">/view/Over2Cloud/BedTransfer/bedEscalation/onChangeEscL2.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="nextEscMap4Emp"  class="com.Over2Cloud.ctrl.bedTransfer.ExcaltionOnBedTransfer" method="nextEscMap4Emp">
+          <result name="success">/view/Over2Cloud/BedTransfer/bedEscalation/onChangeEscalation.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="getEscalation4Edit" class="com.Over2Cloud.ctrl.bedTransfer.ExcaltionOnBedTransfer" method="getEscalation4Edit" >
+           <result name="success">/view/Over2Cloud/BedTransfer/bedEscalation/editEscalation.jsp</result>
+           <result name="error" >/view/message_draft/createError.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action> 
+   
+   <action name="getNextEscMap4Edit" class="com.Over2Cloud.ctrl.bedTransfer.ExcaltionOnBedTransfer" method="getNextEscMap">
+          <result name="success" type="json"><param name="root">jsonArr</param> </result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/invalidSession.jsp</result>
+   </action>
+   
+    <action name="EditEscalationAction" class="com.Over2Cloud.ctrl.bedTransfer.ExcaltionOnBedTransfer" method="EditEscalationAction" >
+           <result name="success">/view/success.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/invalidSession.jsp</result>
+    </action>
+     
+   <action name="nxxtLevelEscLst"  class="com.Over2Cloud.ctrl.referral.escalation.EscalationAction" method="nextEscMap4Emp">
+          <result name="success">/view/Over2Cloud/Referral/escalation/onChangeEscalation.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action> 
+     
+     <action name="nxxtLevelEscLst"  class="com.Over2Cloud.ctrl.bedTransfer.ExcaltionOnBedTransfer" method="nextEscMap4Emp">
+          <result name="success">/view/Over2Cloud/BedTransfer/bedEscalation/onChangeEsclationLast.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="nxxtLevelEscLst2"  class="com.Over2Cloud.ctrl.bedTransfer.ExcaltionOnBedTransfer" method="nextEscMap4Emp">
+          <result name="success">/view/Over2Cloud/BedTransfer/bedEscalation/onChangeEsclationLastLevel.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     -->
+	   <!-- End of escalation Work -->
+	   
+       		</package>
+	 
+	 
+</struts>

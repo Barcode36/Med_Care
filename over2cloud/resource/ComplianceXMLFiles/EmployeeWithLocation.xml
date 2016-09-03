@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+
+  <package name="location" extends="struts-default,json-default" namespace="/view/Over2Cloud/Compliance/Location">
+
+     <action name="beforeCountryConfig" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceCountryAction" method="beforeEmployeeBandView" >
+           <result name="success">/view/Over2Cloud/Compliance/EmployeeMapWithLocation/viewCountry.jsp</result>
+           <result name="error" >/view/message_draft/createError.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+   <action name="viewCountry" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceCountryAction" method="viewCountry" >
+ 		<result name="success" type="json"></result>
+        <result name="error">/view/error.jsp</result>
+	    <result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+     <action name="setAddPageDataFields" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceCountryAction" method="beforeBandAdd" >
+ 		 <result name="success">/view/Over2Cloud/Compliance/EmployeeMapWithLocation/AddCountry.jsp</result>
+        <result name="error">/view/error.jsp</result>
+	    <result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+    <action name="addCountry" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceCountryAction" method="addCountry" >
+ 		 <result name="success">/view/success.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+    <!-- head office mapping starts -->
+    
+     <action name="beforeHeadOfficeConfig" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceHeadOfficeAction" method="beforeHeadOfficeConfig" >
+           <result name="success">/view/Over2Cloud/Compliance/EmployeeMapWithLocation/ViewHeadOffice.jsp</result>
+           <result name="error" >/view/message_draft/createError.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+     <action name="viewHeadOffice" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceHeadOfficeAction" method="viewHeadOffice" >
+ 		<result name="success" type="json"></result>
+        <result name="error">/view/error.jsp</result>
+	    <result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+      <action name="beforAddPage" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceHeadOfficeAction" method="beforeBandAdd" >
+ 		 <result name="success">/view/Over2Cloud/Compliance/EmployeeMapWithLocation/AddHeadOffice.jsp</result>
+        <result name="error">/view/error.jsp</result>
+	    <result name="login">/view/invalidSession.jsp</result>
+    </action>
+      <action name="addHeadOffice" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceHeadOfficeAction" method="addHeadOffice" >
+ 		 <result name="success">/view/success.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+    <!-- branch office mapping starts -->
+    
+     <action name="beforebranchOfficeConfig" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceBranchOfficeAction" method="beforeBranchOfficeConfig" >
+           <result name="success">/view/Over2Cloud/Compliance/EmployeeMapWithLocation/ViewBranchOffice.jsp</result>
+           <result name="error" >/view/message_draft/createError.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+    </action>
+    
+      <action name="viewBranchOffice" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceBranchOfficeAction" method="viewBranchOffice" >
+ 		<result name="success" type="json"></result>
+        <result name="error">/view/error.jsp</result>
+	    <result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+     <action name="beforBranchAddPage" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceBranchOfficeAction" method="beforeBranchAdd" >
+ 		 <result name="success">/view/Over2Cloud/Compliance/EmployeeMapWithLocation/AddBranch.jsp</result>
+        <result name="error">/view/error.jsp</result>
+	    <result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+       <action name="addBranchOffice" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceBranchOfficeAction" method="addBranchOffice" >
+ 		 <result name="success">/view/success.jsp</result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+     <action name="getHeadOfficeList" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceBranchOfficeAction" method="getHeadOfficeList" >
+ 		 <result name="success" type="json"><param name="root">jsonArray</param></result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/invalidSession.jsp</result>
+    </action>
+    <action name="getBranchOfficeList" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceBranchOfficeAction" method="getBranchOfficeList" >
+ 		 <result name="success" type="json"><param name="root">jsonArray</param></result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/invalidSession.jsp</result>
+    </action>
+     <action name="getBranchValid" class="com.Over2Cloud.ctrl.compliance.complContacts.ComplianceBranchOfficeAction" method="fetchBranchValid" >
+ 		 <result name="success" type="json"><param name="root">jsonArray</param></result>
+           <result name="error" >/view/error.jsp</result>
+           <result name="login">/view/invalidSession.jsp</result>
+    </action>
+  </package>
+  
+ 
+</struts>
+
+

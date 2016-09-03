@@ -1,0 +1,135 @@
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+<package name="CloudApps" extends="struts-default,json-default" namespace="/view/CloudApps">
+		<action name="GetConfigurationdetails" class="com.Over2Cloud.ctrl.configuration.ConfigurationAction" method="ShowConfigurationdetails">
+		<result name="error">/view/common_pages/error.jsp</result>
+	    <result name="login">/view/common_pages/invalidSession.jsp</result>
+		<result name="success">/view/Over2Cloud/ConfigurationOver2Cloud/modelconfiguration.jsp</result>
+		</action>
+		<action name="GetConfigurationdetailssss" class="com.Over2Cloud.ctrl.configuration.ConfigurationAction" method="ShowConfigurationdetails">
+		<result name="error">/view/common_pages/error.jsp</result>
+	    <result name="login">/view/common_pages/invalidSession.jsp</result>
+		<result name="success">/view/Over2Cloud/ConfigurationOver2Cloud/slidingconfiguration.jsp</result>
+		</action>
+		<action name="addconfiguration" class="com.Over2Cloud.ctrl.configuration.ConfigurationAction" method="addConfigurationdata">
+		<result name="error">/view/common_pages/error.jsp</result>
+	    <result name="login">/view/common_pages/invalidSession.jsp</result>
+		<result name="success">/success.jsp</result>
+		</action>
+		<action name="operationwithfieldAction" class="com.Over2Cloud.ctrl.configuration.ConfigurationAction">
+		<result name="success">/view/Over2Cloud/ConfigurationOver2Cloud/fieldsoperationpage.jsp</result>
+		 <result name="login">/view/invalidSession.jsp</result>
+		</action>
+		<action name="addconfigurationsliding" class="com.Over2Cloud.ctrl.configuration.AddConfigurationAction" method="addconfigurationsliding">
+		<result name="error">/view/common_pages/error.jsp</result>
+	    <result name="login">/view/common_pages/invalidSession.jsp</result>
+		<result name="success">/success.jsp</result>
+		</action>
+		<action name="GetLevelConfiguration" class="com.Over2Cloud.ctrl.configuration.GetConfigurationAction" method="GetLevelConfiguration" >
+		<result name="error">/view/common_pages/error.jsp</result>
+	    <result name="login">/view/common_pages/invalidSession.jsp</result>
+		<result name="success">/view/Over2Cloud/ConfigurationOver2Cloud/levelconfiguration.jsp</result>
+		</action>
+		<action name="addLevelConfiguration" class="com.Over2Cloud.ctrl.configuration.AddConfigurationAction" method="addLevelConfiguration" >
+		<result name="error">/view/common_pages/error.jsp</result>
+	    <result name="login">/view/common_pages/invalidSession.jsp</result>
+		<result name="success">/success.jsp</result>
+		</action>
+		<action name="editefieldoperationwithAll" class="com.Over2Cloud.ctrl.configuration.GetConfigurationAction" method="editeconfiguration" >
+			<result name="error">/view/common_pages/error.jsp</result>
+	    <result name="login">/view/common_pages/invalidSession.jsp</result>
+		<result name="success">/success.jsp</result>
+		   </action>
+		     <action name="editorconfiguration"  class="com.Over2Cloud.ctrl.configuration.EditorConfiguration" method="geteditorconfiguration">
+             <result name="success">/view/Over2Cloud/ConfigurationOver2Cloud/EditConfigurationOver2Cloud/createOrganizationWithLevel.jsp</result> 
+              <result name="successwithoutLevel">/view/Over2Cloud/ConfigurationOver2Cloud/EditConfigurationOver2Cloud/createconfiguration.jsp</result>
+              <result name="error">/view/error.jsp</result> 
+			  <result name="login">/view/invalidSession.jsp</result>
+         </action>
+		
+              <action name="settingmenuconfiguration"  class="com.Over2Cloud.ctrl.configuration.SettingConfiguration" method="settingmenuconfiguration">
+              <result name="success">/view/Over2Cloud/ConfigurationOver2Cloud/EditConfigurationOver2Cloud/configusubmenu.jsp</result> 
+              <result name="error">/view/error.jsp</result> 
+			  <result name="login">/view/invalidSession.jsp</result>
+              </action>
+              <action name="settingcreatemenuconfiguration"  class="com.Over2Cloud.ctrl.configuration.SettingConfiguration" method="settingmenuconfiguration">
+              <result name="success">/view/Over2Cloud/ConfigurationOver2Cloud/EditConfigurationOver2Cloud/createsubmenu.jsp</result> 
+              <result name="error">/view/error.jsp</result> 
+			  <result name="login">/view/invalidSession.jsp</result>
+              </action>
+         
+	          <action name="editesettingconfiguration"  class="com.Over2Cloud.ctrl.configuration.SettingConfiguration" method="editorsettingconfiguration">
+              <result name="success">/view/Over2Cloud/ConfigurationOver2Cloud/EditConfigurationOver2Cloud/createsettingconfiguration.jsp</result> 
+              <result name="error">/view/error.jsp</result> 
+			  <result name="login">/view/invalidSession.jsp</result>
+              </action>
+              <action name="createsettingconfiguration"  class="com.Over2Cloud.ctrl.configuration.SettingConfiguration" method="createsettingconfiguration">
+              <result name="success">/view/Over2Cloud/SettingOver2Cloud/edtoresettingconfiguration.jsp</result> 
+              <result name="error">/view/error.jsp</result> 
+			  <result name="login">/view/invalidSession.jsp</result>
+              </action>
+                 <action name="createAssetsettingconfiguration"  class="com.Over2Cloud.ctrl.configuration.SettingConfiguration" method="createAssetsettingconfiguration">
+              <result name="success">/view/Over2Cloud/SettingOver2Cloud/edtoresettingconfiguration.jsp</result> 
+              <result name="error">/view/error.jsp</result> 
+			  <result name="login">/view/invalidSession.jsp</result>
+              </action>
+              <action name="editesettingfieldOperation" class="com.Over2Cloud.ctrl.configuration.SettingConfiguration" method="editesettingfieldOperation" >
+		      <result name="error">/view/common_pages/error.jsp</result>
+	          <result name="login">/view/common_pages/invalidSession.jsp</result>
+		      <result name="success">/success.jsp</result>
+		      </action>
+		     
+		   
+		   
+			  <action name="editeOrganizationconfiguration"  class="com.Over2Cloud.ctrl.configuration.EditorConfiguration" method="orgLeveonfigurationEditsss">
+              <result name="success">/view/Over2Cloud/ConfigurationOver2Cloud/EditConfigurationOver2Cloud/createOrganizationWithLevel.jsp</result> 
+              <result name="successssssss">/view/Over2Cloud/ConfigurationOver2Cloud/EditConfigurationOver2Cloud/createconfiguration.jsp</result>
+              <result name="error">/view/error.jsp</result> 
+		      <result name="login">/view/invalidSession.jsp</result>
+              </action>
+		
+		</package>
+		
+		<package name="common/worktiming" extends="struts-default,json-default" namespace="/view/Over2Cloud/CommonOver2Cloud/Working_Time">
+		
+		   <action name="firstActionMethod" class="com.Over2Cloud.common.worktimeing.WorkingTimeAction" method="firstAction">
+		     <result name="success">/view/Over2Cloud/CommonOver2Cloud/Working_Time/viewNormalWorkTiming.jsp</result>
+		     <result name="deptsuccess">/view/Over2Cloud/CommonOver2Cloud/Working_Time/viewDeptwiseWorkTiming.jsp</result>
+		     <result name="addsuccess">/view/Over2Cloud/CommonOver2Cloud/Working_Time/createWorkTiming.jsp</result>
+		     <result name="error">/view/error.jsp</result> 
+		     <result name="login">/view/invalidSession.jsp</result>
+		   </action>
+		   
+		   <action name="addWorkingTimings"  class="com.Over2Cloud.common.worktimeing.WorkingTimeAction" method="addWorkingTimings">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+          </action>
+          
+           <action name="viewNormalWorkTiming" class="com.Over2Cloud.common.worktimeing.WorkingTimeAction" method="viewNormalWorkTiming" >
+              <result name="success" type="json"></result>
+              <result name="error">/view/error.jsp</result>
+			  <result name="login">/view/invalidSession.jsp</result>
+		   </action>
+		   
+		    <action name="viewDeptWorkTiming" class="com.Over2Cloud.common.worktimeing.WorkingTimeAction" method="viewDeptwiseWorkTiming" >
+              <result name="success" type="json"></result>
+              <result name="error">/view/error.jsp</result>
+			  <result name="login">/view/invalidSession.jsp</result>
+		   </action>
+		   
+		    <action name="editDeptWorkingTime"  class="com.Over2Cloud.common.worktimeing.WorkingTimeAction" method="modifyDeptWorkingTime">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+           </action>
+           
+           <action name="editNormalWorkingTime"  class="com.Over2Cloud.common.worktimeing.WorkingTimeAction" method="modifyNormalWorkingTime">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+           </action>
+		
+		</package>
+		</struts>

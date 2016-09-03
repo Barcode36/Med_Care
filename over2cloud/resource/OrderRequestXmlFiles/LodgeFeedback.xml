@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+
+
+<package name="CPS/lodgefeedback" extends="struts-default,json-default" namespace="/view/Over2Cloud/CorporatePatientServices/Lodge_Feedback">
+<action name="feedActionForAssignCPS"  class="com.Over2Cloud.ctrl.order.feedbackaction.ActionOnMachineOrder" method="redirectToJSPForCPS">
+            <result name="success">/view/Over2Cloud/CorporatePatientServices/Lodge_Feedback/feedAction.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="feedActionForTakeActionCPS"  class="com.Over2Cloud.ctrl.order.feedbackaction.ActionOnMachineOrder" method="redirectToJSPForCPS">
+            <result name="success">/view/Over2Cloud/CorporatePatientServices/Lodge_Feedback/feedTakeAction.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="actionOnOrderLodge"  class="com.Over2Cloud.ctrl.order.feedbackaction.ActionOnMachineOrder" method="actionOnOrderLodge">
+     		<result name="success">/view/success.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+	  </action>
+	  
+	  
+	  
+	  <action name="actionOnFinal"  class="com.Over2Cloud.ctrl.order.feedbackaction.ActionOnMachineOrder" method="actionOnFinal">
+     		<result name="success">/view/success.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+	  </action>
+	  
+	  <action name="ManualCartAssign"  class="com.Over2Cloud.ctrl.order.feedbackaction.ActionOnMachineOrder" method="ManualCartAssign">
+     		<result name="success">/view/Over2Cloud/MachineOrderMaster/ManualCartAssign.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+	  </action>
+	  
+	  <action name="assignbulkorderCart"  class="com.Over2Cloud.ctrl.order.feedbackaction.ActionOnMachineOrder" method="assignbulkorderCart">
+     		<result name="success">/view/success.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+	  </action>
+	  
+	  
+	  
+	  <action name="printCartPage"  class="com.Over2Cloud.ctrl.order.feedbackaction.ActionOnMachineOrder" method="printCartPage">
+     		<result name="success">/view/Over2Cloud/MachineOrderMaster/printCart.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+	  </action>
+	  
+	  
+	  
+	   <action name="detailsCartPage"  class="com.Over2Cloud.ctrl.order.feedbackaction.ActionOnMachineOrder" method="beforCartDetailsView">
+     		<result name="success">/view/Over2Cloud/MachineOrderMaster/detailsCart.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+	  </action>
+	  
+	  
+	  
+	  <action name="beforDetailsViewCart"  class="com.Over2Cloud.ctrl.order.feedbackaction.ActionOnMachineOrder" method="detailsCartPageHeader">
+     		<result name="success">/view/Over2Cloud/MachineOrderMaster/detailsCartDataView.jsp</result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+	   </action>
+	     <action name="viewcartData"  class="com.Over2Cloud.ctrl.order.feedbackaction.ActionOnMachineOrder" method="detailsCartPageData">
+             <result name="success" type="json"></result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+			
+         </action>
+         
+         
+         
+         <action name="bulkCartTakeAtcion"  class="com.Over2Cloud.ctrl.order.feedbackaction.ActionOnMachineOrder" method="bulkCartTakeAtcion">
+     		<result name="success">/view/Over2Cloud/MachineOrderMaster/bulkCartTakeAtcion.jsp</result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+	   </action>
+	   
+	   
+	   
+	    <action name="actionOnCartFinal"  class="com.Over2Cloud.ctrl.order.feedbackaction.ActionOnMachineOrder" method="actionOnCartFinal">
+     		<result name="success">/view/success.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+	  </action>
+	  
+	  
+	  <action name="beforeViewActivityHistoryData"  class="com.Over2Cloud.ctrl.order.feedbackaction.ActionOnMachineOrder" method="beforeViewActivityHistoryData">
+     		<result name="success">/view/Over2Cloud/MachineOrderMaster/beforeViewActivityHistoryData.jsp</result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+	   </action>
+	   
+	     <action name="getCounterStatus"  class="com.Over2Cloud.ctrl.order.feedbackaction.ActionOnMachineOrder" method="getCounterStatus">
+     		<result name="success" type="json"><param name="root">jsonArr</param></result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+	   </action>
+	    <action name="fetchResolveEmpList"  class="com.Over2Cloud.ctrl.order.feedbackaction.ActionOnMachineOrder" method="fetchResolveEmpList">
+     		<result name="success" type="json"><param name="root">jsonArr</param></result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+	   </action>
+	   
+	   <action name="getFilterStatus"  class="com.Over2Cloud.ctrl.order.feedbackaction.ActionOnMachineOrder" method="getFilterStatus">
+     		<result name="success" type="json"><param name="root">jsonArr</param></result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+	   </action>
+	   
+	   <action name="getFilterNunit"  class="com.Over2Cloud.ctrl.order.feedbackaction.ActionOnMachineOrder" method="getFilterNunit">
+     		<result name="success" type="json"><param name="root">jsonArr</param></result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+	   </action>
+	   <action name="fetchReason"  class="com.Over2Cloud.ctrl.order.feedbackaction.ActionOnMachineOrder" method="fetchReason">
+     		<result name="success" type="json"><param name="root">jsonArr</param></result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+	   </action>
+	   
+	   <action name="fetchDoctorList"  class="com.Over2Cloud.ctrl.order.feedbackaction.ActionOnMachineOrder" method="fetchResolveDoctorList">
+     		<result name="success" type="json"><param name="root">jsonArr</param></result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+		</action>
+		
+		
+		<action name="orderFetchDetails"  class="com.Over2Cloud.ctrl.order.feedbackaction.ActionOnMachineOrder" method="orderFetchDetails">
+     		<result name="success">/view/Over2Cloud/MachineOrderMaster/orderFetchDetails.jsp</result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+	   </action>
+	   
+	   <action name="orderFetchDR"  class="com.Over2Cloud.ctrl.order.feedbackaction.ActionOnMachineOrder" method="orderFetchDR">
+     		<result name="success">/view/success.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+	  </action>
+	  
+	   <action name="orderFetchHIS"  class="com.Over2Cloud.ctrl.order.feedbackaction.ActionOnMachineOrder" method="orderFetchHIS">
+     		<result name="success">/view/success.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+	  </action>
+	  
+</package>
+</struts>

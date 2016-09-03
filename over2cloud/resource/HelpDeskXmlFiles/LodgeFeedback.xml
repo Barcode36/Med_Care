@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+<package name="helpDesk/lodgefeedback" extends="struts-default,json-default" namespace="/view/Over2Cloud/HelpDeskOver2Cloud/Lodge_Feedback">
+     
+     <action name="beforeFeedViaCall"  class="com.Over2Cloud.ctrl.helpdesk.lodgefeedback.LodgeFeedbackAction" method="firstAction4Complaint">
+            	<result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Lodge_Feedback/createFeedViaCall.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="getUserByDept"  class="com.Over2Cloud.ctrl.helpdesk.lodgefeedback.LodgeFeedbackAction" method="userListByDept">
+        		<result name="success" type="json"><param name="root">commonJSONArray</param></result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     
+     <action name="beforeFeedViaOnline"  class="com.Over2Cloud.ctrl.helpdesk.lodgefeedback.LodgeFeedbackAction" method="firstAction4Complaint">
+            	<result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Lodge_Feedback/createFeedViaOnline.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+      <action name="getSubCategoryOnline"  class="com.Over2Cloud.ctrl.helpdesk.lodgefeedback.LodgeFeedbackAction" method="fetchSubCategoryOnline">
+        		<result name="success" type="json"><param name="root">commonJSONArray</param></result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+      <action name="getSubCategory"  class="com.Over2Cloud.ctrl.helpdesk.lodgefeedback.LodgeFeedbackAction" method="fetchSubCategory">
+        		<result name="success" type="json"><param name="root">commonJSONArray</param></result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="fetchAllotTo"  class="com.Over2Cloud.ctrl.helpdesk.lodgefeedback.LodgeFeedbackAction" method="fetchAllotTo">
+        	<result name="success" type="json"><param name="root">commonJSONArray</param></result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="fetchAllotToManual"  class="com.Over2Cloud.ctrl.helpdesk.lodgefeedback.LodgeFeedbackAction" method="manualReasign">
+        		<result name="success" >/view/Over2Cloud/HelpDeskOver2Cloud/Lodge_Feedback/manualReassigning.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="fetchReasonData"  class="com.Over2Cloud.ctrl.helpdesk.lodgefeedback.LodgeFeedbackAction" method="fetchReasonData">
+        		<result name="success" type="json"><param name="root">commonJSONArray</param></result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     <action name="beforeFeedViaEmail"  class="com.Over2Cloud.ctrl.helpdesk.common.HelpdeskUniversalAction" method="firstActionMethod">
+            	<result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Lodge_Feedback/createFeedViaEmail.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="beforeEmailConfig"  class="com.Over2Cloud.ctrl.helpdesk.common.HelpdeskUniversalAction" method="firstActionMethod">
+            	<result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Lodge_Feedback/createEmailConfig.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="registerEmailConfigure"  class="com.Over2Cloud.ctrl.helpdesk.email.EmailConfigureAction" method="addEmailConfigDetail">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="ContactDetailViaAjax" class="com.Over2Cloud.ctrl.helpdesk.lodgefeedback.LodgeFeedbackAction" method="getContactDetail" >
+            <result name="success" type="json"><param name="root">empObj</param></result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+     </action>
+     
+     
+     <action name="beforFeedLodging"  class="com.Over2Cloud.ctrl.helpdesk.lodgefeedback.LodgeFeedbackAction" method="getEmp4Lodge">
+            	<result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Lodge_Feedback/confirmEscalation.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="resendSMSToSelectedEmp"  class="com.Over2Cloud.ctrl.helpdesk.lodgefeedback.LodgeFeedbackAction" method="getEmpForResendSMS">
+       				<result name="success">/view/success.jsp</result>
+					<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+       
+     
+     <action name="getEmp4Escalation" class="com.Over2Cloud.ctrl.helpdesk.lodgefeedback.LodgeFeedbackAction" method="getEmp4Escalation" >
+            <result name="success" type="json"></result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+     </action>
+     
+     <action name="sendFeedback"  class="com.Over2Cloud.ctrl.helpdesk.lodgefeedback.LodgeFeedbackAction" method="registerFeedbackViaCall">
+             <result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Lodge_Feedback/rePrintTicket.jsp</result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+     </action>
+     
+     <action name="FeedbackViaOnlineNewAction"  class="com.Over2Cloud.ctrl.helpdesk.lodgefeedback.LodgeFeedbackAction" method="registerFeedbackViaCall">
+           <!--<interceptor-ref name="token" />
+			<interceptor-ref name="basicStack"/>
+            --><result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Lodge_Feedback/onlineConfirmation.jsp</result>
+             <result name="TicketError">/view/success.jsp</result>
+            <result name="error" >/view/common_pages/error.jsp</result>
+            <result name="login" >/view/common_pages/invalidSession.jsp</result>
+     </action>
+     
+     <action name="beforeFeedAction"  class="com.Over2Cloud.ctrl.helpdesk.feedbackaction.ActionOnFeedback" method="beforeActionOnFeedback">
+            <result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Lodge_Feedback/viewFeedback.jsp</result>
+            <result name="FMSUCCESS">/view/Over2Cloud/Feedback_Over2Cloud/Lodge_Feedback/viewFeedback.jsp</result>
+            <result name="dashsuccess">/view/Over2Cloud/HelpDeskOver2Cloud/Lodge_Feedback/dashboardFeedback.jsp</result>
+            <result name="dashsuccessMgt">/view/Over2Cloud/HelpDeskOver2Cloud/Lodge_Feedback/dashboardFeedbackMgt.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="editFeedSnooze"  class="com.Over2Cloud.ctrl.helpdesk.feedbackaction.ActionOnFeedback" method="modifyFeedSnooze">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="feedAction"  class="com.Over2Cloud.ctrl.helpdesk.feedbackaction.ActionOnFeedback" method="redirectToJSP">
+            <result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Lodge_Feedback/feedAction.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+       
+     
+     
+     <action name="viewFeedbackDetail"  class="com.Over2Cloud.ctrl.helpdesk.feedbackaction.ActionOnFeedback" method="getFeedbackDetail">
+            <result name="success" type="json"></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="viewMoreFeedbackDetail"  class="com.Over2Cloud.ctrl.helpdesk.lodgefeedback.FeedbackAction" method="getMoreFeedbackDetail">
+            <result name="success" type="json"></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="dashFeedbackDetail"  class="com.Over2Cloud.ctrl.helpdesk.dashboard.DashboardAction" method="getFeedbackDetail">
+            <result name="success" type="json"></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="viewFeedbackDetail1"  class="com.Over2Cloud.ctrl.helpdesk.feedbackaction.ActionOnFeedback" method="getFeedbackDetail">
+            <result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Lodge_Feedback/viewFeedback.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="getResolver"  class="com.Over2Cloud.ctrl.helpdesk.feedbackaction.ActionOnFeedback" method="getResolverData">
+            <result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Lodge_Feedback/ajaxResResolver.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="getReAlloted"  class="com.Over2Cloud.ctrl.helpdesk.lodgefeedback.LodgeFeedbackAction" method="getReAllotedData">
+          	<result name="success" type="json"><param name="root">commonJSONArray</param></result>
+				<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="actionOnFeedback1"  class="com.Over2Cloud.ctrl.helpdesk.feedbackaction.ActionOnFeedback" method="updateFeedbackStatus">
+           <result name="success">/view/success.jsp</result>
+                <result name="ForwoardForApproval" type="redirectAction">
+				<param name="actionName">ApprovalAction</param>
+				<param name="complaintId">%{complaintid}</param>
+				<param name="moduleName">%{moduleName}</param>
+				<param name="approvalDoc">%{storedDocPath}</param>
+				<param name="approvedBy">%{approvedBy}</param>
+				<param name="reason">%{reason}</param>
+				<param name="namespace">/view/Over2Cloud/SeekApproval</param>
+			</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="printTicketInfo" class="com.Over2Cloud.ctrl.helpdesk.feedbackaction.ActionOnFeedback" method="getTicketDetails">
+            <result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Lodge_Feedback/rePrintTicket.jsp</result>
+            <result name="error" >/view/error.jsp</result>
+            <result name="login" >/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="reAllotTicket"  class="com.Over2Cloud.ctrl.helpdesk.lodgefeedback.LodgeFeedbackAction" method="firstAction4ReAllot">
+            <result name="success">/view/Over2Cloud/HelpDeskOver2Cloud/Lodge_Feedback/reAllotFeedback.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="download"  class="com.Over2Cloud.ctrl.helpdesk.common.HelpdeskUniversalAction" method="checkMethod">
+            <result name="success"></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="getcategoryOnline"  class="com.Over2Cloud.ctrl.helpdesk.lodgefeedback.LodgeFeedbackAction" method="fetchCategoryOnline">
+        		<result name="success" type="json"><param name="root">commonJSONArray</param></result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+  
+</package>
+
+ 
+</struts>

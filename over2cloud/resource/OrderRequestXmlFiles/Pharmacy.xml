@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+ 
+
+<package name="Pharmacy/ActivityBoard" extends="struts-default,json-default" namespace="/view/Over2Cloud/CorporatePatientServices/Pharmacy">
+ 
+ 	
+	<action name="beforeActivityBoardDataForPharmacy" class="com.Over2Cloud.ctrl.order.pharmacy.ActivityBoardGridView" method="beforeActivityBoardDataForPharmacy">
+		<result name="success">/view/Over2Cloud/CorporatePatientServices/Pharmacy/ViewActivityBoardForPharmacy.jsp</result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+	</action>
+	 
+	  <action name="viewActivityBoardDataForPharmacy" class="com.Over2Cloud.ctrl.order.pharmacy.ActivityBoardGridView" method="viewActivityBoardDataForPharmacy">
+		<result name="success" type="json"> </result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+	</action>
+	
+	<action name="beforeTakeActionOnOrder"  class="com.Over2Cloud.ctrl.order.pharmacy.ActivityBoardGridView"   method="beforeTakeActionOnOrder">
+            <result name="success">/view/Over2Cloud/CorporatePatientServices/Pharmacy/feedAction.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="beforeTakeActionInBulk"  class="com.Over2Cloud.ctrl.order.pharmacy.ActivityBoardGridView"   method="beforeTakeActionInBulk">
+            <result name="success">/view/Over2Cloud/CorporatePatientServices/Pharmacy/feedBulkAction.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     
+     <action name="viewMedicineDetailItem"  class="com.Over2Cloud.ctrl.order.pharmacy.ActivityBoardGridView"   method="viewMedicineDetailItem">
+            <result name="success">/view/Over2Cloud/CorporatePatientServices/Pharmacy/medicineDetail.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="actionOnPharmacyOrderLodge"  class="com.Over2Cloud.ctrl.order.pharmacy.ActivityBoardGridView" method="actionOnPharmacyOrderLodge">
+     		<result name="success">/view/success.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+	  </action>
+	  
+	   <action name="actionOnPharmacyBulkClose"  class="com.Over2Cloud.ctrl.order.pharmacy.ActivityBoardGridView" method="actionOnPharmacyBulkClose">
+     		<result name="success">/view/success.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+	  </action>
+	  
+	  <action name="viewPharmaHistoryDetail"  class="com.Over2Cloud.ctrl.order.pharmacy.ActivityBoardGridView"   method="viewPharmaHistoryDetail">
+            <result name="success">/view/Over2Cloud/CorporatePatientServices/Pharmacy/pharmaHistory.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+	 	 
+	 	  <action name="fetchEmpNameById" class="com.Over2Cloud.ctrl.order.pharmacy.ActivityBoardGridView"  method="fetchEmpNameById">
+    		<result name="success" type="json"><param name="root">commonJSONArray</param></result>
+    		<result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+    
+    </action>
+    
+    
+    
+     <action name="updateDropFiltersForPharmacy" class="com.Over2Cloud.ctrl.order.pharmacy.ActivityBoardGridView"  method="updateDropFiltersForPharmacy">
+           <result name="success" type="json"><param name="root">commonJSONArray</param></result>
+            <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+  	</action>
+  	
+  	
+  	 <action name="getPharmacyAlertData"  class="com.Over2Cloud.ctrl.order.pharmacy.ActivityBoardGridView"  method="fetchPharmacyAlertData">
+          <result name="success" type="json"></result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+  	
+  	<action name="beforeAddEmpForPharmacyAlert"  class="com.Over2Cloud.ctrl.order.pharmacy.ActivityBoardGridView" method="beforeAddEmpForPharmacyAlert">
+          <result name="success">/view/Over2Cloud/CorporatePatientServices/Pharmacy/addEmpForPharmacyAlert.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+  	
+  	<action name="addEmpForPharmacyAlert"  class="com.Over2Cloud.ctrl.order.pharmacy.ActivityBoardGridView"  method="addEmpForPharmacyAlert">
+          <result name="success">/view/success.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+  	
+  	<action name="fetchSubdepartmentList"  class="com.Over2Cloud.ctrl.order.pharmacy.ActivityBoardGridView"    method="fetchSubdepartmentList">
+          <result name="success" type="json"><param name="root">commonJSONArray</param></result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     
+     <action name="fetchEmpList"  class="com.Over2Cloud.ctrl.order.pharmacy.ActivityBoardGridView"  method="fetchEmpList">
+          <result name="success">/view/Over2Cloud/CorporatePatientServices/Pharmacy/multiSelectEmpList.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     
+      <action name="editPharmacyAlertData"  class="com.Over2Cloud.ctrl.order.pharmacy.ActivityBoardGridView"  method="editPharmacyAlertData">
+          <result name="success" type="json"></result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+    
+    <!--excelDownload-->
+       <action name="fetchCurrentPharmacy" class="com.Over2Cloud.ctrl.order.pharmacy.ActivityBoardGridView" method="fetchCurrentPharmacy" >
+           <result name="success">/view/Over2Cloud/CorporatePatientServices/Pharmacy/pharmacyexcelDownload.jsp</result>
+           <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+   </action>
+    
+      <action name="excelDownload" class="com.Over2Cloud.ctrl.order.pharmacy.ActivityBoardGridView" method="excelDownload">
+		<result name="success" type="stream" >
+	             <param name="inputName">excelStream</param>
+	            <param name="contentType">application/octet-stream</param>
+	            <param name="contentDisposition">attachment; filename="${excelFileName}"</param>
+	            <param name="bufferSize">2448</param>
+	            </result>
+	            <result name="error">/view/error.jsp</result>
+	             <result name="input">/view/error.jsp</result>
+	             <result name="login" >/view/invalidSession.jsp</result>
+	</action>
+    
+    <!-- End -->
+    
+    
+    <!-- Dashboard-->
+    
+      <action name="beforeDashboardView"  class="com.Over2Cloud.ctrl.order.pharmacy.PharmacyDashboard" method="beforeDashboardAction">
+          <result name="success">/view/Over2Cloud/CorporatePatientServices/Pharmacy/pharmacy_dashboard.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+    
+     <action name="dataCounterStatus"  class="com.Over2Cloud.ctrl.order.pharmacy.PharmacyDashboard"  method="beforeDashboardAction">
+          <result name="success">/view/Over2Cloud/CorporatePatientServices/Pharmacy/ticketStatusCounter.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+    
+     <action name="getCounters" class="com.Over2Cloud.ctrl.order.pharmacy.PharmacyDashboard"   method="fetchCounters">
+	        <result name="success" type="json"><param name="root">jsonArray</param></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+      <action name="getCountersForTAT" class="com.Over2Cloud.ctrl.order.pharmacy.PharmacyDashboard"   method="fetchPharmacyTATCounter">
+	        <result name="success" type="json"><param name="root">jsonArray</param></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+       <action name="getCountersForTATForTable"  class="com.Over2Cloud.ctrl.order.pharmacy.PharmacyDashboard"  method="fetchPharmacyTATCounter">
+          <result name="success">/view/Over2Cloud/CorporatePatientServices/Pharmacy/ticketStatusCounter.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+       
+      <action name="beforeFeedAction"  class="com.Over2Cloud.ctrl.order.pharmacy.PharmacyDashboard"   method="beforeActionOnFeedback">
+             <result name="dashsuccess">/view/Over2Cloud/CorporatePatientServices/Pharmacy/dashboardFeedback.jsp</result>
+            <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="dashFeedbackDetail" class="com.Over2Cloud.ctrl.order.pharmacy.PharmacyDashboard" method="viewPharmacyDashboardBoard">
+		<result name="success" type="json"></result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+	 </action> 
+	  <!-- high Cost med  -->
+	 <action name="highCostMed"  class="com.Over2Cloud.ctrl.order.pharmacy.HighCostMed" method="HighCostMedHeader">
+             <result name="success">/view/Over2Cloud/CorporatePatientServices/Pharmacy/HighCostMedHeader.jsp</result>
+             <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+ <!-- end high Cost med -->
+       
+    
+    </package>
+</struts>

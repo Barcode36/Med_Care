@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+<package name="refesc" extends="struts-default,json-default" namespace="/view/Over2Cloud/referral/escalation_config">
+     
+	 <action name="getGridData"  class="com.Over2Cloud.ctrl.referral.escalation.EscalationAction" method="getGridData">
+          <result name="success" type="json"></result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+      
+      <action name="beforeConfigEscalation"  class="com.Over2Cloud.ctrl.referral.escalation.EscalationAction" method="beforeConfigEscalation">
+          <result name="success">/view/Over2Cloud/Referral/escalation/addReferralEscalation.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+      <action name="addEscalation"  class="com.Over2Cloud.ctrl.referral.escalation.EscalationAction" method="addEscalation">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="nextEscMap4Emp"  class="com.Over2Cloud.ctrl.referral.escalation.EscalationAction" method="nextEscMap4Emp">
+          <result name="success">/view/Over2Cloud/Referral/escalation/onChangeEscalation.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+    <!--   <action name="nxxtLevelEscLst"  class="com.Over2Cloud.ctrl.referral.escalation.EscalationAction" method="nextEscMap4Emp">
+          <result name="success">/view/Over2Cloud/Referral/escalation/onChangeEscalation.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action> -->
+     
+     <action name="nxxtLevelEscLst"  class="com.Over2Cloud.ctrl.referral.escalation.EscalationAction" method="nextEscMap4Emp">
+          <result name="success">/view/Over2Cloud/Referral/escalation/onChangeEsclationLast.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+     <action name="nxxtLevelEscLst2"  class="com.Over2Cloud.ctrl.referral.escalation.EscalationAction" method="nextEscMap4Emp">
+          <result name="success">/view/Over2Cloud/Referral/escalation/onChangeEsclationLastLevel.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+     </action>
+     
+</package>
+</struts>

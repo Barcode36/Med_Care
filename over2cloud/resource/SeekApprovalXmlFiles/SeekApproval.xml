@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<constant name="struts.devMode" value="true"/>
+	<package name="SeekApproval" extends="strutsbeforeSeekApproval-default,json-default" namespace="/view/Over2Cloud/SeekApproval">
+	
+		<action name="beforeSeekApproval" class="com.Over2Cloud.ctrl.SeekApproval.SeekApproval" method="getData4SeekApproval">
+			<result name="success">/view/Over2Cloud/SeekApproval/BeforeApproval.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+			<result name="error">/view/error.jsp</result>
+		</action>
+		
+		<action name="ApprovalAction" class="com.Over2Cloud.ctrl.SeekApproval.SeekApproval" method="seekApprove">
+			<result name="success">/view/success.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+			<result name="error">/view/error.jsp</result>
+		</action>
+		
+		<action name="beforeViewSeekApproval"  class="com.Over2Cloud.ctrl.SeekApproval.SeekApproval" method="beforeViewSeekApproval">
+            <result name="success">/view/Over2Cloud/SeekApproval/BeforeViewSeekApproval.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     	</action>
+     
+      	<action name="beforeViewSeekApprovalInGrid"  class="com.Over2Cloud.ctrl.SeekApproval.SeekApproval" method="beforeViewSeekApprovalInGrid">
+            <result name="success">/view/Over2Cloud/SeekApproval/ViewSeekApproval.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     	</action>
+     	
+     	<action name="ViewSeekApproval"  class="com.Over2Cloud.ctrl.SeekApproval.SeekApproval" method="viewSeekApproval">
+            <result name="success" type="json"></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     	</action>
+     	
+     	<action name="beforeTakeActionSeekApprovalRequest"  class="com.Over2Cloud.ctrl.SeekApproval.SeekApproval" method="beforeTakeAction">
+            <result name="success">/view/Over2Cloud/SeekApproval/BeforeTakeAction.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     	</action>
+     	
+     	<action name="actionOnSeekApproval" class="com.Over2Cloud.ctrl.SeekApproval.SeekApproval" method="actionOnSeekApproval">
+			<result name="success">/view/success.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+			<result name="error">/view/error.jsp</result>
+		</action>
+     	
+     	<action name="getDocPath"  class="com.Over2Cloud.ctrl.SeekApproval.SeekApproval" method="getActualDocPath">
+            <result name="success" type="json"><param name="root">docPathName</param></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     	</action>
+     	
+     	<action name="downloadDoc" class="com.Over2Cloud.ctrl.SeekApproval.SeekApproval" method="docDownload" >
+           <result name="success" type="stream">
+             <param name="contentType">application/octet-stream</param>
+             <param name="inputName">fileInputStream</param>
+             <param name="contentDisposition">attachment;filename=%{fileName}</param>
+             <param name="bufferSize">4096</param>  </result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+	
+	<action name="gridDataCount"  class="com.Over2Cloud.ctrl.SeekApproval.SeekApproval" method="gridDataCount">
+            <result name="success" type="json"><param name="root">dataCountMap</param></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+     </action>  
+	
+		
+	</package>
+	
+</struts>

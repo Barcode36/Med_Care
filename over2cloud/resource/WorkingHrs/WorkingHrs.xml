@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<constant name="struts.devMode" value="true"/>
+	<package name="qqqq" extends="struts-default,json-default" namespace="/view/Over2Cloud/WorkingHrs">
+	
+		<action name="getHeaderBeforeView" class="com.Over2Cloud.ctrl.WorkingHrs.ConfigureWorkingHrs" method="getHeaderBeforeView">
+			<result name="success">/view/Over2Cloud/WorkingHrs/BeforeViewWorkingHrs.jsp</result>
+			<result name="error">/view/error.jsp</result> 
+		     <result name="login">/view/invalidSession.jsp</result>
+		</action>
+		
+		<action name="beforeView" class="com.Over2Cloud.ctrl.WorkingHrs.ConfigureWorkingHrs" method="beforeViewWorkingHrs">
+			<result name="success">/view/Over2Cloud/WorkingHrs/ViewWorkingHrs.jsp</result>
+			<result name="error">/view/error.jsp</result> 
+		     <result name="login">/view/invalidSession.jsp</result>
+		</action>
+		
+		<action name="viewWorkingHrs" class="com.Over2Cloud.ctrl.WorkingHrs.ConfigureWorkingHrs" method="viewWorkingHrs" >
+              <result name="success" type="json"></result>
+              <result name="error">/view/error.jsp</result>
+			  <result name="login">/view/invalidSession.jsp</result>
+		</action>
+		
+		<action name="getApplyedWorkingHrsDept" class="com.Over2Cloud.ctrl.WorkingHrs.ConfigureWorkingHrs" method="getApplyedWorkingHrsDept" >
+              <result name="success" type="json"><param name="root">arrObj</param></result>
+              <result name="error">/view/error.jsp</result>
+			  <result name="login">/view/invalidSession.jsp</result>
+		</action>
+		
+		<action name="beforeAdd" class="com.Over2Cloud.ctrl.WorkingHrs.ConfigureWorkingHrs" method="beforeAdd">
+			<result name="success">/view/Over2Cloud/WorkingHrs/createWorkTiming.jsp</result>
+			<result name="error">/view/error.jsp</result> 
+		     <result name="login">/view/invalidSession.jsp</result>
+		</action>
+		
+		<action name="getConcernDept" class="com.Over2Cloud.ctrl.WorkingHrs.ConfigureWorkingHrs" method="getConcernDept" >
+              <result name="success" type="json"><param name="root">arrObj</param></result>
+              <result name="error">/view/error.jsp</result>
+			  <result name="login">/view/invalidSession.jsp</result>
+		</action>
+		
+		<action name="addWorkingTimings" class="com.Over2Cloud.ctrl.WorkingHrs.ConfigureWorkingHrs" method="addWorkingTimings">
+			<result name="success">/view/success.jsp</result>
+			<result name="error">/view/error.jsp</result> 
+		     <result name="login">/view/invalidSession.jsp</result>
+		</action>
+		
+		<action name="editWorkingHrs" class="com.Over2Cloud.ctrl.WorkingHrs.ConfigureWorkingHrs" method="editWorkingHrs">
+			<result name="success">/view/success.jsp</result>
+			<result name="error">/view/error.jsp</result> 
+		     <result name="login">/view/invalidSession.jsp</result>
+		</action>
+		
+	</package>
+</struts>

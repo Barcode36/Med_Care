@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+<package name="dar" extends="struts-default,json-default" namespace="/view/Over2Cloud/DAROver2Cloud">
+
+     
+      
+      <action name="beforeTaskTypeAddAction"  class="com.Over2Cloud.ctrl.dar.tasktype.TaskTypeAction" method="beforeAddTaskType">
+          <result name="success">/view/Over2Cloud/DAROver2Cloud/createTaskType.jsp</result>
+		  <result name="error">/view/error.jsp</result>
+		  <result name="login">/view/invalidSession.jsp</result>
+      </action>
+      
+      <action name="addTasktypeRegis"  class="com.Over2Cloud.ctrl.dar.tasktype.TaskTypeAction" method="taskTypeAdd">
+         	    <result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+      </action>
+      
+    
+		
+		<action name="taskView" method="beforeTaskView" class="com.Over2Cloud.ctrl.dar.tasktype.TaskTypeAction">
+			 <result name="success">/view/Over2Cloud/DAROver2Cloud/taskTypeView.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+		</action>
+		
+		<action name="taskGridDataView" method="viewTaskOperation" class="com.Over2Cloud.ctrl.dar.tasktype.TaskTypeAction">
+			<result name="success" type="json"></result>
+			<result name="login">/view/invalidSession.jsp</result>
+			<result name="error">/view/error.jsp</result>
+		</action>
+		
+		<action name="modifyTaskGrid" method="modifyTask" class="com.Over2Cloud.ctrl.dar.tasktype.TaskTypeAction">
+			<result name="success">/view/success.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+			<result name="error">/view/error.jsp</result>
+		</action>
+		
+		<action name="deleteTaskGrid" method="modifyTask" class="com.Over2Cloud.ctrl.dar.tasktype.TaskTypeAction">
+			<result name="success">>/view/success.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+			<result name="error">/view/error.jsp</result>
+		</action>
+          
+    
+</package>
+
+</struts>

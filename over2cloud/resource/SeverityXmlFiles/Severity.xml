@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<constant name="struts.devMode" value="true"/>
+	<package name="Severity" extends="struts-default,json-default" namespace="/view/Over2Cloud/SeverityOver2Cloud">
+	
+		<action name="createSeverity" class="com.Over2Cloud.ctrl.Severity.SeverityAction" method="getColumn4Severity">
+			<result name="success">/view/Over2Cloud/SeverityOver2Cloud/CreateSeverity.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+			<result name="error">/view/error.jsp</result>
+		</action>
+		
+		<action name="addSeverityLevel" class="com.Over2Cloud.ctrl.Severity.SeverityAction" method="addSeverityLevel">
+			<result name="success">/view/success.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+			<result name="error">/view/error.jsp</result>
+		</action>
+		
+		<action name="beforeViewSeverity" class="com.Over2Cloud.ctrl.Severity.SeverityAction" method="beforeViewSeverity">
+			<result name="success">/view/Over2Cloud/SeverityOver2Cloud/BeforeViewSeverity.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+			<result name="error">/view/error.jsp</result>
+		</action>
+		
+		<action name="beforeViewSeverityInGrid" class="com.Over2Cloud.ctrl.Severity.SeverityAction" method="beforeViewSeverityInGrid">
+			<result name="success">/view/Over2Cloud/SeverityOver2Cloud/ViewSeverity.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+			<result name="error">/view/error.jsp</result>
+		</action>
+		
+		<action name="ViewSeverity" class="com.Over2Cloud.ctrl.Severity.SeverityAction" method="viewSeverity">
+			<result name="success" type="json"></result>
+			<result name="login">/view/invalidSession.jsp</result>
+			<result name="error">/view/error.jsp</result>
+		</action>
+		
+	</package>
+</struts>

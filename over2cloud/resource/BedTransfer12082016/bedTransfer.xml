@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+
+
+<package name="bedTransfer" extends="struts-default,json-default" namespace="/view/Over2Cloud/bedTransfer">
+	     
+	    <!-- Bed Tracking started by Aarif On 03-08-2016 -->
+    
+			<action name="beforeViewBedTrackingHeader" class="com.Over2Cloud.ctrl.bedTransfer.BedTransferActivityBoard" method="beforeViewActivityBoard">
+	            <result name="success" >/view/Over2Cloud/BedTransfer/beforeViewBedTransferHeader.jsp</result>
+	            <result name="error">/view/error.jsp</result>
+	            <result name="login">/view/invalidSession.jsp</result>
+       		</action>
+       		
+       		<action name="beforeActivityBoardView" class="com.Over2Cloud.ctrl.bedTransfer.BedTransferActivityBoard" method="beforeActivityBoardView">
+	            <result name="success" >/view/Over2Cloud/BedTransfer/bedTransferGridView.jsp</result>
+	            <result name="error">/view/error.jsp</result>
+	            <result name="login">/view/invalidSession.jsp</result>
+       		</action>	
+       		
+       		<action name="viewActivityBoardData" class="com.Over2Cloud.ctrl.bedTransfer.BedTransferActivityBoard" method="viewActivityBoardData">
+            <result name="success" type="json" ></result>
+            <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+       		 </action>
+       		 
+       		  <action name="bedTransferHistory" class="com.Over2Cloud.ctrl.bedTransfer.BedTransferActivityBoard" method="bedTransferHistory">
+             <result name="success" >/view/Over2Cloud/BedTransfer/bedTransferHistoryView.jsp</result>
+            <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+       		 </action>		 
+       		 
+       		 <action name="viewHistoryEscalationDetailsOnBedTransfer" class="com.Over2Cloud.ctrl.bedTransfer.BedTransferActivityBoard" method="viewHistoryEscalationDetailsOnBedTransfer">
+            <result name="success" >/view/Over2Cloud/BedTransfer/historyEscalationOnBedTransfer.jsp</result>
+            <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+       </action>
+       		
+       		</package>
+	 
+	 
+</struts>

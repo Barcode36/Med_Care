@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+ 
+
+<package name="CPS/ActivityBoard" extends="struts-default,json-default" namespace="/view/Over2Cloud/CorporatePatientServices/Activity_Board">
+<action name="beforePatientAdd" class="com.Over2Cloud.ctrl.order.activityboard.ActivityBoardAction" method="beforePatientAdd">
+		<result name="success">/view/Over2Cloud/CorporatePatientServices/Activity_Board/corporatePatientAdd.jsp</result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+</action>
+	
+	
+	<action name="viewActivityBoardHeaderCPS" class="com.Over2Cloud.ctrl.order.activityboard.ActivityBoardAction" method="viewActivityBoardHeaderCPS">
+		<result name="success">/view/Over2Cloud/CorporatePatientServices/Activity_Board/BeforeViewActivityBoardCPS.jsp</result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+	</action>
+	
+	<action name="viewActivityBoardColumnCPS" class="com.Over2Cloud.ctrl.order.activityboard.ActivityBoardAction" method="viewActivityBoardColumnCPS">
+		<result name="success">/view/Over2Cloud/CorporatePatientServices/Activity_Board/ViewActivityBoardCPS.jsp</result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+	</action>
+	
+	
+	 
+	 
+	 
+	 
+	 
+	 
+	 <action name="viewActivityBoardDataCPS" class="com.Over2Cloud.ctrl.order.activityboard.ActivityBoardGridView" method="viewActivityBoardDataCPS">
+		<result name="success" type="json"> </result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+	</action>
+	 <action name="saveMachineCart" class="com.Over2Cloud.ctrl.order.activityboard.ActivityBoardAction" method="saveMachineCart">
+		<result name="success" >/view/success.jsp</result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+	</action>
+	<action name="viewMachineCart" class="com.Over2Cloud.ctrl.order.activityboard.ActivityBoardAction" method="viewMachineCart">
+		<result name="success" type="json"><param name="root">jsonArray</param></result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+	</action>
+	
+	<action name="removeCartItem" class="com.Over2Cloud.ctrl.order.activityboard.ActivityBoardAction" method="removeCartItem">
+	<result name="success" >/view/success.jsp</result>
+		<result name="error">/view/error.jsp</result>
+		<result name="login">/view/invalidSession.jsp</result>
+	</action>
+	
+	<action name="feedbackStatusDownloadORD" class="com.Over2Cloud.ctrl.order.activityboard.ActivityBoardAction" method="getCurrentColumn" >
+           <result name="success">/view/Over2Cloud/MachineOrderMaster/ConfirmForReportDonwload.jsp</result>
+           <result name="error">/view/common_pages/error.jsp</result>
+           <result name="login">/view/common_pages/invalidSession.jsp</result>
+   </action>
+   
+   <action name="feedbackDownloadActionORD" class="com.Over2Cloud.ctrl.order.activityboard.ActivityBoardAction" method="downloadExcel">
+		<result name="success" type="stream" >
+	             <param name="inputName">excelStream</param>
+	            <param name="contentType">application/octet-stream</param>
+	            <param name="contentDisposition">attachment; filename="${excelFileName}"</param>
+	            <param name="bufferSize">2448</param>
+	            </result>
+	            <result name="error">/view/error.jsp</result>
+	             <result name="input">/view/error.jsp</result>
+	             <result name="login" >/view/invalidSession.jsp</result>
+	</action>
+	 
+</package>
+</struts>

@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<package name="setting" extends="struts-default,json-default"
+		namespace="/view/Over2Cloud/Setting">
+
+
+		<action name="MailConfig" class="com.Over2Cloud.ctrl.Setting.SpaceCtrlSetting"
+			method="mailconfigload">
+			<result name="success">/view/Over2Cloud/Setting/mail_configuration.jsp
+			</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="serverconfigSpace" class="com.Over2Cloud.ctrl.Setting.SpaceCtrlSetting"
+			method="serverconfigSpaceLoad">
+			<result name="success">
+				/view/Over2Cloud/Setting/chunkspaceConfiguration.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="addApplicationcontact" class="com.Over2Cloud.ctrl.Setting.SpaceCtrlSetting"
+			method="addApplicationcontact">
+			<result name="success">
+				/view/Over2Cloud/Setting/addAplicationsetting.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="clientdbInfo" class="com.Over2Cloud.ctrl.Setting.SpaceCtrlSetting"
+			method="clientDbInfoAction">
+			<result name="success">/view/Over2Cloud/Setting/addClientDBServer.jsp
+			</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="clientdbViewBefore" class="com.Over2Cloud.ctrl.Setting.ClientDbView">
+			<result name="success">/view/Over2Cloud/Setting/viewDbData.jsp
+			</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="clientdbViewRecord" class="com.Over2Cloud.ctrl.Setting.ClientDbView"
+			method="clientDbInfoActionView">
+			<result name="success" type="json"></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="DeleteClientdbRecord" class="com.Over2Cloud.ctrl.Setting.ClientDbView">
+			<result name="success">/view/Over2Cloud/Setting/DeleteDbData.jsp
+			</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="deleteurlRecordClient" class="com.Over2Cloud.ctrl.Setting.ClientDbView"
+			method="deleteRecord">
+			<result name="success" type="json"></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="chunkdbAction" class="com.Over2Cloud.ctrl.Setting.SpaceCtrlSetting"
+			method="chunkDbInfoAction">
+			<result name="success">/view/Over2Cloud/Setting/addchunkdb.jsp
+			</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="clientsingleSpacereg" class="com.Over2Cloud.ctrl.Setting.SingleSpaceCtrl" method="clientsingleSpacereg">
+			<result name="success">
+				/view/Over2Cloud/Setting/ClientSingleSpaceRegister.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+
+
+		<action name="ServerSpaceConfiguration" class="com.Over2Cloud.ctrl.Setting.SpaceCtrlSetting"
+			method="addSpaceConfiguration">
+			<result name="success">/view/success.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="mailConfiguration" class="com.Over2Cloud.ctrl.Setting.SpaceCtrlSetting"
+			method="addMailconfiguration">
+			<result name="success">/view/success.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="AppApplicationForAll" class="com.Over2Cloud.ctrl.Setting.SpaceCtrlSetting"
+			method="AppApplicationForAll">
+			<result name="success">/view/success.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="AddClientDataBaseServer" class="com.Over2Cloud.ctrl.Setting.SpaceCtrlSetting"
+			method="AddAllClientServer">
+			<result name="success">/view/success.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="AddChunkDataBaseServer" class="com.Over2Cloud.ctrl.Setting.SpaceCtrlSetting"
+			method="AddAllChunkServer">
+			<result name="success">/view/success.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+
+		<action name="SingleSapceConfiguration" class="com.Over2Cloud.ctrl.Setting.SingleSpaceCtrl"
+			method="AllSingleSapceConfiguration">
+			<result name="success" type="json"></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="allSingleSpaceAction" class="com.Over2Cloud.ctrl.Setting.SingleSpaceCtrl"
+			method="allSingleSpaceActionAllot">
+			<result name="success">/view/Over2Cloud/Setting/SingleSpaceAllot.jsp
+			</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+			<result name="error">/view/error.jsp</result>
+		</action>
+
+		<action name="allSingleSpaceAction" class="com.Over2Cloud.ctrl.Setting.SingleSpaceCtrl"
+			method="allSingleSpaceActionAllot">
+			<result name="success">/view/Over2Cloud/Setting/SingleSpaceAllot.jsp
+			</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+			<result name="error">/view/error.jsp</result>
+		</action>
+
+		<action name="addAllSingleSpace" class="com.Over2Cloud.ctrl.Setting.SingleSpaceCtrl"
+			method="AddallSingleSpaceInDistributed">
+			<result name="success">/view/success.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+
+
+		<action name="blockSinglespace" class="com.Over2Cloud.ctrl.Setting.SingleSpaceCtrl">
+			<result name="success">/view/Over2Cloud/Setting/blockSinglespace.jsp
+			</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+			<result name="error">/view/error.jsp</result>
+		</action>
+
+		<action name="blocksingleSpaceAdd" class="com.Over2Cloud.ctrl.Setting.SingleSpaceCtrl"
+			method="SingleUserAddBlockSpace">
+			<result name="success" type="json"></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="allBlockClient" class="com.Over2Cloud.ctrl.Setting.SingleSpaceCtrl"
+			method="allBlockClientAdd">
+			<result name="success">/view/Over2Cloud/Setting/SingleSpaceBlock.jsp
+			</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+			<result name="error">/view/error.jsp</result>
+		</action>
+
+		<action name="blockAllSingleSpace" class="com.Over2Cloud.ctrl.Setting.SingleSpaceCtrl"
+			method="blockallSingleSpaceInDistributed">
+			<result name="success">/view/success.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="blockChunkSpaceConfig" class="com.Over2Cloud.ctrl.Setting.BlockCtrlServer"
+			method="blockChunkSpaceConfig">
+			<result name="success">/view/Over2Cloud/Setting/blockChunkSpace.jsp
+			</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+			<result name="error">/view/error.jsp</result>
+		</action>
+
+		<action name="BlockChunkSapceConfiguration" class="com.Over2Cloud.ctrl.Setting.BlockCtrlServer"
+			method="BlockChunkSapceConfiguration">
+			<result name="success" type="json"></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="allBlockChunkClient" class="com.Over2Cloud.ctrl.Setting.BlockCtrlServer"
+			method="allBlockChunkClient">
+			<result name="success">/view/Over2Cloud/Setting/ChunkSpaceBlock.jsp
+			</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+			<result name="error">/view/error.jsp</result>
+		</action>
+
+		<action name="blockChunkAllData" class="com.Over2Cloud.ctrl.Setting.BlockCtrlServer"
+			method="blockChunkAllData">
+			<result name="success">/view/success.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+
+
+
+
+		<!-- Ajex Action Map -->
+
+		<action name="ajexforDomainip" class="com.Over2Cloud.ctrl.Setting.SpaceCtrlSetting"
+			method="getAllCountryDomainAndIp">
+			<result name="success">/view/Over2Cloud/Setting/ajexDomainIp.jsp
+			</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="ajexforDomainSingleip" class="com.Over2Cloud.ctrl.Setting.SingleSpaceCtrl"
+			method="getAllCountrySingleDomainAndIp">
+			<result name="success">/view/Over2Cloud/Setting/ajexDomainIp.jsp
+			</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+
+
+
+
+		<!--  Anoop Mearg -->
+
+
+		<action name="viewApplicationRegistration" class="com.Over2Cloud.ctrl.Setting.SpaceCtrlSetting">
+			<result name="success">
+				/view/Over2Cloud/Setting/viewApplicationRegistration.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="viewAppRegistrationGrid" method="viewAppRegistrationGrid"
+			class="com.Over2Cloud.ctrl.Setting.SpaceCtrlSettingView">
+			<result name="success" type="json"></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="modifyAppRegistrationGrid" method="modifyAppRegistrationGrid"
+			class="com.Over2Cloud.ctrl.Setting.SpaceCtrlSetting">
+			<result name="success" type="json"></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="viewCSC" class="com.Over2Cloud.ctrl.Setting.SpaceCtrlSetting">
+			<result name="success">/view/Over2Cloud/Setting/viewCSC.jsp
+			</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="viewCSCGrid" method="viewCSCGrid"
+			class="com.Over2Cloud.ctrl.Setting.SpaceCtrlSettingView">
+			<result name="success" type="json"></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="modifyCSCGrid" method="modifyCSCGrid"
+			class="com.Over2Cloud.ctrl.Setting.SpaceCtrlSetting">
+			<result name="success" type="json"></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+
+
+
+
+
+
+		<action name="industryAdd" class="com.Over2Cloud.ctrl.Setting.IndustryCtrl">
+			<result name="success">
+				/view/Over2Cloud/Setting/AddIndustryConfigutation.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="AddIndustryForAll" class="com.Over2Cloud.ctrl.Setting.IndustryCtrl"
+			method="AddIndustry">
+			<result name="success">/view/success.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="deleteIndustry" class="com.Over2Cloud.ctrl.Setting.IndustryCtrl">
+			<result name="success">
+				/view/Over2Cloud/Setting/DeleteIndustryConfigutation.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="industryView" class="com.Over2Cloud.ctrl.Setting.IndustryCtrl"
+			method="ViewIndustry">
+			<result name="success" type="json"></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="deleteRecord" class="com.Over2Cloud.ctrl.Setting.IndustryCtrl"
+			method="deleteRecord">
+			<result name="success" type="json"></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="JobAdd" class="com.Over2Cloud.ctrl.Setting.JobCtrl">
+			<result name="success">/view/Over2Cloud/Setting/AddjobConfigutation.jsp
+			</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="jobForAll" class="com.Over2Cloud.ctrl.Setting.JobCtrl"
+			method="jobForAllfun">
+			<result name="success">/view/success.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="jobdelete" class="com.Over2Cloud.ctrl.Setting.JobCtrl">
+			<result name="success">
+				/view/Over2Cloud/Setting/DeleteJobConfigutation.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="JobView" class="com.Over2Cloud.ctrl.Setting.JobCtrl"
+			method="ViewJobArea">
+			<result name="success" type="json"></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="jobdeleteRecord" class="com.Over2Cloud.ctrl.Setting.JobCtrl"
+			method="deleteRecord">
+			<result name="success" type="json"></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="packAdd" class="com.Over2Cloud.ctrl.Setting.PcakCtrl"
+			method="GetConfigurationpack">
+			<result name="success">
+				/view/Over2Cloud/Setting/addPackConfigutation.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="ajexforApplicationGet" class="com.Over2Cloud.ctrl.Setting.PcakCtrl"
+			method="getAllApplication">
+			<result name="success">/view/Over2Cloud/Setting/ajexApplicationName.jsp
+			</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="addpackconfiguration" class="com.Over2Cloud.ctrl.Setting.PcakCtrl"
+			method="AddPackConfigurationApps">
+			<result name="success">/view/success.jsp
+			</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="packView" class="com.Over2Cloud.ctrl.Setting.PcakCtrl">
+			<result name="success">
+				/view/Over2Cloud/Setting/packViewConfigutation.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="PackViewUrl" class="com.Over2Cloud.ctrl.Setting.PcakCtrl"
+			method="ViewPackArea">
+			<result name="success" type="json"></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+		<action name="DeletePackUrl" class="com.Over2Cloud.ctrl.Setting.PcakCtrl"
+			method="deleteRecord">
+			<result name="success" type="json"></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+
+
+
+<!-- Code added by sandeep for package based app -->
+
+<action name="getpackageInfo"  class="com.Over2Cloud.ctrl.Signup.VarificationLink" method="getpackageInfo">
+            <result  name="success" type="stream">
+				<param name="contentType">text/String</param>
+				<param name="inputName">inputStream</param>
+			</result>
+             <result name="error">/error.jsp</result>
+              <result name="login">/view/invalidSession.jsp</result>
+ </action>
+ 
+		 <action name="newPackageRequest"  class="com.Over2Cloud.ctrl.Signup.VarificationLink" method="newPackageRequest">
+		            <result  name="success" >/view/Over2Cloud/Setting/newPackageRequest.jsp</result>
+		             <result name="error">/error.jsp</result>
+		              <result name="login">/view/invalidSession.jsp</result>
+		 </action>
+
+
+<!-- Demo Account configuration -->
+		<action name="serverconfigSpaceDemo" class="com.Over2Cloud.ctrl.Setting.DemoSetUp">
+			<result name="success">/view/Over2Cloud/Setting/demoClientServerConfg.jsp</result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+		
+		<action name="demoSingleSapceConfiguration" class="com.Over2Cloud.ctrl.Setting.DemoSetUp" method="demoSingleSapceConfiguration">
+			<result name="success" type="json"></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp
+			</result>
+		</action>
+		
+		<action name="demoServerBefore" class="com.Over2Cloud.ctrl.Setting.SingleSpaceCtrl" method="allSingleSpaceActionAllot">
+			<result name="success">/view/Over2Cloud/Setting/demoSingleSpaceAllot.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+			<result name="error">/view/error.jsp</result>
+		</action>
+		
+		<action name="addAllSingleSpaceForDemo"  class="com.Over2Cloud.ctrl.Setting.DemoSetUp" method="addAllSingleSpaceForDemo">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+       </action>
+		
+	</package>
+</struts>

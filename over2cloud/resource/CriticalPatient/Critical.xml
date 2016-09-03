@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+<package name="critical" extends="struts-default,json-default" namespace="/view/Over2Cloud/Critical">
+
+<!-- Critical Patient Activity Board  -->
+
+
+ <action name="beforeCriticalViewHeader" class="com.Over2Cloud.ctrl.criticalPatient.CriticalActivityBoard" method="beforeCriticalViewHeader">
+            <result name="success">/view/Over2Cloud/CriticalPatient/activity/criticalPatientViewHeader.jsp</result>
+            <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+      <action name="beforeCriticalView" class="com.Over2Cloud.ctrl.criticalPatient.CriticalActivityBoard" method="beforeCriticalView">
+            <result name="success">/view/Over2Cloud/CriticalPatient/activity/criticalViewGrid.jsp</result>
+            <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+    	 <action name="viewCriticalData" class="com.Over2Cloud.ctrl.criticalPatient.CriticalActivityBoard" method="viewCriticalData">
+            <result name="success" type="json"></result>
+            <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+  	</action>
+    
+    
+     <action name="getCounterStatus"  class="com.Over2Cloud.ctrl.criticalPatient.CriticalActivityBoard" method="getCounterStatus">
+     		<result name="success" type="json"><param name="root">jsonArr</param></result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+	   </action>
+	     
+
+<action name="beforeCriticalLodge" class="com.Over2Cloud.ctrl.criticalPatient.CriticalAdd" method="beforeCriticalLodge">
+            <result name="success">/view/Over2Cloud/CriticalPatient/criticalPatientLodge.jsp</result>
+           <!--  <result name="success" type="json"><param name="root">commonJSONArray</param></result> -->
+            <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+    </action>
+<action name="fetchDoctorName" class="com.Over2Cloud.ctrl.criticalPatient.CriticalAdd" method="fetchDoctorName">
+    	    <result name="success" type="json"><param name="root">commonJSONArray</param></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+    	</action>
+    	
+    	<action name="fetchSpeciality" class="com.Over2Cloud.ctrl.criticalPatient.CriticalAdd" method="fetchSpeciality">
+    	    <result name="success" type="json"><param name="root">commonJSONArray</param></result>
+			<result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+    	</action>
+    	
+  <action name="criticalLodgeDDValue" class="com.Over2Cloud.ctrl.criticalPatient.CriticalAdd" method="criticalLodgeDDValue">
+            
+           <result name="success" type="json"><param name="root">commonJSONArray</param></result>
+            <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+      <action name="criticalLodgeDDValue" class="com.Over2Cloud.ctrl.criticalPatient.CriticalAdd" method="criticalLodgeDDValue">
+            
+           <result name="success" type="json"><param name="root">commonJSONArray</param></result>
+            <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+    <action name="lodgeCritical"  class="com.Over2Cloud.ctrl.criticalPatient.CriticalAdd" method="addcritical">
+            	<result name="success">/view/success.jsp</result>
+				<result name="error">/view/error.jsp</result>
+				<result name="login">/view/invalidSession.jsp</result>
+     </action>
+    
+       <action name="UHIDCheck" class="com.Over2Cloud.ctrl.criticalPatient.CriticalAdd" method="UHIDCheck">
+            <result name="success" type="json"></result>
+             <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+     <action name="beforeCriticalUHID" class="com.Over2Cloud.ctrl.criticalPatient.CriticalAdd" method="beforeCriticalUHID">
+            <result name="success">/view/Over2Cloud/CriticalPatient/activity/uhidStatus.jsp</result>
+            <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+    </action>
+
+
+<action name="viewUHIDGridData" class="com.Over2Cloud.ctrl.criticalPatient.CriticalAdd" method="viewUHIDGridData">
+            <result name="success" type="json"></result>
+            <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+  	</action>
+    
+    <!--  Fetch Details from HIS -->
+    <action name="fetchDetails" class="com.Over2Cloud.ctrl.criticalPatient.CriticalAdd" method="fetchDetails">
+    		<result name="success" type="json"><param name="root">commonJSONArray</param></result>
+    		<result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+    
+    </action>
+    
+    <action name="fetchDetailsData" class="com.Over2Cloud.ctrl.criticalPatient.ActionOnCritical" method="fetchDetailsData">
+    		<result name="success" type="json"><param name="root">commonJSONArray</param></result>
+    		<result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+    
+    </action>
+    
+    
+     <action name="fetchDetailsEmp" class="com.Over2Cloud.ctrl.criticalPatient.ActionOnCritical" method="fetchDetailsEmp">
+    		<result name="success" type="json"><param name="root">commonJSONArray</param></result>
+    		<result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+    
+    </action>
+    
+     <action name="beforeTakeActionCritical"  class="com.Over2Cloud.ctrl.criticalPatient.ActionOnCritical" method="beforeTakeActionCritical">
+         <result name="success">/view/Over2Cloud/CriticalPatient/action/takeActionOnCritical.jsp</result>
+         <result name="Close">/view/Over2Cloud/CriticalPatient/action/closeActionOnCritical.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+	 </action>
+	      
+	      
+	      <action name="takeActionOnCritical"  class="com.Over2Cloud.ctrl.criticalPatient.ActionOnCritical" method="takeActionOnCritical">
+         <result name="success">/view/success.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+	  </action>
+	  
+	   <action name="closeCriticalTicket"  class="com.Over2Cloud.ctrl.criticalPatient.ActionOnCritical" method="closeCriticalTicket">
+         <result name="success">/view/success.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+	  </action>
+	  
+	    <action name="testDetails"  class="com.Over2Cloud.ctrl.criticalPatient.ActionOnCritical" method="testDetails">
+         <result name="success">/view/Over2Cloud/CriticalPatient/action/testDetails.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+	  </action>
+      <action name="beforeEscalateAction"  class="com.Over2Cloud.ctrl.criticalPatient.ActionOnCritical" method="beforeEscalateAction">
+     		<result name="success">/view/Over2Cloud/CriticalPatient/action/escalationAction.jsp</result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+	   </action>
+    
+    	<action name="esacateActionOnCritical"  class="com.Over2Cloud.ctrl.criticalPatient.ActionOnCritical" method="esacateActionOnCritical">
+         <result name="success">/view/success.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+	  </action>
+	
+	  <action name="viewTicketHistory"  class="com.Over2Cloud.ctrl.criticalPatient.ActionOnCritical" method="viewTicketHistory">
+     		<result name="success">/view/Over2Cloud/CriticalPatient/activity/criticalTicketHistory.jsp</result>
+         	<result name="error">/view/error.jsp</result>
+	     	<result name="login">/view/invalidSession.jsp</result>
+	   </action>
+	  
+	   <action name="fetchDropDownData" class="com.Over2Cloud.ctrl.criticalPatient.CriticalActivityBoard" method="fetchDropDownData">
+           <result name="success" type="json"><param name="root">jsonArr</param></result>
+            <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+  	</action><!--
+    
+    excelDownload
+    
+   --><action name="beforeCriticalDownload" class="com.Over2Cloud.ctrl.criticalPatient.CriticalActivityBoard" method="fetchCurrentCritical" >
+           <result name="success">/view/Over2Cloud/CriticalPatient/action/excelDownload.jsp</result>
+           <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+   </action>
+    
+    
+      <action name="excelDownload" class="com.Over2Cloud.ctrl.criticalPatient.CriticalActivityBoard" method="excelDownload">
+		<result name="success" type="stream" >
+	             <param name="inputName">excelStream</param>
+	            <param name="contentType">application/octet-stream</param>
+	            <param name="contentDisposition">attachment; filename="${excelFileName}"</param>
+	            <param name="bufferSize">2448</param>
+	            </result>
+	            <result name="error">/view/error.jsp</result>
+	             <result name="input">/view/error.jsp</result>
+	             <result name="login" >/view/invalidSession.jsp</result>
+	</action>
+	
+	
+	<action name="beforeBulkActionCritical" class="com.Over2Cloud.ctrl.criticalPatient.ActionOnCritical" method="beforeBulkActionCritical" >
+           <result name="SUCCESS">/view/Over2Cloud/CriticalPatient/action/bulkInform.jsp</result>
+            <result name="CLOSE">/view/Over2Cloud/CriticalPatient/action/bulkClose.jsp</result>
+           <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+   </action>
+   
+   
+   <action name="takeBulkActionOnCritical"  class="com.Over2Cloud.ctrl.criticalPatient.ActionOnCritical" method="takeBulkActionOnCritical">
+         <result name="success">/view/success.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+	  </action>
+    
+    <action name="bulkCloseCriticalTicket"  class="com.Over2Cloud.ctrl.criticalPatient.ActionOnCritical" method="bulkCloseCriticalTicket">
+         <result name="success">/view/success.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+	  </action>
+	     
+	     
+	     <!--Search In  Dashboard  -->
+	  
+	  <action name="beforeCritical" class="com.Over2Cloud.ctrl.criticalPatient.CriticalPatientData" method="beforeCritical">
+            <result name="success">/view/Over2Cloud/CriticalPatient/Dashboard_Pages/beforeCriticalViewHeader.jsp</result>
+            <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+    </action>
+     <action name="beforeCriticalData" class="com.Over2Cloud.ctrl.criticalPatient.CriticalPatientData" method="beforeCriticalData">
+            <result name="success">/view/Over2Cloud/CriticalPatient/Dashboard_Pages/criticalPatientDataGrid.jsp</result>
+            <result name="error">/view/error.jsp</result>
+            <result name="login">/view/invalidSession.jsp</result>
+    </action>
+    
+    	 <action name="viewCriticalDataPatient" class="com.Over2Cloud.ctrl.criticalPatient.CriticalPatientData" method="viewCriticalDataPatient">
+            <result name="success" type="json"></result>
+            <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+  	</action>
+  	 <action name="fetchAllSpecialityDD" class="com.Over2Cloud.ctrl.criticalPatient.CriticalPatientData" method="fetchAllSpeciality">
+           <result name="success" type="json"><param name="root">jsonArr</param></result>
+            <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+  	</action>
+     <action name="fetchNursingUnit" class="com.Over2Cloud.ctrl.criticalPatient.CriticalPatientData" method="fetchNursingUnit">
+           <result name="success" type="json"><param name="root">jsonArr</param></result>
+            <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+  	</action>
+     <action name="fetchDoctor" class="com.Over2Cloud.ctrl.criticalPatient.CriticalPatientData" method="fetchDoctor">
+           <result name="success" type="json"><param name="root">jsonArr</param></result>
+            <result name="error">/view/error.jsp</result>
+			<result name="login">/view/invalidSession.jsp</result>
+  	</action>
+  	
+	<!-- Action For No Response -->
+  	 <action name="takeActionOnCriticalWithNoResponse"  class="com.Over2Cloud.ctrl.criticalPatient.ActionOnCritical" method="takeActionOnCriticalWithNoResponse">
+         <result name="success">/view/success.jsp</result>
+         <result name="error">/view/error.jsp</result>
+	     <result name="login">/view/invalidSession.jsp</result>
+	  </action>
+</package>
+</struts>
